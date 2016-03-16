@@ -1,0 +1,12 @@
+# eclipse
+.project
+.settings
+.classpath
+.metadata
+
+# maven
+target
+.checkstyle
+.fbExcludeFilterFile
+.pmd
+.pmdruleset.xml
