@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.everit.jira.querydsl.support;
+package org.everit.jira.querydsl.support.ri;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 
-import org.everit.persistence.querydsl.support.QuerydslCallable;
-import org.everit.persistence.querydsl.support.QuerydslSupport;
+import org.everit.jira.querydsl.support.QuerydslCallable;
+import org.everit.jira.querydsl.support.QuerydslSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

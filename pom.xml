@@ -110,7 +110,8 @@
             </_exportcontents>
             <Export-Package>
               org.everit.jira.querydsl.schema,
-              org.everit.jira.querydsl.support
+              org.everit.jira.querydsl.support,
+              org.everit.jira.querydsl.support.ri
             </Export-Package>
             <Embed-Dependency>
               *;scope=compile;inline=false,
@@ -183,12 +184,6 @@
           <artifactId>bridge-method-annotation</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>org.everit.persistence</groupId>
-      <artifactId>org.everit.persistence.querydsl.support</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
     </dependency>
 
     <dependency>
