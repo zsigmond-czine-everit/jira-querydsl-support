@@ -30,8 +30,8 @@
   <version>1.0.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
-  <name>Querydsl Support for Jira</name>
-  <description>Provides the Querydsl for the Jira as a plugin</description>
+  <name>Querydsl Support for JIRA</name>
+  <description>This plugin provides the Querydsl framework for JIRA. Plugins by Everit Kft. are depending on this plugin. Do not disable or uninstall it unless you are uninstalling Everit products because some plugins or features will not work.</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
