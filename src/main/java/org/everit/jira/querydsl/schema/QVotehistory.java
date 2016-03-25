@@ -37,7 +37,7 @@ public class QVotehistory extends com.querydsl.sql.RelationalPathBase<QVotehisto
 
     private static final long serialVersionUID = 1795107122;
 
-    public static final QVotehistory votehistory = new QVotehistory("VOTEHISTORY");
+    public static final QVotehistory votehistory = new QVotehistory("votehistory");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -47,10 +47,10 @@ public class QVotehistory extends com.querydsl.sql.RelationalPathBase<QVotehisto
 
     public final NumberPath<Long> votes = createNumber("votes", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QVotehistory> sysIdx203 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QVotehistory> votehistoryPk = createPrimaryKey(id);
 
     public QVotehistory(String variable) {
-        super(QVotehistory.class, forVariable(variable), "PUBLIC", "VOTEHISTORY");
+        super(QVotehistory.class, forVariable(variable), "public", "votehistory");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QVotehistory extends com.querydsl.sql.RelationalPathBase<QVotehisto
     }
 
     public QVotehistory(Path<? extends QVotehistory> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "VOTEHISTORY");
+        super(path.getType(), path.getMetadata(), "public", "votehistory");
         addMetadata();
     }
 
     public QVotehistory(PathMetadata metadata) {
-        super(QVotehistory.class, metadata, "PUBLIC", "VOTEHISTORY");
+        super(QVotehistory.class, metadata, "public", "votehistory");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issueid, ColumnMetadata.named("ISSUEID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(timestamp, ColumnMetadata.named("TIMESTAMP").withIndex(4).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(votes, ColumnMetadata.named("VOTES").withIndex(3).ofType(Types.BIGINT));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issueid, ColumnMetadata.named("issueid").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(timestamp, ColumnMetadata.named("timestamp").withIndex(4).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(votes, ColumnMetadata.named("votes").withIndex(3).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

@@ -37,16 +37,16 @@ public class QOsHistorystepPrev extends com.querydsl.sql.RelationalPathBase<QOsH
 
     private static final long serialVersionUID = -1066587657;
 
-    public static final QOsHistorystepPrev osHistorystepPrev = new QOsHistorystepPrev("OS_HISTORYSTEP_PREV");
+    public static final QOsHistorystepPrev osHistorystepPrev = new QOsHistorystepPrev("os_historystep_prev");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final NumberPath<Long> previousId = createNumber("previousId", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QOsHistorystepPrev> sysIdx141 = createPrimaryKey(id, previousId);
+    public final com.querydsl.sql.PrimaryKey<QOsHistorystepPrev> osHistorystepPrevPk = createPrimaryKey(id, previousId);
 
     public QOsHistorystepPrev(String variable) {
-        super(QOsHistorystepPrev.class, forVariable(variable), "PUBLIC", "OS_HISTORYSTEP_PREV");
+        super(QOsHistorystepPrev.class, forVariable(variable), "public", "os_historystep_prev");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QOsHistorystepPrev extends com.querydsl.sql.RelationalPathBase<QOsH
     }
 
     public QOsHistorystepPrev(Path<? extends QOsHistorystepPrev> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "OS_HISTORYSTEP_PREV");
+        super(path.getType(), path.getMetadata(), "public", "os_historystep_prev");
         addMetadata();
     }
 
     public QOsHistorystepPrev(PathMetadata metadata) {
-        super(QOsHistorystepPrev.class, metadata, "PUBLIC", "OS_HISTORYSTEP_PREV");
+        super(QOsHistorystepPrev.class, metadata, "public", "os_historystep_prev");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(previousId, ColumnMetadata.named("PREVIOUS_ID").withIndex(2).ofType(Types.BIGINT).notNull());
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(previousId, ColumnMetadata.named("previous_id").withIndex(2).ofType(Types.NUMERIC).withSize(18).notNull());
     }
 
 }

@@ -37,7 +37,7 @@ public class QDraftworkflowscheme extends com.querydsl.sql.RelationalPathBase<QD
 
     private static final long serialVersionUID = -2015684403;
 
-    public static final QDraftworkflowscheme draftworkflowscheme = new QDraftworkflowscheme("DRAFTWORKFLOWSCHEME");
+    public static final QDraftworkflowscheme draftworkflowscheme = new QDraftworkflowscheme("draftworkflowscheme");
 
     public final StringPath description = createString("description");
 
@@ -51,10 +51,10 @@ public class QDraftworkflowscheme extends com.querydsl.sql.RelationalPathBase<QD
 
     public final NumberPath<Long> workflowSchemeId = createNumber("workflowSchemeId", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QDraftworkflowscheme> sysIdx71 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QDraftworkflowscheme> draftworkflowschemePk = createPrimaryKey(id);
 
     public QDraftworkflowscheme(String variable) {
-        super(QDraftworkflowscheme.class, forVariable(variable), "PUBLIC", "DRAFTWORKFLOWSCHEME");
+        super(QDraftworkflowscheme.class, forVariable(variable), "public", "draftworkflowscheme");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QDraftworkflowscheme extends com.querydsl.sql.RelationalPathBase<QD
     }
 
     public QDraftworkflowscheme(Path<? extends QDraftworkflowscheme> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "DRAFTWORKFLOWSCHEME");
+        super(path.getType(), path.getMetadata(), "public", "draftworkflowscheme");
         addMetadata();
     }
 
     public QDraftworkflowscheme(PathMetadata metadata) {
-        super(QDraftworkflowscheme.class, metadata, "PUBLIC", "DRAFTWORKFLOWSCHEME");
+        super(QDraftworkflowscheme.class, metadata, "public", "draftworkflowscheme");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(lastModifiedDate, ColumnMetadata.named("LAST_MODIFIED_DATE").withIndex(5).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(lastModifiedUser, ColumnMetadata.named("LAST_MODIFIED_USER").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(name, ColumnMetadata.named("NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(workflowSchemeId, ColumnMetadata.named("WORKFLOW_SCHEME_ID").withIndex(4).ofType(Types.BIGINT));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(lastModifiedDate, ColumnMetadata.named("last_modified_date").withIndex(5).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(lastModifiedUser, ColumnMetadata.named("last_modified_user").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(name, ColumnMetadata.named("name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(workflowSchemeId, ColumnMetadata.named("workflow_scheme_id").withIndex(4).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

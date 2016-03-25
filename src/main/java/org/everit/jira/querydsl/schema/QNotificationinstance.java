@@ -37,7 +37,7 @@ public class QNotificationinstance extends com.querydsl.sql.RelationalPathBase<Q
 
     private static final long serialVersionUID = -1539059528;
 
-    public static final QNotificationinstance notificationinstance = new QNotificationinstance("NOTIFICATIONINSTANCE");
+    public static final QNotificationinstance notificationinstance = new QNotificationinstance("notificationinstance");
 
     public final StringPath emailaddress = createString("emailaddress");
 
@@ -49,10 +49,10 @@ public class QNotificationinstance extends com.querydsl.sql.RelationalPathBase<Q
 
     public final NumberPath<Long> source = createNumber("source", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QNotificationinstance> sysIdx131 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QNotificationinstance> notificationinstancePk = createPrimaryKey(id);
 
     public QNotificationinstance(String variable) {
-        super(QNotificationinstance.class, forVariable(variable), "PUBLIC", "NOTIFICATIONINSTANCE");
+        super(QNotificationinstance.class, forVariable(variable), "public", "notificationinstance");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QNotificationinstance extends com.querydsl.sql.RelationalPathBase<Q
     }
 
     public QNotificationinstance(Path<? extends QNotificationinstance> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "NOTIFICATIONINSTANCE");
+        super(path.getType(), path.getMetadata(), "public", "notificationinstance");
         addMetadata();
     }
 
     public QNotificationinstance(PathMetadata metadata) {
-        super(QNotificationinstance.class, metadata, "PUBLIC", "NOTIFICATIONINSTANCE");
+        super(QNotificationinstance.class, metadata, "public", "notificationinstance");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(emailaddress, ColumnMetadata.named("EMAILADDRESS").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(messageid, ColumnMetadata.named("MESSAGEID").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(notificationtype, ColumnMetadata.named("NOTIFICATIONTYPE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(source, ColumnMetadata.named("SOURCE").withIndex(3).ofType(Types.BIGINT));
+        addMetadata(emailaddress, ColumnMetadata.named("emailaddress").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(messageid, ColumnMetadata.named("messageid").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(notificationtype, ColumnMetadata.named("notificationtype").withIndex(2).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(source, ColumnMetadata.named("source").withIndex(3).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

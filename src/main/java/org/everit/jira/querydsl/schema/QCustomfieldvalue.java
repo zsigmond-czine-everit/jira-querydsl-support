@@ -37,7 +37,7 @@ public class QCustomfieldvalue extends com.querydsl.sql.RelationalPathBase<QCust
 
     private static final long serialVersionUID = -1225926368;
 
-    public static final QCustomfieldvalue customfieldvalue = new QCustomfieldvalue("CUSTOMFIELDVALUE");
+    public static final QCustomfieldvalue customfieldvalue = new QCustomfieldvalue("customfieldvalue");
 
     public final NumberPath<Long> customfield = createNumber("customfield", Long.class);
 
@@ -57,10 +57,10 @@ public class QCustomfieldvalue extends com.querydsl.sql.RelationalPathBase<QCust
 
     public final StringPath valuetype = createString("valuetype");
 
-    public final com.querydsl.sql.PrimaryKey<QCustomfieldvalue> sysIdx66 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QCustomfieldvalue> customfieldvaluePk = createPrimaryKey(id);
 
     public QCustomfieldvalue(String variable) {
-        super(QCustomfieldvalue.class, forVariable(variable), "PUBLIC", "CUSTOMFIELDVALUE");
+        super(QCustomfieldvalue.class, forVariable(variable), "public", "customfieldvalue");
         addMetadata();
     }
 
@@ -70,25 +70,25 @@ public class QCustomfieldvalue extends com.querydsl.sql.RelationalPathBase<QCust
     }
 
     public QCustomfieldvalue(Path<? extends QCustomfieldvalue> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CUSTOMFIELDVALUE");
+        super(path.getType(), path.getMetadata(), "public", "customfieldvalue");
         addMetadata();
     }
 
     public QCustomfieldvalue(PathMetadata metadata) {
-        super(QCustomfieldvalue.class, metadata, "PUBLIC", "CUSTOMFIELDVALUE");
+        super(QCustomfieldvalue.class, metadata, "public", "customfieldvalue");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(customfield, ColumnMetadata.named("CUSTOMFIELD").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(datevalue, ColumnMetadata.named("DATEVALUE").withIndex(8).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issue, ColumnMetadata.named("ISSUE").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(numbervalue, ColumnMetadata.named("NUMBERVALUE").withIndex(6).ofType(Types.DOUBLE));
-        addMetadata(parentkey, ColumnMetadata.named("PARENTKEY").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(stringvalue, ColumnMetadata.named("STRINGVALUE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(textvalue, ColumnMetadata.named("TEXTVALUE").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(valuetype, ColumnMetadata.named("VALUETYPE").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(customfield, ColumnMetadata.named("customfield").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(datevalue, ColumnMetadata.named("datevalue").withIndex(8).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issue, ColumnMetadata.named("issue").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(numbervalue, ColumnMetadata.named("numbervalue").withIndex(6).ofType(Types.DOUBLE).withSize(17).withDigits(17));
+        addMetadata(parentkey, ColumnMetadata.named("parentkey").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(stringvalue, ColumnMetadata.named("stringvalue").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(textvalue, ColumnMetadata.named("textvalue").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(valuetype, ColumnMetadata.named("valuetype").withIndex(9).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

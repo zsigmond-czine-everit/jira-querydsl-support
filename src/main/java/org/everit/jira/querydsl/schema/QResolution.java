@@ -37,7 +37,7 @@ public class QResolution extends com.querydsl.sql.RelationalPathBase<QResolution
 
     private static final long serialVersionUID = 2069114084;
 
-    public static final QResolution resolution = new QResolution("RESOLUTION");
+    public static final QResolution resolution = new QResolution("resolution");
 
     public final StringPath description = createString("description");
 
@@ -49,10 +49,10 @@ public class QResolution extends com.querydsl.sql.RelationalPathBase<QResolution
 
     public final NumberPath<Long> sequence = createNumber("sequence", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QResolution> sysIdx180 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QResolution> resolutionPk = createPrimaryKey(id);
 
     public QResolution(String variable) {
-        super(QResolution.class, forVariable(variable), "PUBLIC", "RESOLUTION");
+        super(QResolution.class, forVariable(variable), "public", "resolution");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QResolution extends com.querydsl.sql.RelationalPathBase<QResolution
     }
 
     public QResolution(Path<? extends QResolution> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "RESOLUTION");
+        super(path.getType(), path.getMetadata(), "public", "resolution");
         addMetadata();
     }
 
     public QResolution(PathMetadata metadata) {
-        super(QResolution.class, metadata, "PUBLIC", "RESOLUTION");
+        super(QResolution.class, metadata, "public", "resolution");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(iconurl, ColumnMetadata.named("ICONURL").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(pname, ColumnMetadata.named("PNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(iconurl, ColumnMetadata.named("iconurl").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.VARCHAR).withSize(60).notNull());
+        addMetadata(pname, ColumnMetadata.named("pname").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

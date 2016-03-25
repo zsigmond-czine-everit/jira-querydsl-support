@@ -37,7 +37,7 @@ public class QNodeindexcounter extends com.querydsl.sql.RelationalPathBase<QNode
 
     private static final long serialVersionUID = 819159588;
 
-    public static final QNodeindexcounter nodeindexcounter = new QNodeindexcounter("NODEINDEXCOUNTER");
+    public static final QNodeindexcounter nodeindexcounter = new QNodeindexcounter("nodeindexcounter");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -47,10 +47,10 @@ public class QNodeindexcounter extends com.querydsl.sql.RelationalPathBase<QNode
 
     public final StringPath sendingNodeId = createString("sendingNodeId");
 
-    public final com.querydsl.sql.PrimaryKey<QNodeindexcounter> sysIdx129 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QNodeindexcounter> nodeindexcounterPk = createPrimaryKey(id);
 
     public QNodeindexcounter(String variable) {
-        super(QNodeindexcounter.class, forVariable(variable), "PUBLIC", "NODEINDEXCOUNTER");
+        super(QNodeindexcounter.class, forVariable(variable), "public", "nodeindexcounter");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QNodeindexcounter extends com.querydsl.sql.RelationalPathBase<QNode
     }
 
     public QNodeindexcounter(Path<? extends QNodeindexcounter> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "NODEINDEXCOUNTER");
+        super(path.getType(), path.getMetadata(), "public", "nodeindexcounter");
         addMetadata();
     }
 
     public QNodeindexcounter(PathMetadata metadata) {
-        super(QNodeindexcounter.class, metadata, "PUBLIC", "NODEINDEXCOUNTER");
+        super(QNodeindexcounter.class, metadata, "public", "nodeindexcounter");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(indexOperationId, ColumnMetadata.named("INDEX_OPERATION_ID").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(nodeId, ColumnMetadata.named("NODE_ID").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(sendingNodeId, ColumnMetadata.named("SENDING_NODE_ID").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(indexOperationId, ColumnMetadata.named("index_operation_id").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(nodeId, ColumnMetadata.named("node_id").withIndex(2).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(sendingNodeId, ColumnMetadata.named("sending_node_id").withIndex(3).ofType(Types.VARCHAR).withSize(60));
     }
 
 }

@@ -37,7 +37,7 @@ public class QProjectrole extends com.querydsl.sql.RelationalPathBase<QProjectro
 
     private static final long serialVersionUID = 1135372759;
 
-    public static final QProjectrole projectrole = new QProjectrole("PROJECTROLE");
+    public static final QProjectrole projectrole = new QProjectrole("projectrole");
 
     public final StringPath description = createString("description");
 
@@ -45,10 +45,10 @@ public class QProjectrole extends com.querydsl.sql.RelationalPathBase<QProjectro
 
     public final StringPath name = createString("name");
 
-    public final com.querydsl.sql.PrimaryKey<QProjectrole> sysIdx164 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QProjectrole> projectrolePk = createPrimaryKey(id);
 
     public QProjectrole(String variable) {
-        super(QProjectrole.class, forVariable(variable), "PUBLIC", "PROJECTROLE");
+        super(QProjectrole.class, forVariable(variable), "public", "projectrole");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QProjectrole extends com.querydsl.sql.RelationalPathBase<QProjectro
     }
 
     public QProjectrole(Path<? extends QProjectrole> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROJECTROLE");
+        super(path.getType(), path.getMetadata(), "public", "projectrole");
         addMetadata();
     }
 
     public QProjectrole(PathMetadata metadata) {
-        super(QProjectrole.class, metadata, "PUBLIC", "PROJECTROLE");
+        super(QProjectrole.class, metadata, "public", "projectrole");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(name, ColumnMetadata.named("NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(name, ColumnMetadata.named("name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

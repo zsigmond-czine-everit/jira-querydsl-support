@@ -37,7 +37,7 @@ public class QFavouriteassociations extends com.querydsl.sql.RelationalPathBase<
 
     private static final long serialVersionUID = 1180211203;
 
-    public static final QFavouriteassociations favouriteassociations = new QFavouriteassociations("FAVOURITEASSOCIATIONS");
+    public static final QFavouriteassociations favouriteassociations = new QFavouriteassociations("favouriteassociations");
 
     public final NumberPath<Long> entityid = createNumber("entityid", Long.class);
 
@@ -49,10 +49,10 @@ public class QFavouriteassociations extends com.querydsl.sql.RelationalPathBase<
 
     public final StringPath username = createString("username");
 
-    public final com.querydsl.sql.PrimaryKey<QFavouriteassociations> sysIdx78 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QFavouriteassociations> favouriteassociationsPk = createPrimaryKey(id);
 
     public QFavouriteassociations(String variable) {
-        super(QFavouriteassociations.class, forVariable(variable), "PUBLIC", "FAVOURITEASSOCIATIONS");
+        super(QFavouriteassociations.class, forVariable(variable), "public", "favouriteassociations");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QFavouriteassociations extends com.querydsl.sql.RelationalPathBase<
     }
 
     public QFavouriteassociations(Path<? extends QFavouriteassociations> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "FAVOURITEASSOCIATIONS");
+        super(path.getType(), path.getMetadata(), "public", "favouriteassociations");
         addMetadata();
     }
 
     public QFavouriteassociations(PathMetadata metadata) {
-        super(QFavouriteassociations.class, metadata, "PUBLIC", "FAVOURITEASSOCIATIONS");
+        super(QFavouriteassociations.class, metadata, "public", "favouriteassociations");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(entityid, ColumnMetadata.named("ENTITYID").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(entitytype, ColumnMetadata.named("ENTITYTYPE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(username, ColumnMetadata.named("USERNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(entityid, ColumnMetadata.named("entityid").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(entitytype, ColumnMetadata.named("entitytype").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(5).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(username, ColumnMetadata.named("username").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

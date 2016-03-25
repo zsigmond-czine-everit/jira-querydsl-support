@@ -37,7 +37,7 @@ public class QOsCurrentstep extends com.querydsl.sql.RelationalPathBase<QOsCurre
 
     private static final long serialVersionUID = -1998232567;
 
-    public static final QOsCurrentstep osCurrentstep = new QOsCurrentstep("OS_CURRENTSTEP");
+    public static final QOsCurrentstep osCurrentstep = new QOsCurrentstep("os_currentstep");
 
     public final NumberPath<Integer> actionId = createNumber("actionId", Integer.class);
 
@@ -59,10 +59,10 @@ public class QOsCurrentstep extends com.querydsl.sql.RelationalPathBase<QOsCurre
 
     public final NumberPath<Integer> stepId = createNumber("stepId", Integer.class);
 
-    public final com.querydsl.sql.PrimaryKey<QOsCurrentstep> sysIdx137 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QOsCurrentstep> osCurrentstepPk = createPrimaryKey(id);
 
     public QOsCurrentstep(String variable) {
-        super(QOsCurrentstep.class, forVariable(variable), "PUBLIC", "OS_CURRENTSTEP");
+        super(QOsCurrentstep.class, forVariable(variable), "public", "os_currentstep");
         addMetadata();
     }
 
@@ -72,26 +72,26 @@ public class QOsCurrentstep extends com.querydsl.sql.RelationalPathBase<QOsCurre
     }
 
     public QOsCurrentstep(Path<? extends QOsCurrentstep> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "OS_CURRENTSTEP");
+        super(path.getType(), path.getMetadata(), "public", "os_currentstep");
         addMetadata();
     }
 
     public QOsCurrentstep(PathMetadata metadata) {
-        super(QOsCurrentstep.class, metadata, "PUBLIC", "OS_CURRENTSTEP");
+        super(QOsCurrentstep.class, metadata, "public", "os_currentstep");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(actionId, ColumnMetadata.named("ACTION_ID").withIndex(4).ofType(Types.INTEGER));
-        addMetadata(caller, ColumnMetadata.named("CALLER").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(dueDate, ColumnMetadata.named("DUE_DATE").withIndex(7).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(entryId, ColumnMetadata.named("ENTRY_ID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(finishDate, ColumnMetadata.named("FINISH_DATE").withIndex(8).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(owner, ColumnMetadata.named("OWNER").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(startDate, ColumnMetadata.named("START_DATE").withIndex(6).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(status, ColumnMetadata.named("STATUS").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(stepId, ColumnMetadata.named("STEP_ID").withIndex(3).ofType(Types.INTEGER));
+        addMetadata(actionId, ColumnMetadata.named("action_id").withIndex(4).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(caller, ColumnMetadata.named("caller").withIndex(10).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(dueDate, ColumnMetadata.named("due_date").withIndex(7).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(entryId, ColumnMetadata.named("entry_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(finishDate, ColumnMetadata.named("finish_date").withIndex(8).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(owner, ColumnMetadata.named("owner").withIndex(5).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(startDate, ColumnMetadata.named("start_date").withIndex(6).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(status, ColumnMetadata.named("status").withIndex(9).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(stepId, ColumnMetadata.named("step_id").withIndex(3).ofType(Types.NUMERIC).withSize(9));
     }
 
 }

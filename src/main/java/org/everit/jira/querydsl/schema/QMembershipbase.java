@@ -37,7 +37,7 @@ public class QMembershipbase extends com.querydsl.sql.RelationalPathBase<QMember
 
     private static final long serialVersionUID = -247100449;
 
-    public static final QMembershipbase membershipbase = new QMembershipbase("MEMBERSHIPBASE");
+    public static final QMembershipbase membershipbase = new QMembershipbase("membershipbase");
 
     public final StringPath groupName = createString("groupName");
 
@@ -45,10 +45,10 @@ public class QMembershipbase extends com.querydsl.sql.RelationalPathBase<QMember
 
     public final StringPath userName = createString("userName");
 
-    public final com.querydsl.sql.PrimaryKey<QMembershipbase> sysIdx142 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QMembershipbase> membershipbasePk = createPrimaryKey(id);
 
     public QMembershipbase(String variable) {
-        super(QMembershipbase.class, forVariable(variable), "PUBLIC", "MEMBERSHIPBASE");
+        super(QMembershipbase.class, forVariable(variable), "public", "membershipbase");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QMembershipbase extends com.querydsl.sql.RelationalPathBase<QMember
     }
 
     public QMembershipbase(Path<? extends QMembershipbase> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "MEMBERSHIPBASE");
+        super(path.getType(), path.getMetadata(), "public", "membershipbase");
         addMetadata();
     }
 
     public QMembershipbase(PathMetadata metadata) {
-        super(QMembershipbase.class, metadata, "PUBLIC", "MEMBERSHIPBASE");
+        super(QMembershipbase.class, metadata, "public", "membershipbase");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(groupName, ColumnMetadata.named("GROUP_NAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(userName, ColumnMetadata.named("USER_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(groupName, ColumnMetadata.named("group_name").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(userName, ColumnMetadata.named("user_name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

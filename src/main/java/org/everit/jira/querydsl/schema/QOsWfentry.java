@@ -37,7 +37,7 @@ public class QOsWfentry extends com.querydsl.sql.RelationalPathBase<QOsWfentry> 
 
     private static final long serialVersionUID = -1737709241;
 
-    public static final QOsWfentry osWfentry = new QOsWfentry("OS_WFENTRY");
+    public static final QOsWfentry osWfentry = new QOsWfentry("os_wfentry");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -47,10 +47,10 @@ public class QOsWfentry extends com.querydsl.sql.RelationalPathBase<QOsWfentry> 
 
     public final NumberPath<Integer> state = createNumber("state", Integer.class);
 
-    public final com.querydsl.sql.PrimaryKey<QOsWfentry> sysIdx151 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QOsWfentry> osWfentryPk = createPrimaryKey(id);
 
     public QOsWfentry(String variable) {
-        super(QOsWfentry.class, forVariable(variable), "PUBLIC", "OS_WFENTRY");
+        super(QOsWfentry.class, forVariable(variable), "public", "os_wfentry");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QOsWfentry extends com.querydsl.sql.RelationalPathBase<QOsWfentry> 
     }
 
     public QOsWfentry(Path<? extends QOsWfentry> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "OS_WFENTRY");
+        super(path.getType(), path.getMetadata(), "public", "os_wfentry");
         addMetadata();
     }
 
     public QOsWfentry(PathMetadata metadata) {
-        super(QOsWfentry.class, metadata, "PUBLIC", "OS_WFENTRY");
+        super(QOsWfentry.class, metadata, "public", "os_wfentry");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(initialized, ColumnMetadata.named("INITIALIZED").withIndex(3).ofType(Types.INTEGER));
-        addMetadata(name, ColumnMetadata.named("NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(state, ColumnMetadata.named("STATE").withIndex(4).ofType(Types.INTEGER));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(initialized, ColumnMetadata.named("initialized").withIndex(3).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(name, ColumnMetadata.named("name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(state, ColumnMetadata.named("state").withIndex(4).ofType(Types.NUMERIC).withSize(9));
     }
 
 }

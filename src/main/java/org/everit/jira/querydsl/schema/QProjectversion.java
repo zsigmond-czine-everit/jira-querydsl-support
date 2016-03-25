@@ -37,7 +37,7 @@ public class QProjectversion extends com.querydsl.sql.RelationalPathBase<QProjec
 
     private static final long serialVersionUID = -2774057;
 
-    public static final QProjectversion projectversion = new QProjectversion("PROJECTVERSION");
+    public static final QProjectversion projectversion = new QProjectversion("projectversion");
 
     public final StringPath archived = createString("archived");
 
@@ -59,10 +59,10 @@ public class QProjectversion extends com.querydsl.sql.RelationalPathBase<QProjec
 
     public final StringPath vname = createString("vname");
 
-    public final com.querydsl.sql.PrimaryKey<QProjectversion> sysIdx201 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QProjectversion> projectversionPk = createPrimaryKey(id);
 
     public QProjectversion(String variable) {
-        super(QProjectversion.class, forVariable(variable), "PUBLIC", "PROJECTVERSION");
+        super(QProjectversion.class, forVariable(variable), "public", "projectversion");
         addMetadata();
     }
 
@@ -72,26 +72,26 @@ public class QProjectversion extends com.querydsl.sql.RelationalPathBase<QProjec
     }
 
     public QProjectversion(Path<? extends QProjectversion> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROJECTVERSION");
+        super(path.getType(), path.getMetadata(), "public", "projectversion");
         addMetadata();
     }
 
     public QProjectversion(PathMetadata metadata) {
-        super(QProjectversion.class, metadata, "PUBLIC", "PROJECTVERSION");
+        super(QProjectversion.class, metadata, "public", "projectversion");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(archived, ColumnMetadata.named("ARCHIVED").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(project, ColumnMetadata.named("PROJECT").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(released, ColumnMetadata.named("RELEASED").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(releasedate, ColumnMetadata.named("RELEASEDATE").withIndex(10).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(startdate, ColumnMetadata.named("STARTDATE").withIndex(9).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(url, ColumnMetadata.named("URL").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(vname, ColumnMetadata.named("VNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(archived, ColumnMetadata.named("archived").withIndex(7).ofType(Types.VARCHAR).withSize(10));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(project, ColumnMetadata.named("project").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(released, ColumnMetadata.named("released").withIndex(6).ofType(Types.VARCHAR).withSize(10));
+        addMetadata(releasedate, ColumnMetadata.named("releasedate").withIndex(10).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(5).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(startdate, ColumnMetadata.named("startdate").withIndex(9).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(url, ColumnMetadata.named("url").withIndex(8).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(vname, ColumnMetadata.named("vname").withIndex(3).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

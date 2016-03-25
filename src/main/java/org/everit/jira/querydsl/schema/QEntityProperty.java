@@ -37,7 +37,7 @@ public class QEntityProperty extends com.querydsl.sql.RelationalPathBase<QEntity
 
     private static final long serialVersionUID = -760255728;
 
-    public static final QEntityProperty entityProperty = new QEntityProperty("ENTITY_PROPERTY");
+    public static final QEntityProperty entityProperty = new QEntityProperty("entity_property");
 
     public final DateTimePath<java.sql.Timestamp> created = createDateTime("created", java.sql.Timestamp.class);
 
@@ -53,10 +53,10 @@ public class QEntityProperty extends com.querydsl.sql.RelationalPathBase<QEntity
 
     public final DateTimePath<java.sql.Timestamp> updated = createDateTime("updated", java.sql.Timestamp.class);
 
-    public final com.querydsl.sql.PrimaryKey<QEntityProperty> sysIdx73 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QEntityProperty> entityPropertyPk = createPrimaryKey(id);
 
     public QEntityProperty(String variable) {
-        super(QEntityProperty.class, forVariable(variable), "PUBLIC", "ENTITY_PROPERTY");
+        super(QEntityProperty.class, forVariable(variable), "public", "entity_property");
         addMetadata();
     }
 
@@ -66,23 +66,23 @@ public class QEntityProperty extends com.querydsl.sql.RelationalPathBase<QEntity
     }
 
     public QEntityProperty(Path<? extends QEntityProperty> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "ENTITY_PROPERTY");
+        super(path.getType(), path.getMetadata(), "public", "entity_property");
         addMetadata();
     }
 
     public QEntityProperty(PathMetadata metadata) {
-        super(QEntityProperty.class, metadata, "PUBLIC", "ENTITY_PROPERTY");
+        super(QEntityProperty.class, metadata, "public", "entity_property");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(5).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(entityId, ColumnMetadata.named("ENTITY_ID").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(entityName, ColumnMetadata.named("ENTITY_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(jsonValue, ColumnMetadata.named("JSON_VALUE").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(propertyKey, ColumnMetadata.named("PROPERTY_KEY").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(updated, ColumnMetadata.named("UPDATED").withIndex(6).ofType(Types.TIMESTAMP).withSize(6));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(5).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(entityId, ColumnMetadata.named("entity_id").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(entityName, ColumnMetadata.named("entity_name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(jsonValue, ColumnMetadata.named("json_value").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(propertyKey, ColumnMetadata.named("property_key").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(updated, ColumnMetadata.named("updated").withIndex(6).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
     }
 
 }

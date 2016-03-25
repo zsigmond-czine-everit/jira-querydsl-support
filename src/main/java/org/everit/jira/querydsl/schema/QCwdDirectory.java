@@ -37,7 +37,7 @@ public class QCwdDirectory extends com.querydsl.sql.RelationalPathBase<QCwdDirec
 
     private static final long serialVersionUID = -744816619;
 
-    public static final QCwdDirectory cwdDirectory = new QCwdDirectory("CWD_DIRECTORY");
+    public static final QCwdDirectory cwdDirectory = new QCwdDirectory("cwd_directory");
 
     public final NumberPath<Integer> active = createNumber("active", Integer.class);
 
@@ -61,10 +61,10 @@ public class QCwdDirectory extends com.querydsl.sql.RelationalPathBase<QCwdDirec
 
     public final DateTimePath<java.sql.Timestamp> updatedDate = createDateTime("updatedDate", java.sql.Timestamp.class);
 
-    public final com.querydsl.sql.PrimaryKey<QCwdDirectory> sysIdx67 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QCwdDirectory> cwdDirectoryPk = createPrimaryKey(id);
 
     public QCwdDirectory(String variable) {
-        super(QCwdDirectory.class, forVariable(variable), "PUBLIC", "CWD_DIRECTORY");
+        super(QCwdDirectory.class, forVariable(variable), "public", "cwd_directory");
         addMetadata();
     }
 
@@ -74,27 +74,27 @@ public class QCwdDirectory extends com.querydsl.sql.RelationalPathBase<QCwdDirec
     }
 
     public QCwdDirectory(Path<? extends QCwdDirectory> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CWD_DIRECTORY");
+        super(path.getType(), path.getMetadata(), "public", "cwd_directory");
         addMetadata();
     }
 
     public QCwdDirectory(PathMetadata metadata) {
-        super(QCwdDirectory.class, metadata, "PUBLIC", "CWD_DIRECTORY");
+        super(QCwdDirectory.class, metadata, "public", "cwd_directory");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(active, ColumnMetadata.named("ACTIVE").withIndex(6).ofType(Types.INTEGER));
-        addMetadata(createdDate, ColumnMetadata.named("CREATED_DATE").withIndex(4).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(directoryName, ColumnMetadata.named("DIRECTORY_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(directoryPosition, ColumnMetadata.named("DIRECTORY_POSITION").withIndex(11).ofType(Types.BIGINT));
-        addMetadata(directoryType, ColumnMetadata.named("DIRECTORY_TYPE").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(implClass, ColumnMetadata.named("IMPL_CLASS").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(lowerDirectoryName, ColumnMetadata.named("LOWER_DIRECTORY_NAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(lowerImplClass, ColumnMetadata.named("LOWER_IMPL_CLASS").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(updatedDate, ColumnMetadata.named("UPDATED_DATE").withIndex(5).ofType(Types.TIMESTAMP).withSize(6));
+        addMetadata(active, ColumnMetadata.named("active").withIndex(6).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(createdDate, ColumnMetadata.named("created_date").withIndex(4).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(7).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(directoryName, ColumnMetadata.named("directory_name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(directoryPosition, ColumnMetadata.named("directory_position").withIndex(11).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(directoryType, ColumnMetadata.named("directory_type").withIndex(10).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(implClass, ColumnMetadata.named("impl_class").withIndex(8).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(lowerDirectoryName, ColumnMetadata.named("lower_directory_name").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(lowerImplClass, ColumnMetadata.named("lower_impl_class").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(updatedDate, ColumnMetadata.named("updated_date").withIndex(5).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
     }
 
 }

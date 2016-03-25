@@ -37,16 +37,16 @@ public class QProductlicense extends com.querydsl.sql.RelationalPathBase<QProduc
 
     private static final long serialVersionUID = -1140067158;
 
-    public static final QProductlicense productlicense = new QProductlicense("PRODUCTLICENSE");
+    public static final QProductlicense productlicense = new QProductlicense("productlicense");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath license = createString("license");
 
-    public final com.querydsl.sql.PrimaryKey<QProductlicense> sysIdx160 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QProductlicense> productlicensePk = createPrimaryKey(id);
 
     public QProductlicense(String variable) {
-        super(QProductlicense.class, forVariable(variable), "PUBLIC", "PRODUCTLICENSE");
+        super(QProductlicense.class, forVariable(variable), "public", "productlicense");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QProductlicense extends com.querydsl.sql.RelationalPathBase<QProduc
     }
 
     public QProductlicense(Path<? extends QProductlicense> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PRODUCTLICENSE");
+        super(path.getType(), path.getMetadata(), "public", "productlicense");
         addMetadata();
     }
 
     public QProductlicense(PathMetadata metadata) {
-        super(QProductlicense.class, metadata, "PUBLIC", "PRODUCTLICENSE");
+        super(QProductlicense.class, metadata, "public", "productlicense");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(license, ColumnMetadata.named("LICENSE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(license, ColumnMetadata.named("license").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
     }
 
 }

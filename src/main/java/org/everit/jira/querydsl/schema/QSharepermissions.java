@@ -37,7 +37,7 @@ public class QSharepermissions extends com.querydsl.sql.RelationalPathBase<QShar
 
     private static final long serialVersionUID = -286392963;
 
-    public static final QSharepermissions sharepermissions = new QSharepermissions("SHAREPERMISSIONS");
+    public static final QSharepermissions sharepermissions = new QSharepermissions("sharepermissions");
 
     public final NumberPath<Long> entityid = createNumber("entityid", Long.class);
 
@@ -51,10 +51,10 @@ public class QSharepermissions extends com.querydsl.sql.RelationalPathBase<QShar
 
     public final StringPath sharetype = createString("sharetype");
 
-    public final com.querydsl.sql.PrimaryKey<QSharepermissions> sysIdx188 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QSharepermissions> sharepermissionsPk = createPrimaryKey(id);
 
     public QSharepermissions(String variable) {
-        super(QSharepermissions.class, forVariable(variable), "PUBLIC", "SHAREPERMISSIONS");
+        super(QSharepermissions.class, forVariable(variable), "public", "sharepermissions");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QSharepermissions extends com.querydsl.sql.RelationalPathBase<QShar
     }
 
     public QSharepermissions(Path<? extends QSharepermissions> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "SHAREPERMISSIONS");
+        super(path.getType(), path.getMetadata(), "public", "sharepermissions");
         addMetadata();
     }
 
     public QSharepermissions(PathMetadata metadata) {
-        super(QSharepermissions.class, metadata, "PUBLIC", "SHAREPERMISSIONS");
+        super(QSharepermissions.class, metadata, "public", "sharepermissions");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(entityid, ColumnMetadata.named("ENTITYID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(entitytype, ColumnMetadata.named("ENTITYTYPE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(param1, ColumnMetadata.named("PARAM1").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(param2, ColumnMetadata.named("PARAM2").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(sharetype, ColumnMetadata.named("SHARETYPE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(entityid, ColumnMetadata.named("entityid").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(entitytype, ColumnMetadata.named("entitytype").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(param1, ColumnMetadata.named("param1").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(param2, ColumnMetadata.named("param2").withIndex(6).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(sharetype, ColumnMetadata.named("sharetype").withIndex(4).ofType(Types.VARCHAR).withSize(10));
     }
 
 }

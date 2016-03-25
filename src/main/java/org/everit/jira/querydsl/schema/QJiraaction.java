@@ -37,7 +37,7 @@ public class QJiraaction extends com.querydsl.sql.RelationalPathBase<QJiraaction
 
     private static final long serialVersionUID = -908132452;
 
-    public static final QJiraaction jiraaction = new QJiraaction("JIRAACTION");
+    public static final QJiraaction jiraaction = new QJiraaction("jiraaction");
 
     public final StringPath actionbody = createString("actionbody");
 
@@ -61,10 +61,10 @@ public class QJiraaction extends com.querydsl.sql.RelationalPathBase<QJiraaction
 
     public final DateTimePath<java.sql.Timestamp> updated = createDateTime("updated", java.sql.Timestamp.class);
 
-    public final com.querydsl.sql.PrimaryKey<QJiraaction> sysIdx46 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QJiraaction> jiraactionPk = createPrimaryKey(id);
 
     public QJiraaction(String variable) {
-        super(QJiraaction.class, forVariable(variable), "PUBLIC", "JIRAACTION");
+        super(QJiraaction.class, forVariable(variable), "public", "jiraaction");
         addMetadata();
     }
 
@@ -74,27 +74,27 @@ public class QJiraaction extends com.querydsl.sql.RelationalPathBase<QJiraaction
     }
 
     public QJiraaction(Path<? extends QJiraaction> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JIRAACTION");
+        super(path.getType(), path.getMetadata(), "public", "jiraaction");
         addMetadata();
     }
 
     public QJiraaction(PathMetadata metadata) {
-        super(QJiraaction.class, metadata, "PUBLIC", "JIRAACTION");
+        super(QJiraaction.class, metadata, "public", "jiraaction");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(actionbody, ColumnMetadata.named("ACTIONBODY").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(actionlevel, ColumnMetadata.named("ACTIONLEVEL").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(actionnum, ColumnMetadata.named("ACTIONNUM").withIndex(11).ofType(Types.BIGINT));
-        addMetadata(actiontype, ColumnMetadata.named("ACTIONTYPE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(author, ColumnMetadata.named("AUTHOR").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(8).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issueid, ColumnMetadata.named("ISSUEID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(rolelevel, ColumnMetadata.named("ROLELEVEL").withIndex(6).ofType(Types.BIGINT));
-        addMetadata(updateauthor, ColumnMetadata.named("UPDATEAUTHOR").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(updated, ColumnMetadata.named("UPDATED").withIndex(10).ofType(Types.TIMESTAMP).withSize(6));
+        addMetadata(actionbody, ColumnMetadata.named("actionbody").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(actionlevel, ColumnMetadata.named("actionlevel").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(actionnum, ColumnMetadata.named("actionnum").withIndex(11).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(actiontype, ColumnMetadata.named("actiontype").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(author, ColumnMetadata.named("author").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(8).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issueid, ColumnMetadata.named("issueid").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(rolelevel, ColumnMetadata.named("rolelevel").withIndex(6).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(updateauthor, ColumnMetadata.named("updateauthor").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(updated, ColumnMetadata.named("updated").withIndex(10).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
     }
 
 }

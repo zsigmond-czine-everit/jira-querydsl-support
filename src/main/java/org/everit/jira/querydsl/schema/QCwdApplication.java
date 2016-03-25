@@ -37,7 +37,7 @@ public class QCwdApplication extends com.querydsl.sql.RelationalPathBase<QCwdApp
 
     private static final long serialVersionUID = 376249592;
 
-    public static final QCwdApplication cwdApplication = new QCwdApplication("CWD_APPLICATION");
+    public static final QCwdApplication cwdApplication = new QCwdApplication("cwd_application");
 
     public final NumberPath<Integer> active = createNumber("active", Integer.class);
 
@@ -57,10 +57,10 @@ public class QCwdApplication extends com.querydsl.sql.RelationalPathBase<QCwdApp
 
     public final DateTimePath<java.sql.Timestamp> updatedDate = createDateTime("updatedDate", java.sql.Timestamp.class);
 
-    public final com.querydsl.sql.PrimaryKey<QCwdApplication> sysIdx47 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QCwdApplication> cwdApplicationPk = createPrimaryKey(id);
 
     public QCwdApplication(String variable) {
-        super(QCwdApplication.class, forVariable(variable), "PUBLIC", "CWD_APPLICATION");
+        super(QCwdApplication.class, forVariable(variable), "public", "cwd_application");
         addMetadata();
     }
 
@@ -70,25 +70,25 @@ public class QCwdApplication extends com.querydsl.sql.RelationalPathBase<QCwdApp
     }
 
     public QCwdApplication(Path<? extends QCwdApplication> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CWD_APPLICATION");
+        super(path.getType(), path.getMetadata(), "public", "cwd_application");
         addMetadata();
     }
 
     public QCwdApplication(PathMetadata metadata) {
-        super(QCwdApplication.class, metadata, "PUBLIC", "CWD_APPLICATION");
+        super(QCwdApplication.class, metadata, "public", "cwd_application");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(active, ColumnMetadata.named("ACTIVE").withIndex(6).ofType(Types.INTEGER));
-        addMetadata(applicationName, ColumnMetadata.named("APPLICATION_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(applicationType, ColumnMetadata.named("APPLICATION_TYPE").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(createdDate, ColumnMetadata.named("CREATED_DATE").withIndex(4).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(credential, ColumnMetadata.named("CREDENTIAL").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(lowerApplicationName, ColumnMetadata.named("LOWER_APPLICATION_NAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(updatedDate, ColumnMetadata.named("UPDATED_DATE").withIndex(5).ofType(Types.TIMESTAMP).withSize(6));
+        addMetadata(active, ColumnMetadata.named("active").withIndex(6).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(applicationName, ColumnMetadata.named("application_name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(applicationType, ColumnMetadata.named("application_type").withIndex(8).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(createdDate, ColumnMetadata.named("created_date").withIndex(4).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(credential, ColumnMetadata.named("credential").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(7).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(lowerApplicationName, ColumnMetadata.named("lower_application_name").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(updatedDate, ColumnMetadata.named("updated_date").withIndex(5).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
     }
 
 }

@@ -37,7 +37,7 @@ public class QOptionconfiguration extends com.querydsl.sql.RelationalPathBase<QO
 
     private static final long serialVersionUID = -699687575;
 
-    public static final QOptionconfiguration optionconfiguration = new QOptionconfiguration("OPTIONCONFIGURATION");
+    public static final QOptionconfiguration optionconfiguration = new QOptionconfiguration("optionconfiguration");
 
     public final NumberPath<Long> fieldconfig = createNumber("fieldconfig", Long.class);
 
@@ -49,10 +49,10 @@ public class QOptionconfiguration extends com.querydsl.sql.RelationalPathBase<QO
 
     public final NumberPath<Long> sequence = createNumber("sequence", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QOptionconfiguration> sysIdx152 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QOptionconfiguration> optionconfigurationPk = createPrimaryKey(id);
 
     public QOptionconfiguration(String variable) {
-        super(QOptionconfiguration.class, forVariable(variable), "PUBLIC", "OPTIONCONFIGURATION");
+        super(QOptionconfiguration.class, forVariable(variable), "public", "optionconfiguration");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QOptionconfiguration extends com.querydsl.sql.RelationalPathBase<QO
     }
 
     public QOptionconfiguration(Path<? extends QOptionconfiguration> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "OPTIONCONFIGURATION");
+        super(path.getType(), path.getMetadata(), "public", "optionconfiguration");
         addMetadata();
     }
 
     public QOptionconfiguration(PathMetadata metadata) {
-        super(QOptionconfiguration.class, metadata, "PUBLIC", "OPTIONCONFIGURATION");
+        super(QOptionconfiguration.class, metadata, "public", "optionconfiguration");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(fieldconfig, ColumnMetadata.named("FIELDCONFIG").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(fieldid, ColumnMetadata.named("FIELDID").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(optionid, ColumnMetadata.named("OPTIONID").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(5).ofType(Types.BIGINT));
+        addMetadata(fieldconfig, ColumnMetadata.named("fieldconfig").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(fieldid, ColumnMetadata.named("fieldid").withIndex(2).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(optionid, ColumnMetadata.named("optionid").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(5).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

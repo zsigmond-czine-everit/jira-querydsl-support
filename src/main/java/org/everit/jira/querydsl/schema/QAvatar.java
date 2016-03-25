@@ -37,7 +37,7 @@ public class QAvatar extends com.querydsl.sql.RelationalPathBase<QAvatar> {
 
     private static final long serialVersionUID = -1860677231;
 
-    public static final QAvatar avatar = new QAvatar("AVATAR");
+    public static final QAvatar avatar = new QAvatar("avatar");
 
     public final StringPath avatartype = createString("avatartype");
 
@@ -51,10 +51,10 @@ public class QAvatar extends com.querydsl.sql.RelationalPathBase<QAvatar> {
 
     public final NumberPath<Integer> systemavatar = createNumber("systemavatar", Integer.class);
 
-    public final com.querydsl.sql.PrimaryKey<QAvatar> sysIdx52 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QAvatar> avatarPk = createPrimaryKey(id);
 
     public QAvatar(String variable) {
-        super(QAvatar.class, forVariable(variable), "PUBLIC", "AVATAR");
+        super(QAvatar.class, forVariable(variable), "public", "avatar");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QAvatar extends com.querydsl.sql.RelationalPathBase<QAvatar> {
     }
 
     public QAvatar(Path<? extends QAvatar> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "AVATAR");
+        super(path.getType(), path.getMetadata(), "public", "avatar");
         addMetadata();
     }
 
     public QAvatar(PathMetadata metadata) {
-        super(QAvatar.class, metadata, "PUBLIC", "AVATAR");
+        super(QAvatar.class, metadata, "public", "avatar");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(avatartype, ColumnMetadata.named("AVATARTYPE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(contenttype, ColumnMetadata.named("CONTENTTYPE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(filename, ColumnMetadata.named("FILENAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(owner, ColumnMetadata.named("OWNER").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(systemavatar, ColumnMetadata.named("SYSTEMAVATAR").withIndex(6).ofType(Types.INTEGER));
+        addMetadata(avatartype, ColumnMetadata.named("avatartype").withIndex(4).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(contenttype, ColumnMetadata.named("contenttype").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(filename, ColumnMetadata.named("filename").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(owner, ColumnMetadata.named("owner").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(systemavatar, ColumnMetadata.named("systemavatar").withIndex(6).ofType(Types.NUMERIC).withSize(9));
     }
 
 }

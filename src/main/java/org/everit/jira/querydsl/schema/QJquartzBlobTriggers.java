@@ -37,7 +37,7 @@ public class QJquartzBlobTriggers extends com.querydsl.sql.RelationalPathBase<QJ
 
     private static final long serialVersionUID = 1114341221;
 
-    public static final QJquartzBlobTriggers jquartzBlobTriggers = new QJquartzBlobTriggers("JQUARTZ_BLOB_TRIGGERS");
+    public static final QJquartzBlobTriggers jquartzBlobTriggers = new QJquartzBlobTriggers("jquartz_blob_triggers");
 
     public final SimplePath<byte[]> blobData = createSimple("blobData", byte[].class);
 
@@ -47,10 +47,10 @@ public class QJquartzBlobTriggers extends com.querydsl.sql.RelationalPathBase<QJ
 
     public final StringPath triggerName = createString("triggerName");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzBlobTriggers> sysIdx107 = createPrimaryKey(triggerGroup, triggerName);
+    public final com.querydsl.sql.PrimaryKey<QJquartzBlobTriggers> jquartzBlobTriggersPk = createPrimaryKey(triggerName, triggerGroup);
 
     public QJquartzBlobTriggers(String variable) {
-        super(QJquartzBlobTriggers.class, forVariable(variable), "PUBLIC", "JQUARTZ_BLOB_TRIGGERS");
+        super(QJquartzBlobTriggers.class, forVariable(variable), "public", "jquartz_blob_triggers");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QJquartzBlobTriggers extends com.querydsl.sql.RelationalPathBase<QJ
     }
 
     public QJquartzBlobTriggers(Path<? extends QJquartzBlobTriggers> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_BLOB_TRIGGERS");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_blob_triggers");
         addMetadata();
     }
 
     public QJquartzBlobTriggers(PathMetadata metadata) {
-        super(QJquartzBlobTriggers.class, metadata, "PUBLIC", "JQUARTZ_BLOB_TRIGGERS");
+        super(QJquartzBlobTriggers.class, metadata, "public", "jquartz_blob_triggers");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(blobData, ColumnMetadata.named("BLOB_DATA").withIndex(4).ofType(Types.VARBINARY).withSize(16000));
-        addMetadata(schedName, ColumnMetadata.named("SCHED_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(120));
-        addMetadata(triggerGroup, ColumnMetadata.named("TRIGGER_GROUP").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(triggerName, ColumnMetadata.named("TRIGGER_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(blobData, ColumnMetadata.named("blob_data").withIndex(4).ofType(Types.BINARY).withSize(2147483647));
+        addMetadata(schedName, ColumnMetadata.named("sched_name").withIndex(1).ofType(Types.VARCHAR).withSize(120));
+        addMetadata(triggerGroup, ColumnMetadata.named("trigger_group").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(triggerName, ColumnMetadata.named("trigger_name").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
     }
 
 }

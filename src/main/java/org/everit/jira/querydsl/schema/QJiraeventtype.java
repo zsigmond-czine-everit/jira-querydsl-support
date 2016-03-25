@@ -37,7 +37,7 @@ public class QJiraeventtype extends com.querydsl.sql.RelationalPathBase<QJiraeve
 
     private static final long serialVersionUID = -340696658;
 
-    public static final QJiraeventtype jiraeventtype = new QJiraeventtype("JIRAEVENTTYPE");
+    public static final QJiraeventtype jiraeventtype = new QJiraeventtype("jiraeventtype");
 
     public final StringPath description = createString("description");
 
@@ -49,10 +49,10 @@ public class QJiraeventtype extends com.querydsl.sql.RelationalPathBase<QJiraeve
 
     public final NumberPath<Long> templateId = createNumber("templateId", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QJiraeventtype> sysIdx75 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QJiraeventtype> jiraeventtypePk = createPrimaryKey(id);
 
     public QJiraeventtype(String variable) {
-        super(QJiraeventtype.class, forVariable(variable), "PUBLIC", "JIRAEVENTTYPE");
+        super(QJiraeventtype.class, forVariable(variable), "public", "jiraeventtype");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QJiraeventtype extends com.querydsl.sql.RelationalPathBase<QJiraeve
     }
 
     public QJiraeventtype(Path<? extends QJiraeventtype> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JIRAEVENTTYPE");
+        super(path.getType(), path.getMetadata(), "public", "jiraeventtype");
         addMetadata();
     }
 
     public QJiraeventtype(PathMetadata metadata) {
-        super(QJiraeventtype.class, metadata, "PUBLIC", "JIRAEVENTTYPE");
+        super(QJiraeventtype.class, metadata, "public", "jiraeventtype");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(eventType, ColumnMetadata.named("EVENT_TYPE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(name, ColumnMetadata.named("NAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(templateId, ColumnMetadata.named("TEMPLATE_ID").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(eventType, ColumnMetadata.named("event_type").withIndex(5).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(name, ColumnMetadata.named("name").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(templateId, ColumnMetadata.named("template_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

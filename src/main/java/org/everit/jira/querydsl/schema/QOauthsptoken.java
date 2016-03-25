@@ -37,7 +37,7 @@ public class QOauthsptoken extends com.querydsl.sql.RelationalPathBase<QOauthspt
 
     private static final long serialVersionUID = 1253330301;
 
-    public static final QOauthsptoken oauthsptoken = new QOauthsptoken("OAUTHSPTOKEN");
+    public static final QOauthsptoken oauthsptoken = new QOauthsptoken("oauthsptoken");
 
     public final StringPath callback = createString("callback");
 
@@ -71,10 +71,10 @@ public class QOauthsptoken extends com.querydsl.sql.RelationalPathBase<QOauthspt
 
     public final StringPath username = createString("username");
 
-    public final com.querydsl.sql.PrimaryKey<QOauthsptoken> sysIdx136 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QOauthsptoken> oauthsptokenPk = createPrimaryKey(id);
 
     public QOauthsptoken(String variable) {
-        super(QOauthsptoken.class, forVariable(variable), "PUBLIC", "OAUTHSPTOKEN");
+        super(QOauthsptoken.class, forVariable(variable), "public", "oauthsptoken");
         addMetadata();
     }
 
@@ -84,32 +84,32 @@ public class QOauthsptoken extends com.querydsl.sql.RelationalPathBase<QOauthspt
     }
 
     public QOauthsptoken(Path<? extends QOauthsptoken> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "OAUTHSPTOKEN");
+        super(path.getType(), path.getMetadata(), "public", "oauthsptoken");
         addMetadata();
     }
 
     public QOauthsptoken(PathMetadata metadata) {
-        super(QOauthsptoken.class, metadata, "PUBLIC", "OAUTHSPTOKEN");
+        super(QOauthsptoken.class, metadata, "public", "oauthsptoken");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(callback, ColumnMetadata.named("CALLBACK").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(consumerKey, ColumnMetadata.named("CONSUMER_KEY").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(2).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(sessionCreationTime, ColumnMetadata.named("SESSION_CREATION_TIME").withIndex(14).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(sessionHandle, ColumnMetadata.named("SESSION_HANDLE").withIndex(13).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(sessionLastRenewalTime, ColumnMetadata.named("SESSION_LAST_RENEWAL_TIME").withIndex(15).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(sessionTimeToLive, ColumnMetadata.named("SESSION_TIME_TO_LIVE").withIndex(16).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(spauth, ColumnMetadata.named("SPAUTH").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(spverifier, ColumnMetadata.named("SPVERIFIER").withIndex(11).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(spversion, ColumnMetadata.named("SPVERSION").withIndex(12).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(token, ColumnMetadata.named("TOKEN").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(tokenSecret, ColumnMetadata.named("TOKEN_SECRET").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(tokenType, ColumnMetadata.named("TOKEN_TYPE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(ttl, ColumnMetadata.named("TTL").withIndex(8).ofType(Types.BIGINT));
-        addMetadata(username, ColumnMetadata.named("USERNAME").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(callback, ColumnMetadata.named("callback").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(consumerKey, ColumnMetadata.named("consumer_key").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(2).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(sessionCreationTime, ColumnMetadata.named("session_creation_time").withIndex(14).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(sessionHandle, ColumnMetadata.named("session_handle").withIndex(13).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(sessionLastRenewalTime, ColumnMetadata.named("session_last_renewal_time").withIndex(15).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(sessionTimeToLive, ColumnMetadata.named("session_time_to_live").withIndex(16).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(spauth, ColumnMetadata.named("spauth").withIndex(9).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(spverifier, ColumnMetadata.named("spverifier").withIndex(11).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(spversion, ColumnMetadata.named("spversion").withIndex(12).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(token, ColumnMetadata.named("token").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(tokenSecret, ColumnMetadata.named("token_secret").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(tokenType, ColumnMetadata.named("token_type").withIndex(5).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(ttl, ColumnMetadata.named("ttl").withIndex(8).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(username, ColumnMetadata.named("username").withIndex(7).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

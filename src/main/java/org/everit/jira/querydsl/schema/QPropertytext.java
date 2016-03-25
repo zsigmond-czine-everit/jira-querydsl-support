@@ -37,16 +37,16 @@ public class QPropertytext extends com.querydsl.sql.RelationalPathBase<QProperty
 
     private static final long serialVersionUID = -983714118;
 
-    public static final QPropertytext propertytext = new QPropertytext("PROPERTYTEXT");
+    public static final QPropertytext propertytext = new QPropertytext("propertytext");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath propertyvalue = createString("propertyvalue");
 
-    public final com.querydsl.sql.PrimaryKey<QPropertytext> sysIdx149 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPropertytext> propertytextPk = createPrimaryKey(id);
 
     public QPropertytext(String variable) {
-        super(QPropertytext.class, forVariable(variable), "PUBLIC", "PROPERTYTEXT");
+        super(QPropertytext.class, forVariable(variable), "public", "propertytext");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QPropertytext extends com.querydsl.sql.RelationalPathBase<QProperty
     }
 
     public QPropertytext(Path<? extends QPropertytext> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROPERTYTEXT");
+        super(path.getType(), path.getMetadata(), "public", "propertytext");
         addMetadata();
     }
 
     public QPropertytext(PathMetadata metadata) {
-        super(QPropertytext.class, metadata, "PUBLIC", "PROPERTYTEXT");
+        super(QPropertytext.class, metadata, "public", "propertytext");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(propertyvalue, ColumnMetadata.named("PROPERTYVALUE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(propertyvalue, ColumnMetadata.named("propertyvalue").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
     }
 
 }

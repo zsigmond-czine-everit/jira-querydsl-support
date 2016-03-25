@@ -37,7 +37,7 @@ public class QJquartzTriggers extends com.querydsl.sql.RelationalPathBase<QJquar
 
     private static final long serialVersionUID = 1703696168;
 
-    public static final QJquartzTriggers jquartzTriggers = new QJquartzTriggers("JQUARTZ_TRIGGERS");
+    public static final QJquartzTriggers jquartzTriggers = new QJquartzTriggers("jquartz_triggers");
 
     public final StringPath calendarName = createString("calendarName");
 
@@ -53,7 +53,7 @@ public class QJquartzTriggers extends com.querydsl.sql.RelationalPathBase<QJquar
 
     public final StringPath jobName = createString("jobName");
 
-    public final NumberPath<Byte> misfireInstr = createNumber("misfireInstr", Byte.class);
+    public final NumberPath<Short> misfireInstr = createNumber("misfireInstr", Short.class);
 
     public final NumberPath<Long> nextFireTime = createNumber("nextFireTime", Long.class);
 
@@ -73,10 +73,10 @@ public class QJquartzTriggers extends com.querydsl.sql.RelationalPathBase<QJquar
 
     public final StringPath triggerType = createString("triggerType");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzTriggers> sysIdx119 = createPrimaryKey(triggerGroup, triggerName);
+    public final com.querydsl.sql.PrimaryKey<QJquartzTriggers> jquartzTriggersPk = createPrimaryKey(triggerName, triggerGroup);
 
     public QJquartzTriggers(String variable) {
-        super(QJquartzTriggers.class, forVariable(variable), "PUBLIC", "JQUARTZ_TRIGGERS");
+        super(QJquartzTriggers.class, forVariable(variable), "public", "jquartz_triggers");
         addMetadata();
     }
 
@@ -86,33 +86,33 @@ public class QJquartzTriggers extends com.querydsl.sql.RelationalPathBase<QJquar
     }
 
     public QJquartzTriggers(Path<? extends QJquartzTriggers> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_TRIGGERS");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_triggers");
         addMetadata();
     }
 
     public QJquartzTriggers(PathMetadata metadata) {
-        super(QJquartzTriggers.class, metadata, "PUBLIC", "JQUARTZ_TRIGGERS");
+        super(QJquartzTriggers.class, metadata, "public", "jquartz_triggers");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(calendarName, ColumnMetadata.named("CALENDAR_NAME").withIndex(15).ofType(Types.VARCHAR).withSize(200));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(7).ofType(Types.VARCHAR).withSize(250));
-        addMetadata(endTime, ColumnMetadata.named("END_TIME").withIndex(14).ofType(Types.NUMERIC).withSize(13));
-        addMetadata(isVolatile, ColumnMetadata.named("IS_VOLATILE").withIndex(6).ofType(Types.BOOLEAN));
-        addMetadata(jobData, ColumnMetadata.named("JOB_DATA").withIndex(17).ofType(Types.VARBINARY).withSize(16000));
-        addMetadata(jobGroup, ColumnMetadata.named("JOB_GROUP").withIndex(5).ofType(Types.VARCHAR).withSize(200));
-        addMetadata(jobName, ColumnMetadata.named("JOB_NAME").withIndex(4).ofType(Types.VARCHAR).withSize(200));
-        addMetadata(misfireInstr, ColumnMetadata.named("MISFIRE_INSTR").withIndex(16).ofType(Types.NUMERIC).withSize(2));
-        addMetadata(nextFireTime, ColumnMetadata.named("NEXT_FIRE_TIME").withIndex(8).ofType(Types.NUMERIC).withSize(13));
-        addMetadata(prevFireTime, ColumnMetadata.named("PREV_FIRE_TIME").withIndex(9).ofType(Types.NUMERIC).withSize(13));
-        addMetadata(priority, ColumnMetadata.named("PRIORITY").withIndex(10).ofType(Types.NUMERIC).withSize(9));
-        addMetadata(schedName, ColumnMetadata.named("SCHED_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(120));
-        addMetadata(startTime, ColumnMetadata.named("START_TIME").withIndex(13).ofType(Types.NUMERIC).withSize(13));
-        addMetadata(triggerGroup, ColumnMetadata.named("TRIGGER_GROUP").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(triggerName, ColumnMetadata.named("TRIGGER_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(triggerState, ColumnMetadata.named("TRIGGER_STATE").withIndex(11).ofType(Types.VARCHAR).withSize(16));
-        addMetadata(triggerType, ColumnMetadata.named("TRIGGER_TYPE").withIndex(12).ofType(Types.VARCHAR).withSize(8));
+        addMetadata(calendarName, ColumnMetadata.named("calendar_name").withIndex(15).ofType(Types.VARCHAR).withSize(200));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(7).ofType(Types.VARCHAR).withSize(250));
+        addMetadata(endTime, ColumnMetadata.named("end_time").withIndex(14).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(isVolatile, ColumnMetadata.named("is_volatile").withIndex(6).ofType(Types.BIT).withSize(1));
+        addMetadata(jobData, ColumnMetadata.named("job_data").withIndex(17).ofType(Types.BINARY).withSize(2147483647));
+        addMetadata(jobGroup, ColumnMetadata.named("job_group").withIndex(5).ofType(Types.VARCHAR).withSize(200));
+        addMetadata(jobName, ColumnMetadata.named("job_name").withIndex(4).ofType(Types.VARCHAR).withSize(200));
+        addMetadata(misfireInstr, ColumnMetadata.named("misfire_instr").withIndex(16).ofType(Types.NUMERIC).withSize(4));
+        addMetadata(nextFireTime, ColumnMetadata.named("next_fire_time").withIndex(8).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(prevFireTime, ColumnMetadata.named("prev_fire_time").withIndex(9).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(priority, ColumnMetadata.named("priority").withIndex(10).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(schedName, ColumnMetadata.named("sched_name").withIndex(1).ofType(Types.VARCHAR).withSize(120));
+        addMetadata(startTime, ColumnMetadata.named("start_time").withIndex(13).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(triggerGroup, ColumnMetadata.named("trigger_group").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(triggerName, ColumnMetadata.named("trigger_name").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(triggerState, ColumnMetadata.named("trigger_state").withIndex(11).ofType(Types.VARCHAR).withSize(16));
+        addMetadata(triggerType, ColumnMetadata.named("trigger_type").withIndex(12).ofType(Types.VARCHAR).withSize(8));
     }
 
 }

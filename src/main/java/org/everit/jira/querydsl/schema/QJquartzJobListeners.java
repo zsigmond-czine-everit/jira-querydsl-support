@@ -37,7 +37,7 @@ public class QJquartzJobListeners extends com.querydsl.sql.RelationalPathBase<QJ
 
     private static final long serialVersionUID = -434785809;
 
-    public static final QJquartzJobListeners jquartzJobListeners = new QJquartzJobListeners("JQUARTZ_JOB_LISTENERS");
+    public static final QJquartzJobListeners jquartzJobListeners = new QJquartzJobListeners("jquartz_job_listeners");
 
     public final StringPath jobGroup = createString("jobGroup");
 
@@ -45,10 +45,10 @@ public class QJquartzJobListeners extends com.querydsl.sql.RelationalPathBase<QJ
 
     public final StringPath jobName = createString("jobName");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzJobListeners> sysIdx112 = createPrimaryKey(jobGroup, jobListener, jobName);
+    public final com.querydsl.sql.PrimaryKey<QJquartzJobListeners> jquartzJobListenersPk = createPrimaryKey(jobName, jobGroup, jobListener);
 
     public QJquartzJobListeners(String variable) {
-        super(QJquartzJobListeners.class, forVariable(variable), "PUBLIC", "JQUARTZ_JOB_LISTENERS");
+        super(QJquartzJobListeners.class, forVariable(variable), "public", "jquartz_job_listeners");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QJquartzJobListeners extends com.querydsl.sql.RelationalPathBase<QJ
     }
 
     public QJquartzJobListeners(Path<? extends QJquartzJobListeners> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_JOB_LISTENERS");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_job_listeners");
         addMetadata();
     }
 
     public QJquartzJobListeners(PathMetadata metadata) {
-        super(QJquartzJobListeners.class, metadata, "PUBLIC", "JQUARTZ_JOB_LISTENERS");
+        super(QJquartzJobListeners.class, metadata, "public", "jquartz_job_listeners");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(jobGroup, ColumnMetadata.named("JOB_GROUP").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(jobListener, ColumnMetadata.named("JOB_LISTENER").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(jobName, ColumnMetadata.named("JOB_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(jobGroup, ColumnMetadata.named("job_group").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(jobListener, ColumnMetadata.named("job_listener").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(jobName, ColumnMetadata.named("job_name").withIndex(1).ofType(Types.VARCHAR).withSize(200).notNull());
     }
 
 }

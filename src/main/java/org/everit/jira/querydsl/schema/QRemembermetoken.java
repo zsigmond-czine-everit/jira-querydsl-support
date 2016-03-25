@@ -37,7 +37,7 @@ public class QRemembermetoken extends com.querydsl.sql.RelationalPathBase<QRemem
 
     private static final long serialVersionUID = 658352892;
 
-    public static final QRemembermetoken remembermetoken = new QRemembermetoken("REMEMBERMETOKEN");
+    public static final QRemembermetoken remembermetoken = new QRemembermetoken("remembermetoken");
 
     public final DateTimePath<java.sql.Timestamp> created = createDateTime("created", java.sql.Timestamp.class);
 
@@ -47,10 +47,10 @@ public class QRemembermetoken extends com.querydsl.sql.RelationalPathBase<QRemem
 
     public final StringPath username = createString("username");
 
-    public final com.querydsl.sql.PrimaryKey<QRemembermetoken> sysIdx176 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QRemembermetoken> remembermetokenPk = createPrimaryKey(id);
 
     public QRemembermetoken(String variable) {
-        super(QRemembermetoken.class, forVariable(variable), "PUBLIC", "REMEMBERMETOKEN");
+        super(QRemembermetoken.class, forVariable(variable), "public", "remembermetoken");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QRemembermetoken extends com.querydsl.sql.RelationalPathBase<QRemem
     }
 
     public QRemembermetoken(Path<? extends QRemembermetoken> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "REMEMBERMETOKEN");
+        super(path.getType(), path.getMetadata(), "public", "remembermetoken");
         addMetadata();
     }
 
     public QRemembermetoken(PathMetadata metadata) {
-        super(QRemembermetoken.class, metadata, "PUBLIC", "REMEMBERMETOKEN");
+        super(QRemembermetoken.class, metadata, "public", "remembermetoken");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(2).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(token, ColumnMetadata.named("TOKEN").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(username, ColumnMetadata.named("USERNAME").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(2).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(token, ColumnMetadata.named("token").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(username, ColumnMetadata.named("username").withIndex(4).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

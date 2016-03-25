@@ -37,7 +37,7 @@ public class QAuditLog extends com.querydsl.sql.RelationalPathBase<QAuditLog> {
 
     private static final long serialVersionUID = 2079301537;
 
-    public static final QAuditLog auditLog = new QAuditLog("AUDIT_LOG");
+    public static final QAuditLog auditLog = new QAuditLog("audit_log");
 
     public final StringPath authorKey = createString("authorKey");
 
@@ -46,8 +46,6 @@ public class QAuditLog extends com.querydsl.sql.RelationalPathBase<QAuditLog> {
     public final StringPath category = createString("category");
 
     public final DateTimePath<java.sql.Timestamp> created = createDateTime("created", java.sql.Timestamp.class);
-
-    public final StringPath description = createString("description");
 
     public final StringPath eventSourceName = createString("eventSourceName");
 
@@ -69,10 +67,10 @@ public class QAuditLog extends com.querydsl.sql.RelationalPathBase<QAuditLog> {
 
     public final StringPath summary = createString("summary");
 
-    public final com.querydsl.sql.PrimaryKey<QAuditLog> sysIdx51 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QAuditLog> auditLogPk = createPrimaryKey(id);
 
     public QAuditLog(String variable) {
-        super(QAuditLog.class, forVariable(variable), "PUBLIC", "AUDIT_LOG");
+        super(QAuditLog.class, forVariable(variable), "public", "audit_log");
         addMetadata();
     }
 
@@ -82,31 +80,30 @@ public class QAuditLog extends com.querydsl.sql.RelationalPathBase<QAuditLog> {
     }
 
     public QAuditLog(Path<? extends QAuditLog> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "AUDIT_LOG");
+        super(path.getType(), path.getMetadata(), "public", "audit_log");
         addMetadata();
     }
 
     public QAuditLog(PathMetadata metadata) {
-        super(QAuditLog.class, metadata, "PUBLIC", "AUDIT_LOG");
+        super(QAuditLog.class, metadata, "public", "audit_log");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(authorKey, ColumnMetadata.named("AUTHOR_KEY").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(authorType, ColumnMetadata.named("AUTHOR_TYPE").withIndex(12).ofType(Types.INTEGER));
-        addMetadata(category, ColumnMetadata.named("CATEGORY").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(3).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(14).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(eventSourceName, ColumnMetadata.named("EVENT_SOURCE_NAME").withIndex(13).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(objectId, ColumnMetadata.named("OBJECT_ID").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(objectName, ColumnMetadata.named("OBJECT_NAME").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(objectParentId, ColumnMetadata.named("OBJECT_PARENT_ID").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(objectParentName, ColumnMetadata.named("OBJECT_PARENT_NAME").withIndex(11).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(objectType, ColumnMetadata.named("OBJECT_TYPE").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(remoteAddress, ColumnMetadata.named("REMOTE_ADDRESS").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(searchField, ColumnMetadata.named("SEARCH_FIELD").withIndex(15).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(summary, ColumnMetadata.named("SUMMARY").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(authorKey, ColumnMetadata.named("author_key").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(authorType, ColumnMetadata.named("author_type").withIndex(12).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(category, ColumnMetadata.named("category").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(3).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(eventSourceName, ColumnMetadata.named("event_source_name").withIndex(13).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(objectId, ColumnMetadata.named("object_id").withIndex(8).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(objectName, ColumnMetadata.named("object_name").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(objectParentId, ColumnMetadata.named("object_parent_id").withIndex(10).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(objectParentName, ColumnMetadata.named("object_parent_name").withIndex(11).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(objectType, ColumnMetadata.named("object_type").withIndex(7).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(remoteAddress, ColumnMetadata.named("remote_address").withIndex(2).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(searchField, ColumnMetadata.named("search_field").withIndex(14).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(summary, ColumnMetadata.named("summary").withIndex(5).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

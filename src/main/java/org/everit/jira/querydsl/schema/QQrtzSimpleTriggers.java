@@ -37,7 +37,7 @@ public class QQrtzSimpleTriggers extends com.querydsl.sql.RelationalPathBase<QQr
 
     private static final long serialVersionUID = -1288780276;
 
-    public static final QQrtzSimpleTriggers qrtzSimpleTriggers = new QQrtzSimpleTriggers("QRTZ_SIMPLE_TRIGGERS");
+    public static final QQrtzSimpleTriggers qrtzSimpleTriggers = new QQrtzSimpleTriggers("qrtz_simple_triggers");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -49,10 +49,10 @@ public class QQrtzSimpleTriggers extends com.querydsl.sql.RelationalPathBase<QQr
 
     public final NumberPath<Long> triggerId = createNumber("triggerId", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QQrtzSimpleTriggers> sysIdx171 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QQrtzSimpleTriggers> qrtzSimpleTriggersPk = createPrimaryKey(id);
 
     public QQrtzSimpleTriggers(String variable) {
-        super(QQrtzSimpleTriggers.class, forVariable(variable), "PUBLIC", "QRTZ_SIMPLE_TRIGGERS");
+        super(QQrtzSimpleTriggers.class, forVariable(variable), "public", "qrtz_simple_triggers");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QQrtzSimpleTriggers extends com.querydsl.sql.RelationalPathBase<QQr
     }
 
     public QQrtzSimpleTriggers(Path<? extends QQrtzSimpleTriggers> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "QRTZ_SIMPLE_TRIGGERS");
+        super(path.getType(), path.getMetadata(), "public", "qrtz_simple_triggers");
         addMetadata();
     }
 
     public QQrtzSimpleTriggers(PathMetadata metadata) {
-        super(QQrtzSimpleTriggers.class, metadata, "PUBLIC", "QRTZ_SIMPLE_TRIGGERS");
+        super(QQrtzSimpleTriggers.class, metadata, "public", "qrtz_simple_triggers");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(repeatCount, ColumnMetadata.named("REPEAT_COUNT").withIndex(3).ofType(Types.INTEGER));
-        addMetadata(repeatInterval, ColumnMetadata.named("REPEAT_INTERVAL").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(timesTriggered, ColumnMetadata.named("TIMES_TRIGGERED").withIndex(5).ofType(Types.INTEGER));
-        addMetadata(triggerId, ColumnMetadata.named("TRIGGER_ID").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(repeatCount, ColumnMetadata.named("repeat_count").withIndex(3).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(repeatInterval, ColumnMetadata.named("repeat_interval").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(timesTriggered, ColumnMetadata.named("times_triggered").withIndex(5).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(triggerId, ColumnMetadata.named("trigger_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

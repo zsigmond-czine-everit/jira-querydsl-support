@@ -37,7 +37,7 @@ public class QUserhistoryitem extends com.querydsl.sql.RelationalPathBase<QUserh
 
     private static final long serialVersionUID = -1339524156;
 
-    public static final QUserhistoryitem userhistoryitem = new QUserhistoryitem("USERHISTORYITEM");
+    public static final QUserhistoryitem userhistoryitem = new QUserhistoryitem("userhistoryitem");
 
     public final StringPath data = createString("data");
 
@@ -51,10 +51,10 @@ public class QUserhistoryitem extends com.querydsl.sql.RelationalPathBase<QUserh
 
     public final StringPath username = createString("username");
 
-    public final com.querydsl.sql.PrimaryKey<QUserhistoryitem> sysIdx197 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QUserhistoryitem> userhistoryitemPk = createPrimaryKey(id);
 
     public QUserhistoryitem(String variable) {
-        super(QUserhistoryitem.class, forVariable(variable), "PUBLIC", "USERHISTORYITEM");
+        super(QUserhistoryitem.class, forVariable(variable), "public", "userhistoryitem");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QUserhistoryitem extends com.querydsl.sql.RelationalPathBase<QUserh
     }
 
     public QUserhistoryitem(Path<? extends QUserhistoryitem> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "USERHISTORYITEM");
+        super(path.getType(), path.getMetadata(), "public", "userhistoryitem");
         addMetadata();
     }
 
     public QUserhistoryitem(PathMetadata metadata) {
-        super(QUserhistoryitem.class, metadata, "PUBLIC", "USERHISTORYITEM");
+        super(QUserhistoryitem.class, metadata, "public", "userhistoryitem");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(data, ColumnMetadata.named("DATA").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(entityid, ColumnMetadata.named("ENTITYID").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(entitytype, ColumnMetadata.named("ENTITYTYPE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(lastviewed, ColumnMetadata.named("LASTVIEWED").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(username, ColumnMetadata.named("USERNAME").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(data, ColumnMetadata.named("data").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(entityid, ColumnMetadata.named("entityid").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(entitytype, ColumnMetadata.named("entitytype").withIndex(2).ofType(Types.VARCHAR).withSize(10));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(lastviewed, ColumnMetadata.named("lastviewed").withIndex(5).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(username, ColumnMetadata.named("username").withIndex(4).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

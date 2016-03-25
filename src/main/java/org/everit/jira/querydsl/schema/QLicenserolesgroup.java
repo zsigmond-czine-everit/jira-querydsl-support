@@ -37,7 +37,7 @@ public class QLicenserolesgroup extends com.querydsl.sql.RelationalPathBase<QLic
 
     private static final long serialVersionUID = -866346581;
 
-    public static final QLicenserolesgroup licenserolesgroup = new QLicenserolesgroup("LICENSEROLESGROUP");
+    public static final QLicenserolesgroup licenserolesgroup = new QLicenserolesgroup("licenserolesgroup");
 
     public final StringPath groupId = createString("groupId");
 
@@ -45,12 +45,10 @@ public class QLicenserolesgroup extends com.querydsl.sql.RelationalPathBase<QLic
 
     public final StringPath licenseRoleName = createString("licenseRoleName");
 
-    public final StringPath primaryGroup = createString("primaryGroup");
-
-    public final com.querydsl.sql.PrimaryKey<QLicenserolesgroup> sysIdx122 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QLicenserolesgroup> licenserolesgroupPk = createPrimaryKey(id);
 
     public QLicenserolesgroup(String variable) {
-        super(QLicenserolesgroup.class, forVariable(variable), "PUBLIC", "LICENSEROLESGROUP");
+        super(QLicenserolesgroup.class, forVariable(variable), "public", "licenserolesgroup");
         addMetadata();
     }
 
@@ -60,20 +58,19 @@ public class QLicenserolesgroup extends com.querydsl.sql.RelationalPathBase<QLic
     }
 
     public QLicenserolesgroup(Path<? extends QLicenserolesgroup> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "LICENSEROLESGROUP");
+        super(path.getType(), path.getMetadata(), "public", "licenserolesgroup");
         addMetadata();
     }
 
     public QLicenserolesgroup(PathMetadata metadata) {
-        super(QLicenserolesgroup.class, metadata, "PUBLIC", "LICENSEROLESGROUP");
+        super(QLicenserolesgroup.class, metadata, "public", "licenserolesgroup");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(groupId, ColumnMetadata.named("GROUP_ID").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(licenseRoleName, ColumnMetadata.named("LICENSE_ROLE_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(primaryGroup, ColumnMetadata.named("PRIMARY_GROUP").withIndex(4).ofType(Types.CHAR).withSize(2147483647));
+        addMetadata(groupId, ColumnMetadata.named("group_id").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(licenseRoleName, ColumnMetadata.named("license_role_name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

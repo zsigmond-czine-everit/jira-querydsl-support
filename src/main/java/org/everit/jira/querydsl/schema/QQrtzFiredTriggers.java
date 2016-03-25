@@ -37,7 +37,7 @@ public class QQrtzFiredTriggers extends com.querydsl.sql.RelationalPathBase<QQrt
 
     private static final long serialVersionUID = -442917782;
 
-    public static final QQrtzFiredTriggers qrtzFiredTriggers = new QQrtzFiredTriggers("QRTZ_FIRED_TRIGGERS");
+    public static final QQrtzFiredTriggers qrtzFiredTriggers = new QQrtzFiredTriggers("qrtz_fired_triggers");
 
     public final StringPath entryId = createString("entryId");
 
@@ -51,10 +51,10 @@ public class QQrtzFiredTriggers extends com.querydsl.sql.RelationalPathBase<QQrt
 
     public final StringPath triggerState = createString("triggerState");
 
-    public final com.querydsl.sql.PrimaryKey<QQrtzFiredTriggers> sysIdx168 = createPrimaryKey(entryId);
+    public final com.querydsl.sql.PrimaryKey<QQrtzFiredTriggers> qrtzFiredTriggersPk = createPrimaryKey(entryId);
 
     public QQrtzFiredTriggers(String variable) {
-        super(QQrtzFiredTriggers.class, forVariable(variable), "PUBLIC", "QRTZ_FIRED_TRIGGERS");
+        super(QQrtzFiredTriggers.class, forVariable(variable), "public", "qrtz_fired_triggers");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QQrtzFiredTriggers extends com.querydsl.sql.RelationalPathBase<QQrt
     }
 
     public QQrtzFiredTriggers(Path<? extends QQrtzFiredTriggers> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "QRTZ_FIRED_TRIGGERS");
+        super(path.getType(), path.getMetadata(), "public", "qrtz_fired_triggers");
         addMetadata();
     }
 
     public QQrtzFiredTriggers(PathMetadata metadata) {
-        super(QQrtzFiredTriggers.class, metadata, "PUBLIC", "QRTZ_FIRED_TRIGGERS");
+        super(QQrtzFiredTriggers.class, metadata, "public", "qrtz_fired_triggers");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(entryId, ColumnMetadata.named("ENTRY_ID").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(firedTime, ColumnMetadata.named("FIRED_TIME").withIndex(5).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT));
-        addMetadata(triggerId, ColumnMetadata.named("TRIGGER_ID").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(triggerListener, ColumnMetadata.named("TRIGGER_LISTENER").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(triggerState, ColumnMetadata.named("TRIGGER_STATE").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(entryId, ColumnMetadata.named("entry_id").withIndex(2).ofType(Types.VARCHAR).withSize(255).notNull());
+        addMetadata(firedTime, ColumnMetadata.named("fired_time").withIndex(5).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(triggerId, ColumnMetadata.named("trigger_id").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(triggerListener, ColumnMetadata.named("trigger_listener").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(triggerState, ColumnMetadata.named("trigger_state").withIndex(6).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

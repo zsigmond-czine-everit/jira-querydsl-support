@@ -37,7 +37,7 @@ public class QTrackbackPing extends com.querydsl.sql.RelationalPathBase<QTrackba
 
     private static final long serialVersionUID = -58268148;
 
-    public static final QTrackbackPing trackbackPing = new QTrackbackPing("TRACKBACK_PING");
+    public static final QTrackbackPing trackbackPing = new QTrackbackPing("trackback_ping");
 
     public final StringPath blogname = createString("blogname");
 
@@ -53,10 +53,10 @@ public class QTrackbackPing extends com.querydsl.sql.RelationalPathBase<QTrackba
 
     public final StringPath url = createString("url");
 
-    public final com.querydsl.sql.PrimaryKey<QTrackbackPing> sysIdx190 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QTrackbackPing> trackbackPingPk = createPrimaryKey(id);
 
     public QTrackbackPing(String variable) {
-        super(QTrackbackPing.class, forVariable(variable), "PUBLIC", "TRACKBACK_PING");
+        super(QTrackbackPing.class, forVariable(variable), "public", "trackback_ping");
         addMetadata();
     }
 
@@ -66,23 +66,23 @@ public class QTrackbackPing extends com.querydsl.sql.RelationalPathBase<QTrackba
     }
 
     public QTrackbackPing(Path<? extends QTrackbackPing> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "TRACKBACK_PING");
+        super(path.getType(), path.getMetadata(), "public", "trackback_ping");
         addMetadata();
     }
 
     public QTrackbackPing(PathMetadata metadata) {
-        super(QTrackbackPing.class, metadata, "PUBLIC", "TRACKBACK_PING");
+        super(QTrackbackPing.class, metadata, "public", "trackback_ping");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(blogname, ColumnMetadata.named("BLOGNAME").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(7).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(excerpt, ColumnMetadata.named("EXCERPT").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issue, ColumnMetadata.named("ISSUE").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(title, ColumnMetadata.named("TITLE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(url, ColumnMetadata.named("URL").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(blogname, ColumnMetadata.named("blogname").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(7).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(excerpt, ColumnMetadata.named("excerpt").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issue, ColumnMetadata.named("issue").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(title, ColumnMetadata.named("title").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(url, ColumnMetadata.named("url").withIndex(3).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

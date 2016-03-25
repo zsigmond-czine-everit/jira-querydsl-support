@@ -37,7 +37,7 @@ public class QJquartzTriggerListeners extends com.querydsl.sql.RelationalPathBas
 
     private static final long serialVersionUID = 436650964;
 
-    public static final QJquartzTriggerListeners jquartzTriggerListeners = new QJquartzTriggerListeners("JQUARTZ_TRIGGER_LISTENERS");
+    public static final QJquartzTriggerListeners jquartzTriggerListeners = new QJquartzTriggerListeners("jquartz_trigger_listeners");
 
     public final StringPath triggerGroup = createString("triggerGroup");
 
@@ -45,10 +45,10 @@ public class QJquartzTriggerListeners extends com.querydsl.sql.RelationalPathBas
 
     public final StringPath triggerName = createString("triggerName");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzTriggerListeners> sysIdx118 = createPrimaryKey(triggerGroup, triggerListener);
+    public final com.querydsl.sql.PrimaryKey<QJquartzTriggerListeners> jquartzTriggerListenersPk = createPrimaryKey(triggerGroup, triggerListener);
 
     public QJquartzTriggerListeners(String variable) {
-        super(QJquartzTriggerListeners.class, forVariable(variable), "PUBLIC", "JQUARTZ_TRIGGER_LISTENERS");
+        super(QJquartzTriggerListeners.class, forVariable(variable), "public", "jquartz_trigger_listeners");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QJquartzTriggerListeners extends com.querydsl.sql.RelationalPathBas
     }
 
     public QJquartzTriggerListeners(Path<? extends QJquartzTriggerListeners> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_TRIGGER_LISTENERS");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_trigger_listeners");
         addMetadata();
     }
 
     public QJquartzTriggerListeners(PathMetadata metadata) {
-        super(QJquartzTriggerListeners.class, metadata, "PUBLIC", "JQUARTZ_TRIGGER_LISTENERS");
+        super(QJquartzTriggerListeners.class, metadata, "public", "jquartz_trigger_listeners");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(triggerGroup, ColumnMetadata.named("TRIGGER_GROUP").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(triggerListener, ColumnMetadata.named("TRIGGER_LISTENER").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(triggerName, ColumnMetadata.named("TRIGGER_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(200));
+        addMetadata(triggerGroup, ColumnMetadata.named("trigger_group").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(triggerListener, ColumnMetadata.named("trigger_listener").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(triggerName, ColumnMetadata.named("trigger_name").withIndex(1).ofType(Types.VARCHAR).withSize(200));
     }
 
 }

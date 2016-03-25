@@ -37,7 +37,7 @@ public class QJquartzSimpropTriggers extends com.querydsl.sql.RelationalPathBase
 
     private static final long serialVersionUID = 1987710600;
 
-    public static final QJquartzSimpropTriggers jquartzSimpropTriggers = new QJquartzSimpropTriggers("JQUARTZ_SIMPROP_TRIGGERS");
+    public static final QJquartzSimpropTriggers jquartzSimpropTriggers = new QJquartzSimpropTriggers("jquartz_simprop_triggers");
 
     public final BooleanPath boolProp1 = createBoolean("boolProp1");
 
@@ -67,10 +67,10 @@ public class QJquartzSimpropTriggers extends com.querydsl.sql.RelationalPathBase
 
     public final StringPath triggerName = createString("triggerName");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzSimpropTriggers> sysIdx116 = createPrimaryKey(triggerGroup, triggerName);
+    public final com.querydsl.sql.PrimaryKey<QJquartzSimpropTriggers> jquartzSimpropTriggersPk = createPrimaryKey(triggerName, triggerGroup);
 
     public QJquartzSimpropTriggers(String variable) {
-        super(QJquartzSimpropTriggers.class, forVariable(variable), "PUBLIC", "JQUARTZ_SIMPROP_TRIGGERS");
+        super(QJquartzSimpropTriggers.class, forVariable(variable), "public", "jquartz_simprop_triggers");
         addMetadata();
     }
 
@@ -80,30 +80,30 @@ public class QJquartzSimpropTriggers extends com.querydsl.sql.RelationalPathBase
     }
 
     public QJquartzSimpropTriggers(Path<? extends QJquartzSimpropTriggers> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_SIMPROP_TRIGGERS");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_simprop_triggers");
         addMetadata();
     }
 
     public QJquartzSimpropTriggers(PathMetadata metadata) {
-        super(QJquartzSimpropTriggers.class, metadata, "PUBLIC", "JQUARTZ_SIMPROP_TRIGGERS");
+        super(QJquartzSimpropTriggers.class, metadata, "public", "jquartz_simprop_triggers");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(boolProp1, ColumnMetadata.named("BOOL_PROP_1").withIndex(13).ofType(Types.BOOLEAN));
-        addMetadata(boolProp2, ColumnMetadata.named("BOOL_PROP_2").withIndex(14).ofType(Types.BOOLEAN));
-        addMetadata(decProp1, ColumnMetadata.named("DEC_PROP_1").withIndex(11).ofType(Types.NUMERIC).withSize(13).withDigits(4));
-        addMetadata(decProp2, ColumnMetadata.named("DEC_PROP_2").withIndex(12).ofType(Types.NUMERIC).withSize(13).withDigits(4));
-        addMetadata(intProp1, ColumnMetadata.named("INT_PROP_1").withIndex(7).ofType(Types.NUMERIC).withSize(9));
-        addMetadata(intProp2, ColumnMetadata.named("INT_PROP_2").withIndex(8).ofType(Types.NUMERIC).withSize(9));
-        addMetadata(longProp1, ColumnMetadata.named("LONG_PROP_1").withIndex(9).ofType(Types.NUMERIC).withSize(13));
-        addMetadata(longProp2, ColumnMetadata.named("LONG_PROP_2").withIndex(10).ofType(Types.NUMERIC).withSize(13));
-        addMetadata(schedName, ColumnMetadata.named("SCHED_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(120));
-        addMetadata(strProp1, ColumnMetadata.named("STR_PROP_1").withIndex(4).ofType(Types.VARCHAR).withSize(512));
-        addMetadata(strProp2, ColumnMetadata.named("STR_PROP_2").withIndex(5).ofType(Types.VARCHAR).withSize(512));
-        addMetadata(strProp3, ColumnMetadata.named("STR_PROP_3").withIndex(6).ofType(Types.VARCHAR).withSize(512));
-        addMetadata(triggerGroup, ColumnMetadata.named("TRIGGER_GROUP").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(triggerName, ColumnMetadata.named("TRIGGER_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(boolProp1, ColumnMetadata.named("bool_prop_1").withIndex(13).ofType(Types.BIT).withSize(1));
+        addMetadata(boolProp2, ColumnMetadata.named("bool_prop_2").withIndex(14).ofType(Types.BIT).withSize(1));
+        addMetadata(decProp1, ColumnMetadata.named("dec_prop_1").withIndex(11).ofType(Types.NUMERIC).withSize(13).withDigits(4));
+        addMetadata(decProp2, ColumnMetadata.named("dec_prop_2").withIndex(12).ofType(Types.NUMERIC).withSize(13).withDigits(4));
+        addMetadata(intProp1, ColumnMetadata.named("int_prop_1").withIndex(7).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(intProp2, ColumnMetadata.named("int_prop_2").withIndex(8).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(longProp1, ColumnMetadata.named("long_prop_1").withIndex(9).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(longProp2, ColumnMetadata.named("long_prop_2").withIndex(10).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(schedName, ColumnMetadata.named("sched_name").withIndex(1).ofType(Types.VARCHAR).withSize(120));
+        addMetadata(strProp1, ColumnMetadata.named("str_prop_1").withIndex(4).ofType(Types.VARCHAR).withSize(512));
+        addMetadata(strProp2, ColumnMetadata.named("str_prop_2").withIndex(5).ofType(Types.VARCHAR).withSize(512));
+        addMetadata(strProp3, ColumnMetadata.named("str_prop_3").withIndex(6).ofType(Types.VARCHAR).withSize(512));
+        addMetadata(triggerGroup, ColumnMetadata.named("trigger_group").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(triggerName, ColumnMetadata.named("trigger_name").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
     }
 
 }

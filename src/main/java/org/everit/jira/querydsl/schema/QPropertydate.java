@@ -37,16 +37,16 @@ public class QPropertydate extends com.querydsl.sql.RelationalPathBase<QProperty
 
     private static final long serialVersionUID = -984194757;
 
-    public static final QPropertydate propertydate = new QPropertydate("PROPERTYDATE");
+    public static final QPropertydate propertydate = new QPropertydate("propertydate");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final DateTimePath<java.sql.Timestamp> propertyvalue = createDateTime("propertyvalue", java.sql.Timestamp.class);
 
-    public final com.querydsl.sql.PrimaryKey<QPropertydate> sysIdx144 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPropertydate> propertydatePk = createPrimaryKey(id);
 
     public QPropertydate(String variable) {
-        super(QPropertydate.class, forVariable(variable), "PUBLIC", "PROPERTYDATE");
+        super(QPropertydate.class, forVariable(variable), "public", "propertydate");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QPropertydate extends com.querydsl.sql.RelationalPathBase<QProperty
     }
 
     public QPropertydate(Path<? extends QPropertydate> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROPERTYDATE");
+        super(path.getType(), path.getMetadata(), "public", "propertydate");
         addMetadata();
     }
 
     public QPropertydate(PathMetadata metadata) {
-        super(QPropertydate.class, metadata, "PUBLIC", "PROPERTYDATE");
+        super(QPropertydate.class, metadata, "public", "propertydate");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(propertyvalue, ColumnMetadata.named("PROPERTYVALUE").withIndex(2).ofType(Types.TIMESTAMP).withSize(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(propertyvalue, ColumnMetadata.named("propertyvalue").withIndex(2).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
     }
 
 }

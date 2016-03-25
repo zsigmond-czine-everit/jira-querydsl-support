@@ -37,7 +37,7 @@ public class QRundetails extends com.querydsl.sql.RelationalPathBase<QRundetails
 
     private static final long serialVersionUID = 1715997071;
 
-    public static final QRundetails rundetails = new QRundetails("RUNDETAILS");
+    public static final QRundetails rundetails = new QRundetails("rundetails");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -51,10 +51,10 @@ public class QRundetails extends com.querydsl.sql.RelationalPathBase<QRundetails
 
     public final DateTimePath<java.sql.Timestamp> startTime = createDateTime("startTime", java.sql.Timestamp.class);
 
-    public final com.querydsl.sql.PrimaryKey<QRundetails> sysIdx181 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QRundetails> rundetailsPk = createPrimaryKey(id);
 
     public QRundetails(String variable) {
-        super(QRundetails.class, forVariable(variable), "PUBLIC", "RUNDETAILS");
+        super(QRundetails.class, forVariable(variable), "public", "rundetails");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QRundetails extends com.querydsl.sql.RelationalPathBase<QRundetails
     }
 
     public QRundetails(Path<? extends QRundetails> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "RUNDETAILS");
+        super(path.getType(), path.getMetadata(), "public", "rundetails");
         addMetadata();
     }
 
     public QRundetails(PathMetadata metadata) {
-        super(QRundetails.class, metadata, "PUBLIC", "RUNDETAILS");
+        super(QRundetails.class, metadata, "public", "rundetails");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(infoMessage, ColumnMetadata.named("INFO_MESSAGE").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(jobId, ColumnMetadata.named("JOB_ID").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(runDuration, ColumnMetadata.named("RUN_DURATION").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(runOutcome, ColumnMetadata.named("RUN_OUTCOME").withIndex(5).ofType(Types.CHAR).withSize(2147483647));
-        addMetadata(startTime, ColumnMetadata.named("START_TIME").withIndex(3).ofType(Types.TIMESTAMP).withSize(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(infoMessage, ColumnMetadata.named("info_message").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(jobId, ColumnMetadata.named("job_id").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(runDuration, ColumnMetadata.named("run_duration").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(runOutcome, ColumnMetadata.named("run_outcome").withIndex(5).ofType(Types.CHAR).withSize(1));
+        addMetadata(startTime, ColumnMetadata.named("start_time").withIndex(3).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
     }
 
 }

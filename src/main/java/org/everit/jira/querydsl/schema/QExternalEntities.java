@@ -37,7 +37,7 @@ public class QExternalEntities extends com.querydsl.sql.RelationalPathBase<QExte
 
     private static final long serialVersionUID = -1687044380;
 
-    public static final QExternalEntities externalEntities = new QExternalEntities("EXTERNAL_ENTITIES");
+    public static final QExternalEntities externalEntities = new QExternalEntities("external_entities");
 
     public final StringPath entitytype = createString("entitytype");
 
@@ -45,10 +45,10 @@ public class QExternalEntities extends com.querydsl.sql.RelationalPathBase<QExte
 
     public final StringPath name = createString("name");
 
-    public final com.querydsl.sql.PrimaryKey<QExternalEntities> sysIdx76 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QExternalEntities> externalEntitiesPk = createPrimaryKey(id);
 
     public QExternalEntities(String variable) {
-        super(QExternalEntities.class, forVariable(variable), "PUBLIC", "EXTERNAL_ENTITIES");
+        super(QExternalEntities.class, forVariable(variable), "public", "external_entities");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QExternalEntities extends com.querydsl.sql.RelationalPathBase<QExte
     }
 
     public QExternalEntities(Path<? extends QExternalEntities> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "EXTERNAL_ENTITIES");
+        super(path.getType(), path.getMetadata(), "public", "external_entities");
         addMetadata();
     }
 
     public QExternalEntities(PathMetadata metadata) {
-        super(QExternalEntities.class, metadata, "PUBLIC", "EXTERNAL_ENTITIES");
+        super(QExternalEntities.class, metadata, "public", "external_entities");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(entitytype, ColumnMetadata.named("ENTITYTYPE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(name, ColumnMetadata.named("NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(entitytype, ColumnMetadata.named("entitytype").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(name, ColumnMetadata.named("name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

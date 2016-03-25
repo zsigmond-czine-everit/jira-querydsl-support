@@ -37,7 +37,7 @@ public class QJquartzFiredTriggers extends com.querydsl.sql.RelationalPathBase<Q
 
     private static final long serialVersionUID = 1089220476;
 
-    public static final QJquartzFiredTriggers jquartzFiredTriggers = new QJquartzFiredTriggers("JQUARTZ_FIRED_TRIGGERS");
+    public static final QJquartzFiredTriggers jquartzFiredTriggers = new QJquartzFiredTriggers("jquartz_fired_triggers");
 
     public final StringPath entryId = createString("entryId");
 
@@ -71,10 +71,10 @@ public class QJquartzFiredTriggers extends com.querydsl.sql.RelationalPathBase<Q
 
     public final StringPath triggerName = createString("triggerName");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzFiredTriggers> sysIdx110 = createPrimaryKey(entryId);
+    public final com.querydsl.sql.PrimaryKey<QJquartzFiredTriggers> jquartzFiredTriggersPk = createPrimaryKey(entryId);
 
     public QJquartzFiredTriggers(String variable) {
-        super(QJquartzFiredTriggers.class, forVariable(variable), "PUBLIC", "JQUARTZ_FIRED_TRIGGERS");
+        super(QJquartzFiredTriggers.class, forVariable(variable), "public", "jquartz_fired_triggers");
         addMetadata();
     }
 
@@ -84,32 +84,32 @@ public class QJquartzFiredTriggers extends com.querydsl.sql.RelationalPathBase<Q
     }
 
     public QJquartzFiredTriggers(Path<? extends QJquartzFiredTriggers> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_FIRED_TRIGGERS");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_fired_triggers");
         addMetadata();
     }
 
     public QJquartzFiredTriggers(PathMetadata metadata) {
-        super(QJquartzFiredTriggers.class, metadata, "PUBLIC", "JQUARTZ_FIRED_TRIGGERS");
+        super(QJquartzFiredTriggers.class, metadata, "public", "jquartz_fired_triggers");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(entryId, ColumnMetadata.named("ENTRY_ID").withIndex(2).ofType(Types.VARCHAR).withSize(95).notNull());
-        addMetadata(firedTime, ColumnMetadata.named("FIRED_TIME").withIndex(7).ofType(Types.NUMERIC).withSize(13));
-        addMetadata(instanceName, ColumnMetadata.named("INSTANCE_NAME").withIndex(6).ofType(Types.VARCHAR).withSize(200));
-        addMetadata(isNonconcurrent, ColumnMetadata.named("IS_NONCONCURRENT").withIndex(14).ofType(Types.BOOLEAN));
-        addMetadata(isStateful, ColumnMetadata.named("IS_STATEFUL").withIndex(13).ofType(Types.BOOLEAN));
-        addMetadata(isUpdateData, ColumnMetadata.named("IS_UPDATE_DATA").withIndex(15).ofType(Types.BOOLEAN));
-        addMetadata(isVolatile, ColumnMetadata.named("IS_VOLATILE").withIndex(5).ofType(Types.BOOLEAN));
-        addMetadata(jobGroup, ColumnMetadata.named("JOB_GROUP").withIndex(12).ofType(Types.VARCHAR).withSize(200));
-        addMetadata(jobName, ColumnMetadata.named("JOB_NAME").withIndex(11).ofType(Types.VARCHAR).withSize(200));
-        addMetadata(priority, ColumnMetadata.named("PRIORITY").withIndex(9).ofType(Types.NUMERIC).withSize(9));
-        addMetadata(requestsRecovery, ColumnMetadata.named("REQUESTS_RECOVERY").withIndex(16).ofType(Types.BOOLEAN));
-        addMetadata(schedName, ColumnMetadata.named("SCHED_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(120));
-        addMetadata(schedTime, ColumnMetadata.named("SCHED_TIME").withIndex(8).ofType(Types.NUMERIC).withSize(13));
-        addMetadata(state, ColumnMetadata.named("STATE").withIndex(10).ofType(Types.VARCHAR).withSize(16));
-        addMetadata(triggerGroup, ColumnMetadata.named("TRIGGER_GROUP").withIndex(4).ofType(Types.VARCHAR).withSize(200));
-        addMetadata(triggerName, ColumnMetadata.named("TRIGGER_NAME").withIndex(3).ofType(Types.VARCHAR).withSize(200));
+        addMetadata(entryId, ColumnMetadata.named("entry_id").withIndex(2).ofType(Types.VARCHAR).withSize(95).notNull());
+        addMetadata(firedTime, ColumnMetadata.named("fired_time").withIndex(7).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(instanceName, ColumnMetadata.named("instance_name").withIndex(6).ofType(Types.VARCHAR).withSize(200));
+        addMetadata(isNonconcurrent, ColumnMetadata.named("is_nonconcurrent").withIndex(14).ofType(Types.BIT).withSize(1));
+        addMetadata(isStateful, ColumnMetadata.named("is_stateful").withIndex(13).ofType(Types.BIT).withSize(1));
+        addMetadata(isUpdateData, ColumnMetadata.named("is_update_data").withIndex(15).ofType(Types.BIT).withSize(1));
+        addMetadata(isVolatile, ColumnMetadata.named("is_volatile").withIndex(5).ofType(Types.BIT).withSize(1));
+        addMetadata(jobGroup, ColumnMetadata.named("job_group").withIndex(12).ofType(Types.VARCHAR).withSize(200));
+        addMetadata(jobName, ColumnMetadata.named("job_name").withIndex(11).ofType(Types.VARCHAR).withSize(200));
+        addMetadata(priority, ColumnMetadata.named("priority").withIndex(9).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(requestsRecovery, ColumnMetadata.named("requests_recovery").withIndex(16).ofType(Types.BIT).withSize(1));
+        addMetadata(schedName, ColumnMetadata.named("sched_name").withIndex(1).ofType(Types.VARCHAR).withSize(120));
+        addMetadata(schedTime, ColumnMetadata.named("sched_time").withIndex(8).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(state, ColumnMetadata.named("state").withIndex(10).ofType(Types.VARCHAR).withSize(16));
+        addMetadata(triggerGroup, ColumnMetadata.named("trigger_group").withIndex(4).ofType(Types.VARCHAR).withSize(200));
+        addMetadata(triggerName, ColumnMetadata.named("trigger_name").withIndex(3).ofType(Types.VARCHAR).withSize(200));
     }
 
 }

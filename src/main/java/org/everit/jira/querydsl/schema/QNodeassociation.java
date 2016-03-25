@@ -37,7 +37,7 @@ public class QNodeassociation extends com.querydsl.sql.RelationalPathBase<QNodea
 
     private static final long serialVersionUID = 1189931015;
 
-    public static final QNodeassociation nodeassociation = new QNodeassociation("NODEASSOCIATION");
+    public static final QNodeassociation nodeassociation = new QNodeassociation("nodeassociation");
 
     public final StringPath associationType = createString("associationType");
 
@@ -51,10 +51,10 @@ public class QNodeassociation extends com.querydsl.sql.RelationalPathBase<QNodea
 
     public final NumberPath<Long> sourceNodeId = createNumber("sourceNodeId", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QNodeassociation> sysIdx128 = createPrimaryKey(associationType, sinkNodeEntity, sinkNodeId, sourceNodeEntity, sourceNodeId);
+    public final com.querydsl.sql.PrimaryKey<QNodeassociation> nodeassociationPk = createPrimaryKey(sourceNodeId, sourceNodeEntity, sinkNodeId, sinkNodeEntity, associationType);
 
     public QNodeassociation(String variable) {
-        super(QNodeassociation.class, forVariable(variable), "PUBLIC", "NODEASSOCIATION");
+        super(QNodeassociation.class, forVariable(variable), "public", "nodeassociation");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QNodeassociation extends com.querydsl.sql.RelationalPathBase<QNodea
     }
 
     public QNodeassociation(Path<? extends QNodeassociation> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "NODEASSOCIATION");
+        super(path.getType(), path.getMetadata(), "public", "nodeassociation");
         addMetadata();
     }
 
     public QNodeassociation(PathMetadata metadata) {
-        super(QNodeassociation.class, metadata, "PUBLIC", "NODEASSOCIATION");
+        super(QNodeassociation.class, metadata, "public", "nodeassociation");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(associationType, ColumnMetadata.named("ASSOCIATION_TYPE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(6).ofType(Types.INTEGER));
-        addMetadata(sinkNodeEntity, ColumnMetadata.named("SINK_NODE_ENTITY").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(sinkNodeId, ColumnMetadata.named("SINK_NODE_ID").withIndex(3).ofType(Types.BIGINT).notNull());
-        addMetadata(sourceNodeEntity, ColumnMetadata.named("SOURCE_NODE_ENTITY").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(sourceNodeId, ColumnMetadata.named("SOURCE_NODE_ID").withIndex(1).ofType(Types.BIGINT).notNull());
+        addMetadata(associationType, ColumnMetadata.named("association_type").withIndex(5).ofType(Types.VARCHAR).withSize(60).notNull());
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(6).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(sinkNodeEntity, ColumnMetadata.named("sink_node_entity").withIndex(4).ofType(Types.VARCHAR).withSize(60).notNull());
+        addMetadata(sinkNodeId, ColumnMetadata.named("sink_node_id").withIndex(3).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(sourceNodeEntity, ColumnMetadata.named("source_node_entity").withIndex(2).ofType(Types.VARCHAR).withSize(60).notNull());
+        addMetadata(sourceNodeId, ColumnMetadata.named("source_node_id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
     }
 
 }

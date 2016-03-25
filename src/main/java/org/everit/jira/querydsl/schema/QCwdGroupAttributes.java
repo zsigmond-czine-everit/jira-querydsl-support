@@ -37,7 +37,7 @@ public class QCwdGroupAttributes extends com.querydsl.sql.RelationalPathBase<QCw
 
     private static final long serialVersionUID = 1488891102;
 
-    public static final QCwdGroupAttributes cwdGroupAttributes = new QCwdGroupAttributes("CWD_GROUP_ATTRIBUTES");
+    public static final QCwdGroupAttributes cwdGroupAttributes = new QCwdGroupAttributes("cwd_group_attributes");
 
     public final StringPath attributeName = createString("attributeName");
 
@@ -51,10 +51,10 @@ public class QCwdGroupAttributes extends com.querydsl.sql.RelationalPathBase<QCw
 
     public final StringPath lowerAttributeValue = createString("lowerAttributeValue");
 
-    public final com.querydsl.sql.PrimaryKey<QCwdGroupAttributes> sysIdx99 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QCwdGroupAttributes> cwdGroupAttributesPk = createPrimaryKey(id);
 
     public QCwdGroupAttributes(String variable) {
-        super(QCwdGroupAttributes.class, forVariable(variable), "PUBLIC", "CWD_GROUP_ATTRIBUTES");
+        super(QCwdGroupAttributes.class, forVariable(variable), "public", "cwd_group_attributes");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QCwdGroupAttributes extends com.querydsl.sql.RelationalPathBase<QCw
     }
 
     public QCwdGroupAttributes(Path<? extends QCwdGroupAttributes> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CWD_GROUP_ATTRIBUTES");
+        super(path.getType(), path.getMetadata(), "public", "cwd_group_attributes");
         addMetadata();
     }
 
     public QCwdGroupAttributes(PathMetadata metadata) {
-        super(QCwdGroupAttributes.class, metadata, "PUBLIC", "CWD_GROUP_ATTRIBUTES");
+        super(QCwdGroupAttributes.class, metadata, "public", "cwd_group_attributes");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(attributeName, ColumnMetadata.named("ATTRIBUTE_NAME").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(attributeValue, ColumnMetadata.named("ATTRIBUTE_VALUE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(directoryId, ColumnMetadata.named("DIRECTORY_ID").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(groupId, ColumnMetadata.named("GROUP_ID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(lowerAttributeValue, ColumnMetadata.named("LOWER_ATTRIBUTE_VALUE").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(attributeName, ColumnMetadata.named("attribute_name").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(attributeValue, ColumnMetadata.named("attribute_value").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(directoryId, ColumnMetadata.named("directory_id").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(groupId, ColumnMetadata.named("group_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(lowerAttributeValue, ColumnMetadata.named("lower_attribute_value").withIndex(6).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

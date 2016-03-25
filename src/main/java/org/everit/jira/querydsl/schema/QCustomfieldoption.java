@@ -37,7 +37,7 @@ public class QCustomfieldoption extends com.querydsl.sql.RelationalPathBase<QCus
 
     private static final long serialVersionUID = 464664230;
 
-    public static final QCustomfieldoption customfieldoption = new QCustomfieldoption("CUSTOMFIELDOPTION");
+    public static final QCustomfieldoption customfieldoption = new QCustomfieldoption("customfieldoption");
 
     public final NumberPath<Long> customfield = createNumber("customfield", Long.class);
 
@@ -55,10 +55,10 @@ public class QCustomfieldoption extends com.querydsl.sql.RelationalPathBase<QCus
 
     public final NumberPath<Long> sequence = createNumber("sequence", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QCustomfieldoption> sysIdx65 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QCustomfieldoption> customfieldoptionPk = createPrimaryKey(id);
 
     public QCustomfieldoption(String variable) {
-        super(QCustomfieldoption.class, forVariable(variable), "PUBLIC", "CUSTOMFIELDOPTION");
+        super(QCustomfieldoption.class, forVariable(variable), "public", "customfieldoption");
         addMetadata();
     }
 
@@ -68,24 +68,24 @@ public class QCustomfieldoption extends com.querydsl.sql.RelationalPathBase<QCus
     }
 
     public QCustomfieldoption(Path<? extends QCustomfieldoption> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CUSTOMFIELDOPTION");
+        super(path.getType(), path.getMetadata(), "public", "customfieldoption");
         addMetadata();
     }
 
     public QCustomfieldoption(PathMetadata metadata) {
-        super(QCustomfieldoption.class, metadata, "PUBLIC", "CUSTOMFIELDOPTION");
+        super(QCustomfieldoption.class, metadata, "public", "customfieldoption");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(customfield, ColumnMetadata.named("CUSTOMFIELD").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(customfieldconfig, ColumnMetadata.named("CUSTOMFIELDCONFIG").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(customvalue, ColumnMetadata.named("CUSTOMVALUE").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(disabled, ColumnMetadata.named("DISABLED").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(optiontype, ColumnMetadata.named("OPTIONTYPE").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(parentoptionid, ColumnMetadata.named("PARENTOPTIONID").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(5).ofType(Types.BIGINT));
+        addMetadata(customfield, ColumnMetadata.named("customfield").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(customfieldconfig, ColumnMetadata.named("customfieldconfig").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(customvalue, ColumnMetadata.named("customvalue").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(disabled, ColumnMetadata.named("disabled").withIndex(8).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(optiontype, ColumnMetadata.named("optiontype").withIndex(7).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(parentoptionid, ColumnMetadata.named("parentoptionid").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(5).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

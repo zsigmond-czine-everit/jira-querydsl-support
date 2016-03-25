@@ -37,18 +37,16 @@ public class QClusternodeheartbeat extends com.querydsl.sql.RelationalPathBase<Q
 
     private static final long serialVersionUID = 358918072;
 
-    public static final QClusternodeheartbeat clusternodeheartbeat = new QClusternodeheartbeat("CLUSTERNODEHEARTBEAT");
-
-    public final NumberPath<Long> databaseTime = createNumber("databaseTime", Long.class);
+    public static final QClusternodeheartbeat clusternodeheartbeat = new QClusternodeheartbeat("clusternodeheartbeat");
 
     public final NumberPath<Long> heartbeatTime = createNumber("heartbeatTime", Long.class);
 
     public final StringPath nodeId = createString("nodeId");
 
-    public final com.querydsl.sql.PrimaryKey<QClusternodeheartbeat> sysIdx58 = createPrimaryKey(nodeId);
+    public final com.querydsl.sql.PrimaryKey<QClusternodeheartbeat> clusternodeheartbeatPk = createPrimaryKey(nodeId);
 
     public QClusternodeheartbeat(String variable) {
-        super(QClusternodeheartbeat.class, forVariable(variable), "PUBLIC", "CLUSTERNODEHEARTBEAT");
+        super(QClusternodeheartbeat.class, forVariable(variable), "public", "clusternodeheartbeat");
         addMetadata();
     }
 
@@ -58,19 +56,18 @@ public class QClusternodeheartbeat extends com.querydsl.sql.RelationalPathBase<Q
     }
 
     public QClusternodeheartbeat(Path<? extends QClusternodeheartbeat> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CLUSTERNODEHEARTBEAT");
+        super(path.getType(), path.getMetadata(), "public", "clusternodeheartbeat");
         addMetadata();
     }
 
     public QClusternodeheartbeat(PathMetadata metadata) {
-        super(QClusternodeheartbeat.class, metadata, "PUBLIC", "CLUSTERNODEHEARTBEAT");
+        super(QClusternodeheartbeat.class, metadata, "public", "clusternodeheartbeat");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(databaseTime, ColumnMetadata.named("DATABASE_TIME").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(heartbeatTime, ColumnMetadata.named("HEARTBEAT_TIME").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(nodeId, ColumnMetadata.named("NODE_ID").withIndex(1).ofType(Types.VARCHAR).withSize(2147483647).notNull());
+        addMetadata(heartbeatTime, ColumnMetadata.named("heartbeat_time").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(nodeId, ColumnMetadata.named("node_id").withIndex(1).ofType(Types.VARCHAR).withSize(60).notNull());
     }
 
 }

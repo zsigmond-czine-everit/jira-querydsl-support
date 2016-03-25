@@ -37,7 +37,7 @@ public class QPriority extends com.querydsl.sql.RelationalPathBase<QPriority> {
 
     private static final long serialVersionUID = -62202916;
 
-    public static final QPriority priority = new QPriority("PRIORITY");
+    public static final QPriority priority = new QPriority("priority");
 
     public final StringPath description = createString("description");
 
@@ -51,10 +51,10 @@ public class QPriority extends com.querydsl.sql.RelationalPathBase<QPriority> {
 
     public final StringPath statusColor = createString("statusColor");
 
-    public final com.querydsl.sql.PrimaryKey<QPriority> sysIdx159 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPriority> priorityPk = createPrimaryKey(id);
 
     public QPriority(String variable) {
-        super(QPriority.class, forVariable(variable), "PUBLIC", "PRIORITY");
+        super(QPriority.class, forVariable(variable), "public", "priority");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QPriority extends com.querydsl.sql.RelationalPathBase<QPriority> {
     }
 
     public QPriority(Path<? extends QPriority> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PRIORITY");
+        super(path.getType(), path.getMetadata(), "public", "priority");
         addMetadata();
     }
 
     public QPriority(PathMetadata metadata) {
-        super(QPriority.class, metadata, "PUBLIC", "PRIORITY");
+        super(QPriority.class, metadata, "public", "priority");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(iconurl, ColumnMetadata.named("ICONURL").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(pname, ColumnMetadata.named("PNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(statusColor, ColumnMetadata.named("STATUS_COLOR").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(iconurl, ColumnMetadata.named("iconurl").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.VARCHAR).withSize(60).notNull());
+        addMetadata(pname, ColumnMetadata.named("pname").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(statusColor, ColumnMetadata.named("status_color").withIndex(6).ofType(Types.VARCHAR).withSize(60));
     }
 
 }

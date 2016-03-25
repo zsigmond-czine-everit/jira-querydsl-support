@@ -37,22 +37,18 @@ public class QUpgradehistory extends com.querydsl.sql.RelationalPathBase<QUpgrad
 
     private static final long serialVersionUID = -990590160;
 
-    public static final QUpgradehistory upgradehistory = new QUpgradehistory("UPGRADEHISTORY");
-
-    public final StringPath downgradetaskrequired = createString("downgradetaskrequired");
+    public static final QUpgradehistory upgradehistory = new QUpgradehistory("upgradehistory");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
-
-    public final StringPath status = createString("status");
 
     public final StringPath targetbuild = createString("targetbuild");
 
     public final StringPath upgradeclass = createString("upgradeclass");
 
-    public final com.querydsl.sql.PrimaryKey<QUpgradehistory> sysIdx192 = createPrimaryKey(upgradeclass);
+    public final com.querydsl.sql.PrimaryKey<QUpgradehistory> upgradehistoryPk = createPrimaryKey(upgradeclass);
 
     public QUpgradehistory(String variable) {
-        super(QUpgradehistory.class, forVariable(variable), "PUBLIC", "UPGRADEHISTORY");
+        super(QUpgradehistory.class, forVariable(variable), "public", "upgradehistory");
         addMetadata();
     }
 
@@ -62,21 +58,19 @@ public class QUpgradehistory extends com.querydsl.sql.RelationalPathBase<QUpgrad
     }
 
     public QUpgradehistory(Path<? extends QUpgradehistory> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "UPGRADEHISTORY");
+        super(path.getType(), path.getMetadata(), "public", "upgradehistory");
         addMetadata();
     }
 
     public QUpgradehistory(PathMetadata metadata) {
-        super(QUpgradehistory.class, metadata, "PUBLIC", "UPGRADEHISTORY");
+        super(QUpgradehistory.class, metadata, "public", "upgradehistory");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(downgradetaskrequired, ColumnMetadata.named("DOWNGRADETASKREQUIRED").withIndex(5).ofType(Types.CHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT));
-        addMetadata(status, ColumnMetadata.named("STATUS").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(targetbuild, ColumnMetadata.named("TARGETBUILD").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(upgradeclass, ColumnMetadata.named("UPGRADECLASS").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647).notNull());
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(targetbuild, ColumnMetadata.named("targetbuild").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(upgradeclass, ColumnMetadata.named("upgradeclass").withIndex(2).ofType(Types.VARCHAR).withSize(255).notNull());
     }
 
 }

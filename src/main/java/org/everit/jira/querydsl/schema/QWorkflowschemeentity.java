@@ -37,7 +37,7 @@ public class QWorkflowschemeentity extends com.querydsl.sql.RelationalPathBase<Q
 
     private static final long serialVersionUID = 1176734015;
 
-    public static final QWorkflowschemeentity workflowschemeentity = new QWorkflowschemeentity("WORKFLOWSCHEMEENTITY");
+    public static final QWorkflowschemeentity workflowschemeentity = new QWorkflowschemeentity("workflowschemeentity");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -47,10 +47,10 @@ public class QWorkflowschemeentity extends com.querydsl.sql.RelationalPathBase<Q
 
     public final StringPath workflow = createString("workflow");
 
-    public final com.querydsl.sql.PrimaryKey<QWorkflowschemeentity> sysIdx206 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QWorkflowschemeentity> workflowschemeentityPk = createPrimaryKey(id);
 
     public QWorkflowschemeentity(String variable) {
-        super(QWorkflowschemeentity.class, forVariable(variable), "PUBLIC", "WORKFLOWSCHEMEENTITY");
+        super(QWorkflowschemeentity.class, forVariable(variable), "public", "workflowschemeentity");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QWorkflowschemeentity extends com.querydsl.sql.RelationalPathBase<Q
     }
 
     public QWorkflowschemeentity(Path<? extends QWorkflowschemeentity> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "WORKFLOWSCHEMEENTITY");
+        super(path.getType(), path.getMetadata(), "public", "workflowschemeentity");
         addMetadata();
     }
 
     public QWorkflowschemeentity(PathMetadata metadata) {
-        super(QWorkflowschemeentity.class, metadata, "PUBLIC", "WORKFLOWSCHEMEENTITY");
+        super(QWorkflowschemeentity.class, metadata, "public", "workflowschemeentity");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issuetype, ColumnMetadata.named("ISSUETYPE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(scheme, ColumnMetadata.named("SCHEME").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(workflow, ColumnMetadata.named("WORKFLOW").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issuetype, ColumnMetadata.named("issuetype").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(scheme, ColumnMetadata.named("scheme").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(workflow, ColumnMetadata.named("workflow").withIndex(3).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

@@ -37,7 +37,7 @@ public class QTrustedapp extends com.querydsl.sql.RelationalPathBase<QTrustedapp
 
     private static final long serialVersionUID = -1686511102;
 
-    public static final QTrustedapp trustedapp = new QTrustedapp("TRUSTEDAPP");
+    public static final QTrustedapp trustedapp = new QTrustedapp("trustedapp");
 
     public final StringPath applicationId = createString("applicationId");
 
@@ -61,10 +61,10 @@ public class QTrustedapp extends com.querydsl.sql.RelationalPathBase<QTrustedapp
 
     public final StringPath urlMatch = createString("urlMatch");
 
-    public final com.querydsl.sql.PrimaryKey<QTrustedapp> sysIdx191 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QTrustedapp> trustedappPk = createPrimaryKey(id);
 
     public QTrustedapp(String variable) {
-        super(QTrustedapp.class, forVariable(variable), "PUBLIC", "TRUSTEDAPP");
+        super(QTrustedapp.class, forVariable(variable), "public", "trustedapp");
         addMetadata();
     }
 
@@ -74,27 +74,27 @@ public class QTrustedapp extends com.querydsl.sql.RelationalPathBase<QTrustedapp
     }
 
     public QTrustedapp(Path<? extends QTrustedapp> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "TRUSTEDAPP");
+        super(path.getType(), path.getMetadata(), "public", "trustedapp");
         addMetadata();
     }
 
     public QTrustedapp(PathMetadata metadata) {
-        super(QTrustedapp.class, metadata, "PUBLIC", "TRUSTEDAPP");
+        super(QTrustedapp.class, metadata, "public", "trustedapp");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(applicationId, ColumnMetadata.named("APPLICATION_ID").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(8).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(createdBy, ColumnMetadata.named("CREATED_BY").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(ipMatch, ColumnMetadata.named("IP_MATCH").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(name, ColumnMetadata.named("NAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(publicKey, ColumnMetadata.named("PUBLIC_KEY").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(timeout, ColumnMetadata.named("TIMEOUT").withIndex(7).ofType(Types.BIGINT));
-        addMetadata(updated, ColumnMetadata.named("UPDATED").withIndex(10).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(updatedBy, ColumnMetadata.named("UPDATED_BY").withIndex(11).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(urlMatch, ColumnMetadata.named("URL_MATCH").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(applicationId, ColumnMetadata.named("application_id").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(8).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(createdBy, ColumnMetadata.named("created_by").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(ipMatch, ColumnMetadata.named("ip_match").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(name, ColumnMetadata.named("name").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(publicKey, ColumnMetadata.named("public_key").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(timeout, ColumnMetadata.named("timeout").withIndex(7).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(updated, ColumnMetadata.named("updated").withIndex(10).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(updatedBy, ColumnMetadata.named("updated_by").withIndex(11).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(urlMatch, ColumnMetadata.named("url_match").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
     }
 
 }

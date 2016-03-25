@@ -37,7 +37,7 @@ public class QJquartzCronTriggers extends com.querydsl.sql.RelationalPathBase<QJ
 
     private static final long serialVersionUID = -1162966698;
 
-    public static final QJquartzCronTriggers jquartzCronTriggers = new QJquartzCronTriggers("JQUARTZ_CRON_TRIGGERS");
+    public static final QJquartzCronTriggers jquartzCronTriggers = new QJquartzCronTriggers("jquartz_cron_triggers");
 
     public final StringPath cronExpression = createString("cronExpression");
 
@@ -49,10 +49,10 @@ public class QJquartzCronTriggers extends com.querydsl.sql.RelationalPathBase<QJ
 
     public final StringPath triggerName = createString("triggerName");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzCronTriggers> sysIdx109 = createPrimaryKey(triggerGroup, triggerName);
+    public final com.querydsl.sql.PrimaryKey<QJquartzCronTriggers> jquartzCronTriggersPk = createPrimaryKey(triggerName, triggerGroup);
 
     public QJquartzCronTriggers(String variable) {
-        super(QJquartzCronTriggers.class, forVariable(variable), "PUBLIC", "JQUARTZ_CRON_TRIGGERS");
+        super(QJquartzCronTriggers.class, forVariable(variable), "public", "jquartz_cron_triggers");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QJquartzCronTriggers extends com.querydsl.sql.RelationalPathBase<QJ
     }
 
     public QJquartzCronTriggers(Path<? extends QJquartzCronTriggers> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_CRON_TRIGGERS");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_cron_triggers");
         addMetadata();
     }
 
     public QJquartzCronTriggers(PathMetadata metadata) {
-        super(QJquartzCronTriggers.class, metadata, "PUBLIC", "JQUARTZ_CRON_TRIGGERS");
+        super(QJquartzCronTriggers.class, metadata, "public", "jquartz_cron_triggers");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(cronExpression, ColumnMetadata.named("CRON_EXPRESSION").withIndex(4).ofType(Types.VARCHAR).withSize(120));
-        addMetadata(schedName, ColumnMetadata.named("SCHED_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(120));
-        addMetadata(timeZoneId, ColumnMetadata.named("TIME_ZONE_ID").withIndex(5).ofType(Types.VARCHAR).withSize(80));
-        addMetadata(triggerGroup, ColumnMetadata.named("TRIGGER_GROUP").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(triggerName, ColumnMetadata.named("TRIGGER_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(cronExpression, ColumnMetadata.named("cron_expression").withIndex(4).ofType(Types.VARCHAR).withSize(120));
+        addMetadata(schedName, ColumnMetadata.named("sched_name").withIndex(1).ofType(Types.VARCHAR).withSize(120));
+        addMetadata(timeZoneId, ColumnMetadata.named("time_zone_id").withIndex(5).ofType(Types.VARCHAR).withSize(80));
+        addMetadata(triggerGroup, ColumnMetadata.named("trigger_group").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(triggerName, ColumnMetadata.named("trigger_name").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
     }
 
 }

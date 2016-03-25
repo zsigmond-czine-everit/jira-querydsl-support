@@ -37,16 +37,16 @@ public class QGroupbase extends com.querydsl.sql.RelationalPathBase<QGroupbase> 
 
     private static final long serialVersionUID = -1641313640;
 
-    public static final QGroupbase groupbase = new QGroupbase("GROUPBASE");
+    public static final QGroupbase groupbase = new QGroupbase("groupbase");
 
     public final StringPath groupname = createString("groupname");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QGroupbase> sysIdx139 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QGroupbase> groupbasePk = createPrimaryKey(id);
 
     public QGroupbase(String variable) {
-        super(QGroupbase.class, forVariable(variable), "PUBLIC", "GROUPBASE");
+        super(QGroupbase.class, forVariable(variable), "public", "groupbase");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QGroupbase extends com.querydsl.sql.RelationalPathBase<QGroupbase> 
     }
 
     public QGroupbase(Path<? extends QGroupbase> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "GROUPBASE");
+        super(path.getType(), path.getMetadata(), "public", "groupbase");
         addMetadata();
     }
 
     public QGroupbase(PathMetadata metadata) {
-        super(QGroupbase.class, metadata, "PUBLIC", "GROUPBASE");
+        super(QGroupbase.class, metadata, "public", "groupbase");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(groupname, ColumnMetadata.named("GROUPNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
+        addMetadata(groupname, ColumnMetadata.named("groupname").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
     }
 
 }

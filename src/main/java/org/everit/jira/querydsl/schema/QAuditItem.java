@@ -37,7 +37,7 @@ public class QAuditItem extends com.querydsl.sql.RelationalPathBase<QAuditItem> 
 
     private static final long serialVersionUID = 33753686;
 
-    public static final QAuditItem auditItem = new QAuditItem("AUDIT_ITEM");
+    public static final QAuditItem auditItem = new QAuditItem("audit_item");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -53,10 +53,10 @@ public class QAuditItem extends com.querydsl.sql.RelationalPathBase<QAuditItem> 
 
     public final StringPath objectType = createString("objectType");
 
-    public final com.querydsl.sql.PrimaryKey<QAuditItem> sysIdx50 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QAuditItem> auditItemPk = createPrimaryKey(id);
 
     public QAuditItem(String variable) {
-        super(QAuditItem.class, forVariable(variable), "PUBLIC", "AUDIT_ITEM");
+        super(QAuditItem.class, forVariable(variable), "public", "audit_item");
         addMetadata();
     }
 
@@ -66,23 +66,23 @@ public class QAuditItem extends com.querydsl.sql.RelationalPathBase<QAuditItem> 
     }
 
     public QAuditItem(Path<? extends QAuditItem> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "AUDIT_ITEM");
+        super(path.getType(), path.getMetadata(), "public", "audit_item");
         addMetadata();
     }
 
     public QAuditItem(PathMetadata metadata) {
-        super(QAuditItem.class, metadata, "PUBLIC", "AUDIT_ITEM");
+        super(QAuditItem.class, metadata, "public", "audit_item");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(logId, ColumnMetadata.named("LOG_ID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(objectId, ColumnMetadata.named("OBJECT_ID").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(objectName, ColumnMetadata.named("OBJECT_NAME").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(objectParentId, ColumnMetadata.named("OBJECT_PARENT_ID").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(objectParentName, ColumnMetadata.named("OBJECT_PARENT_NAME").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(objectType, ColumnMetadata.named("OBJECT_TYPE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(logId, ColumnMetadata.named("log_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(objectId, ColumnMetadata.named("object_id").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(objectName, ColumnMetadata.named("object_name").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(objectParentId, ColumnMetadata.named("object_parent_id").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(objectParentName, ColumnMetadata.named("object_parent_name").withIndex(7).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(objectType, ColumnMetadata.named("object_type").withIndex(3).ofType(Types.VARCHAR).withSize(60));
     }
 
 }

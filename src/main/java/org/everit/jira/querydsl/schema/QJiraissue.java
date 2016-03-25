@@ -37,7 +37,7 @@ public class QJiraissue extends com.querydsl.sql.RelationalPathBase<QJiraissue> 
 
     private static final long serialVersionUID = 809853619;
 
-    public static final QJiraissue jiraissue = new QJiraissue("JIRAISSUE");
+    public static final QJiraissue jiraissue = new QJiraissue("jiraissue");
 
     public final StringPath assignee = createString("assignee");
 
@@ -93,10 +93,10 @@ public class QJiraissue extends com.querydsl.sql.RelationalPathBase<QJiraissue> 
 
     public final NumberPath<Long> workflowId = createNumber("workflowId", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QJiraissue> sysIdx100 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QJiraissue> jiraissuePk = createPrimaryKey(id);
 
     public QJiraissue(String variable) {
-        super(QJiraissue.class, forVariable(variable), "PUBLIC", "JIRAISSUE");
+        super(QJiraissue.class, forVariable(variable), "public", "jiraissue");
         addMetadata();
     }
 
@@ -106,43 +106,43 @@ public class QJiraissue extends com.querydsl.sql.RelationalPathBase<QJiraissue> 
     }
 
     public QJiraissue(Path<? extends QJiraissue> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JIRAISSUE");
+        super(path.getType(), path.getMetadata(), "public", "jiraissue");
         addMetadata();
     }
 
     public QJiraissue(PathMetadata metadata) {
-        super(QJiraissue.class, metadata, "PUBLIC", "JIRAISSUE");
+        super(QJiraissue.class, metadata, "public", "jiraissue");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(assignee, ColumnMetadata.named("ASSIGNEE").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(component, ColumnMetadata.named("COMPONENT").withIndex(27).ofType(Types.BIGINT));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(15).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(creator, ColumnMetadata.named("CREATOR").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(duedate, ColumnMetadata.named("DUEDATE").withIndex(17).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(environment, ColumnMetadata.named("ENVIRONMENT").withIndex(11).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(fixfor, ColumnMetadata.named("FIXFOR").withIndex(26).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issuenum, ColumnMetadata.named("ISSUENUM").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(issuestatus, ColumnMetadata.named("ISSUESTATUS").withIndex(14).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(issuetype, ColumnMetadata.named("ISSUETYPE").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(pkey, ColumnMetadata.named("PKEY").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(priority, ColumnMetadata.named("PRIORITY").withIndex(12).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(project, ColumnMetadata.named("PROJECT").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(reporter, ColumnMetadata.named("REPORTER").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(resolution, ColumnMetadata.named("RESOLUTION").withIndex(13).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(resolutiondate, ColumnMetadata.named("RESOLUTIONDATE").withIndex(18).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(security, ColumnMetadata.named("SECURITY").withIndex(25).ofType(Types.BIGINT));
-        addMetadata(summary, ColumnMetadata.named("SUMMARY").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(timeestimate, ColumnMetadata.named("TIMEESTIMATE").withIndex(22).ofType(Types.BIGINT));
-        addMetadata(timeoriginalestimate, ColumnMetadata.named("TIMEORIGINALESTIMATE").withIndex(21).ofType(Types.BIGINT));
-        addMetadata(timespent, ColumnMetadata.named("TIMESPENT").withIndex(23).ofType(Types.BIGINT));
-        addMetadata(updated, ColumnMetadata.named("UPDATED").withIndex(16).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(votes, ColumnMetadata.named("VOTES").withIndex(19).ofType(Types.BIGINT));
-        addMetadata(watches, ColumnMetadata.named("WATCHES").withIndex(20).ofType(Types.BIGINT));
-        addMetadata(workflowId, ColumnMetadata.named("WORKFLOW_ID").withIndex(24).ofType(Types.BIGINT));
+        addMetadata(assignee, ColumnMetadata.named("assignee").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(component, ColumnMetadata.named("component").withIndex(27).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(15).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(creator, ColumnMetadata.named("creator").withIndex(7).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(duedate, ColumnMetadata.named("duedate").withIndex(17).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(environment, ColumnMetadata.named("environment").withIndex(11).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(fixfor, ColumnMetadata.named("fixfor").withIndex(26).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issuenum, ColumnMetadata.named("issuenum").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(issuestatus, ColumnMetadata.named("issuestatus").withIndex(14).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(issuetype, ColumnMetadata.named("issuetype").withIndex(8).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(pkey, ColumnMetadata.named("pkey").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(priority, ColumnMetadata.named("priority").withIndex(12).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(project, ColumnMetadata.named("project").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(reporter, ColumnMetadata.named("reporter").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(resolution, ColumnMetadata.named("resolution").withIndex(13).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(resolutiondate, ColumnMetadata.named("resolutiondate").withIndex(18).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(security, ColumnMetadata.named("security").withIndex(25).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(summary, ColumnMetadata.named("summary").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(timeestimate, ColumnMetadata.named("timeestimate").withIndex(22).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(timeoriginalestimate, ColumnMetadata.named("timeoriginalestimate").withIndex(21).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(timespent, ColumnMetadata.named("timespent").withIndex(23).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(updated, ColumnMetadata.named("updated").withIndex(16).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(votes, ColumnMetadata.named("votes").withIndex(19).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(watches, ColumnMetadata.named("watches").withIndex(20).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(workflowId, ColumnMetadata.named("workflow_id").withIndex(24).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

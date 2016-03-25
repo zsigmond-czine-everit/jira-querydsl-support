@@ -37,7 +37,7 @@ public class QCustomfield extends com.querydsl.sql.RelationalPathBase<QCustomfie
 
     private static final long serialVersionUID = 302933745;
 
-    public static final QCustomfield customfield = new QCustomfield("CUSTOMFIELD");
+    public static final QCustomfield customfield = new QCustomfield("customfield");
 
     public final StringPath cfname = createString("cfname");
 
@@ -57,10 +57,10 @@ public class QCustomfield extends com.querydsl.sql.RelationalPathBase<QCustomfie
 
     public final NumberPath<Long> project = createNumber("project", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QCustomfield> sysIdx64 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QCustomfield> customfieldPk = createPrimaryKey(id);
 
     public QCustomfield(String variable) {
-        super(QCustomfield.class, forVariable(variable), "PUBLIC", "CUSTOMFIELD");
+        super(QCustomfield.class, forVariable(variable), "public", "customfield");
         addMetadata();
     }
 
@@ -70,25 +70,25 @@ public class QCustomfield extends com.querydsl.sql.RelationalPathBase<QCustomfie
     }
 
     public QCustomfield(Path<? extends QCustomfield> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CUSTOMFIELD");
+        super(path.getType(), path.getMetadata(), "public", "customfield");
         addMetadata();
     }
 
     public QCustomfield(PathMetadata metadata) {
-        super(QCustomfield.class, metadata, "PUBLIC", "CUSTOMFIELD");
+        super(QCustomfield.class, metadata, "public", "customfield");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(cfname, ColumnMetadata.named("CFNAME").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(customfieldsearcherkey, ColumnMetadata.named("CUSTOMFIELDSEARCHERKEY").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(customfieldtypekey, ColumnMetadata.named("CUSTOMFIELDTYPEKEY").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(defaultvalue, ColumnMetadata.named("DEFAULTVALUE").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(fieldtype, ColumnMetadata.named("FIELDTYPE").withIndex(7).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issuetype, ColumnMetadata.named("ISSUETYPE").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(project, ColumnMetadata.named("PROJECT").withIndex(8).ofType(Types.BIGINT));
+        addMetadata(cfname, ColumnMetadata.named("cfname").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(customfieldsearcherkey, ColumnMetadata.named("customfieldsearcherkey").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(customfieldtypekey, ColumnMetadata.named("customfieldtypekey").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(defaultvalue, ColumnMetadata.named("defaultvalue").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(fieldtype, ColumnMetadata.named("fieldtype").withIndex(7).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issuetype, ColumnMetadata.named("issuetype").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(project, ColumnMetadata.named("project").withIndex(8).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

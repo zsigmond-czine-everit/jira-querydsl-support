@@ -37,7 +37,7 @@ public class QQrtzCalendars extends com.querydsl.sql.RelationalPathBase<QQrtzCal
 
     private static final long serialVersionUID = -411092714;
 
-    public static final QQrtzCalendars qrtzCalendars = new QQrtzCalendars("QRTZ_CALENDARS");
+    public static final QQrtzCalendars qrtzCalendars = new QQrtzCalendars("qrtz_calendars");
 
     public final StringPath calendar = createString("calendar");
 
@@ -45,10 +45,10 @@ public class QQrtzCalendars extends com.querydsl.sql.RelationalPathBase<QQrtzCal
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QQrtzCalendars> sysIdx166 = createPrimaryKey(calendarName);
+    public final com.querydsl.sql.PrimaryKey<QQrtzCalendars> qrtzCalendarsPk = createPrimaryKey(calendarName);
 
     public QQrtzCalendars(String variable) {
-        super(QQrtzCalendars.class, forVariable(variable), "PUBLIC", "QRTZ_CALENDARS");
+        super(QQrtzCalendars.class, forVariable(variable), "public", "qrtz_calendars");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QQrtzCalendars extends com.querydsl.sql.RelationalPathBase<QQrtzCal
     }
 
     public QQrtzCalendars(Path<? extends QQrtzCalendars> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "QRTZ_CALENDARS");
+        super(path.getType(), path.getMetadata(), "public", "qrtz_calendars");
         addMetadata();
     }
 
     public QQrtzCalendars(PathMetadata metadata) {
-        super(QQrtzCalendars.class, metadata, "PUBLIC", "QRTZ_CALENDARS");
+        super(QQrtzCalendars.class, metadata, "public", "qrtz_calendars");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(calendar, ColumnMetadata.named("CALENDAR").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(calendarName, ColumnMetadata.named("CALENDAR_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT));
+        addMetadata(calendar, ColumnMetadata.named("calendar").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(calendarName, ColumnMetadata.named("calendar_name").withIndex(2).ofType(Types.VARCHAR).withSize(255).notNull());
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

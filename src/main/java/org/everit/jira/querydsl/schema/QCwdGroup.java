@@ -37,7 +37,7 @@ public class QCwdGroup extends com.querydsl.sql.RelationalPathBase<QCwdGroup> {
 
     private static final long serialVersionUID = -1281430489;
 
-    public static final QCwdGroup cwdGroup = new QCwdGroup("CWD_GROUP");
+    public static final QCwdGroup cwdGroup = new QCwdGroup("cwd_group");
 
     public final NumberPath<Integer> active = createNumber("active", Integer.class);
 
@@ -61,10 +61,10 @@ public class QCwdGroup extends com.querydsl.sql.RelationalPathBase<QCwdGroup> {
 
     public final DateTimePath<java.sql.Timestamp> updatedDate = createDateTime("updatedDate", java.sql.Timestamp.class);
 
-    public final com.querydsl.sql.PrimaryKey<QCwdGroup> sysIdx98 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QCwdGroup> cwdGroupPk = createPrimaryKey(id);
 
     public QCwdGroup(String variable) {
-        super(QCwdGroup.class, forVariable(variable), "PUBLIC", "CWD_GROUP");
+        super(QCwdGroup.class, forVariable(variable), "public", "cwd_group");
         addMetadata();
     }
 
@@ -74,27 +74,27 @@ public class QCwdGroup extends com.querydsl.sql.RelationalPathBase<QCwdGroup> {
     }
 
     public QCwdGroup(Path<? extends QCwdGroup> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CWD_GROUP");
+        super(path.getType(), path.getMetadata(), "public", "cwd_group");
         addMetadata();
     }
 
     public QCwdGroup(PathMetadata metadata) {
-        super(QCwdGroup.class, metadata, "PUBLIC", "CWD_GROUP");
+        super(QCwdGroup.class, metadata, "public", "cwd_group");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(active, ColumnMetadata.named("ACTIVE").withIndex(4).ofType(Types.INTEGER));
-        addMetadata(createdDate, ColumnMetadata.named("CREATED_DATE").withIndex(6).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(directoryId, ColumnMetadata.named("DIRECTORY_ID").withIndex(11).ofType(Types.BIGINT));
-        addMetadata(groupName, ColumnMetadata.named("GROUP_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(groupType, ColumnMetadata.named("GROUP_TYPE").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(local, ColumnMetadata.named("LOCAL").withIndex(5).ofType(Types.INTEGER));
-        addMetadata(lowerDescription, ColumnMetadata.named("LOWER_DESCRIPTION").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(lowerGroupName, ColumnMetadata.named("LOWER_GROUP_NAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(updatedDate, ColumnMetadata.named("UPDATED_DATE").withIndex(7).ofType(Types.TIMESTAMP).withSize(6));
+        addMetadata(active, ColumnMetadata.named("active").withIndex(4).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(createdDate, ColumnMetadata.named("created_date").withIndex(6).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(8).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(directoryId, ColumnMetadata.named("directory_id").withIndex(11).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(groupName, ColumnMetadata.named("group_name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(groupType, ColumnMetadata.named("group_type").withIndex(10).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(local, ColumnMetadata.named("local").withIndex(5).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(lowerDescription, ColumnMetadata.named("lower_description").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(lowerGroupName, ColumnMetadata.named("lower_group_name").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(updatedDate, ColumnMetadata.named("updated_date").withIndex(7).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
     }
 
 }

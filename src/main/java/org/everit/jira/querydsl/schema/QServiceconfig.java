@@ -37,11 +37,9 @@ public class QServiceconfig extends com.querydsl.sql.RelationalPathBase<QService
 
     private static final long serialVersionUID = -1042747649;
 
-    public static final QServiceconfig serviceconfig = new QServiceconfig("SERVICECONFIG");
+    public static final QServiceconfig serviceconfig = new QServiceconfig("serviceconfig");
 
     public final StringPath clazz = createString("clazz");
-
-    public final StringPath cronExpression = createString("cronExpression");
 
     public final NumberPath<Long> delaytime = createNumber("delaytime", Long.class);
 
@@ -49,10 +47,10 @@ public class QServiceconfig extends com.querydsl.sql.RelationalPathBase<QService
 
     public final StringPath servicename = createString("servicename");
 
-    public final com.querydsl.sql.PrimaryKey<QServiceconfig> sysIdx187 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QServiceconfig> serviceconfigPk = createPrimaryKey(id);
 
     public QServiceconfig(String variable) {
-        super(QServiceconfig.class, forVariable(variable), "PUBLIC", "SERVICECONFIG");
+        super(QServiceconfig.class, forVariable(variable), "public", "serviceconfig");
         addMetadata();
     }
 
@@ -62,21 +60,20 @@ public class QServiceconfig extends com.querydsl.sql.RelationalPathBase<QService
     }
 
     public QServiceconfig(Path<? extends QServiceconfig> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "SERVICECONFIG");
+        super(path.getType(), path.getMetadata(), "public", "serviceconfig");
         addMetadata();
     }
 
     public QServiceconfig(PathMetadata metadata) {
-        super(QServiceconfig.class, metadata, "PUBLIC", "SERVICECONFIG");
+        super(QServiceconfig.class, metadata, "public", "serviceconfig");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(clazz, ColumnMetadata.named("CLAZZ").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(cronExpression, ColumnMetadata.named("CRON_EXPRESSION").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(delaytime, ColumnMetadata.named("DELAYTIME").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(servicename, ColumnMetadata.named("SERVICENAME").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(clazz, ColumnMetadata.named("clazz").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(delaytime, ColumnMetadata.named("delaytime").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(servicename, ColumnMetadata.named("servicename").withIndex(4).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

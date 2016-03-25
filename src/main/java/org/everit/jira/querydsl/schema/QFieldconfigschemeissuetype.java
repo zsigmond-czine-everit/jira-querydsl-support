@@ -37,7 +37,7 @@ public class QFieldconfigschemeissuetype extends com.querydsl.sql.RelationalPath
 
     private static final long serialVersionUID = -751260790;
 
-    public static final QFieldconfigschemeissuetype fieldconfigschemeissuetype = new QFieldconfigschemeissuetype("FIELDCONFIGSCHEMEISSUETYPE");
+    public static final QFieldconfigschemeissuetype fieldconfigschemeissuetype = new QFieldconfigschemeissuetype("fieldconfigschemeissuetype");
 
     public final NumberPath<Long> fieldconfigscheme = createNumber("fieldconfigscheme", Long.class);
 
@@ -47,10 +47,10 @@ public class QFieldconfigschemeissuetype extends com.querydsl.sql.RelationalPath
 
     public final StringPath issuetype = createString("issuetype");
 
-    public final com.querydsl.sql.PrimaryKey<QFieldconfigschemeissuetype> sysIdx81 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QFieldconfigschemeissuetype> fieldconfigschemeissuetypePk = createPrimaryKey(id);
 
     public QFieldconfigschemeissuetype(String variable) {
-        super(QFieldconfigschemeissuetype.class, forVariable(variable), "PUBLIC", "FIELDCONFIGSCHEMEISSUETYPE");
+        super(QFieldconfigschemeissuetype.class, forVariable(variable), "public", "fieldconfigschemeissuetype");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QFieldconfigschemeissuetype extends com.querydsl.sql.RelationalPath
     }
 
     public QFieldconfigschemeissuetype(Path<? extends QFieldconfigschemeissuetype> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "FIELDCONFIGSCHEMEISSUETYPE");
+        super(path.getType(), path.getMetadata(), "public", "fieldconfigschemeissuetype");
         addMetadata();
     }
 
     public QFieldconfigschemeissuetype(PathMetadata metadata) {
-        super(QFieldconfigschemeissuetype.class, metadata, "PUBLIC", "FIELDCONFIGSCHEMEISSUETYPE");
+        super(QFieldconfigschemeissuetype.class, metadata, "public", "fieldconfigschemeissuetype");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(fieldconfigscheme, ColumnMetadata.named("FIELDCONFIGSCHEME").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(fieldconfiguration, ColumnMetadata.named("FIELDCONFIGURATION").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issuetype, ColumnMetadata.named("ISSUETYPE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(fieldconfigscheme, ColumnMetadata.named("fieldconfigscheme").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(fieldconfiguration, ColumnMetadata.named("fieldconfiguration").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issuetype, ColumnMetadata.named("issuetype").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

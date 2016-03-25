@@ -37,22 +37,16 @@ public class QClusternode extends com.querydsl.sql.RelationalPathBase<QClusterno
 
     private static final long serialVersionUID = 933561796;
 
-    public static final QClusternode clusternode = new QClusternode("CLUSTERNODE");
-
-    public final NumberPath<Long> cacheListenerPort = createNumber("cacheListenerPort", Long.class);
-
-    public final StringPath ip = createString("ip");
+    public static final QClusternode clusternode = new QClusternode("clusternode");
 
     public final StringPath nodeId = createString("nodeId");
 
     public final StringPath nodeState = createString("nodeState");
 
-    public final NumberPath<Long> timestamp = createNumber("timestamp", Long.class);
-
-    public final com.querydsl.sql.PrimaryKey<QClusternode> sysIdx57 = createPrimaryKey(nodeId);
+    public final com.querydsl.sql.PrimaryKey<QClusternode> clusternodePk = createPrimaryKey(nodeId);
 
     public QClusternode(String variable) {
-        super(QClusternode.class, forVariable(variable), "PUBLIC", "CLUSTERNODE");
+        super(QClusternode.class, forVariable(variable), "public", "clusternode");
         addMetadata();
     }
 
@@ -62,21 +56,18 @@ public class QClusternode extends com.querydsl.sql.RelationalPathBase<QClusterno
     }
 
     public QClusternode(Path<? extends QClusternode> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CLUSTERNODE");
+        super(path.getType(), path.getMetadata(), "public", "clusternode");
         addMetadata();
     }
 
     public QClusternode(PathMetadata metadata) {
-        super(QClusternode.class, metadata, "PUBLIC", "CLUSTERNODE");
+        super(QClusternode.class, metadata, "public", "clusternode");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(cacheListenerPort, ColumnMetadata.named("CACHE_LISTENER_PORT").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(ip, ColumnMetadata.named("IP").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(nodeId, ColumnMetadata.named("NODE_ID").withIndex(1).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(nodeState, ColumnMetadata.named("NODE_STATE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(timestamp, ColumnMetadata.named("TIMESTAMP").withIndex(3).ofType(Types.BIGINT));
+        addMetadata(nodeId, ColumnMetadata.named("node_id").withIndex(1).ofType(Types.VARCHAR).withSize(60).notNull());
+        addMetadata(nodeState, ColumnMetadata.named("node_state").withIndex(2).ofType(Types.VARCHAR).withSize(60));
     }
 
 }

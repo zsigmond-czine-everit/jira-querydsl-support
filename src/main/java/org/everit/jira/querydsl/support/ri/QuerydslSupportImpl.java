@@ -37,7 +37,7 @@ public class QuerydslSupportImpl implements QuerydslSupport {
   /**
    * The schema name in the querydsl classes.
    */
-  private static final String DEFAULT_SCHEMA_NAME = "PUBLIC";
+  private static final String DEFAULT_SCHEMA_NAME = "public";
 
   /**
    * The logger.

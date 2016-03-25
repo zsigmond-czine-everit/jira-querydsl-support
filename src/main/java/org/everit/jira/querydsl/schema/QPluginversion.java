@@ -37,7 +37,7 @@ public class QPluginversion extends com.querydsl.sql.RelationalPathBase<QPluginv
 
     private static final long serialVersionUID = -1743192307;
 
-    public static final QPluginversion pluginversion1 = new QPluginversion("PLUGINVERSION");
+    public static final QPluginversion pluginversion1 = new QPluginversion("pluginversion");
 
     public final DateTimePath<java.sql.Timestamp> created = createDateTime("created", java.sql.Timestamp.class);
 
@@ -49,10 +49,10 @@ public class QPluginversion extends com.querydsl.sql.RelationalPathBase<QPluginv
 
     public final StringPath pluginversion = createString("pluginversion");
 
-    public final com.querydsl.sql.PrimaryKey<QPluginversion> sysIdx156 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPluginversion> pluginversionPk = createPrimaryKey(id);
 
     public QPluginversion(String variable) {
-        super(QPluginversion.class, forVariable(variable), "PUBLIC", "PLUGINVERSION");
+        super(QPluginversion.class, forVariable(variable), "public", "pluginversion");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QPluginversion extends com.querydsl.sql.RelationalPathBase<QPluginv
     }
 
     public QPluginversion(Path<? extends QPluginversion> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PLUGINVERSION");
+        super(path.getType(), path.getMetadata(), "public", "pluginversion");
         addMetadata();
     }
 
     public QPluginversion(PathMetadata metadata) {
-        super(QPluginversion.class, metadata, "PUBLIC", "PLUGINVERSION");
+        super(QPluginversion.class, metadata, "public", "pluginversion");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(5).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(pluginkey, ColumnMetadata.named("PLUGINKEY").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(pluginname, ColumnMetadata.named("PLUGINNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(pluginversion, ColumnMetadata.named("PLUGINVERSION").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(5).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(pluginkey, ColumnMetadata.named("pluginkey").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(pluginname, ColumnMetadata.named("pluginname").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(pluginversion, ColumnMetadata.named("pluginversion").withIndex(4).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

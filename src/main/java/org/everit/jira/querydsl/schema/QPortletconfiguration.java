@@ -37,13 +37,11 @@ public class QPortletconfiguration extends com.querydsl.sql.RelationalPathBase<Q
 
     private static final long serialVersionUID = 106142580;
 
-    public static final QPortletconfiguration portletconfiguration = new QPortletconfiguration("PORTLETCONFIGURATION");
+    public static final QPortletconfiguration portletconfiguration = new QPortletconfiguration("portletconfiguration");
 
     public final StringPath color = createString("color");
 
     public final NumberPath<Integer> columnNumber = createNumber("columnNumber", Integer.class);
-
-    public final StringPath dashboardModuleCompleteKey = createString("dashboardModuleCompleteKey");
 
     public final StringPath gadgetXml = createString("gadgetXml");
 
@@ -55,10 +53,10 @@ public class QPortletconfiguration extends com.querydsl.sql.RelationalPathBase<Q
 
     public final NumberPath<Integer> positionseq = createNumber("positionseq", Integer.class);
 
-    public final com.querydsl.sql.PrimaryKey<QPortletconfiguration> sysIdx158 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPortletconfiguration> portletconfigurationPk = createPrimaryKey(id);
 
     public QPortletconfiguration(String variable) {
-        super(QPortletconfiguration.class, forVariable(variable), "PUBLIC", "PORTLETCONFIGURATION");
+        super(QPortletconfiguration.class, forVariable(variable), "public", "portletconfiguration");
         addMetadata();
     }
 
@@ -68,24 +66,23 @@ public class QPortletconfiguration extends com.querydsl.sql.RelationalPathBase<Q
     }
 
     public QPortletconfiguration(Path<? extends QPortletconfiguration> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PORTLETCONFIGURATION");
+        super(path.getType(), path.getMetadata(), "public", "portletconfiguration");
         addMetadata();
     }
 
     public QPortletconfiguration(PathMetadata metadata) {
-        super(QPortletconfiguration.class, metadata, "PUBLIC", "PORTLETCONFIGURATION");
+        super(QPortletconfiguration.class, metadata, "public", "portletconfiguration");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(color, ColumnMetadata.named("COLOR").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(columnNumber, ColumnMetadata.named("COLUMN_NUMBER").withIndex(4).ofType(Types.INTEGER));
-        addMetadata(dashboardModuleCompleteKey, ColumnMetadata.named("DASHBOARD_MODULE_COMPLETE_KEY").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(gadgetXml, ColumnMetadata.named("GADGET_XML").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(portalpage, ColumnMetadata.named("PORTALPAGE").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(portletId, ColumnMetadata.named("PORTLET_ID").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(positionseq, ColumnMetadata.named("POSITIONSEQ").withIndex(5).ofType(Types.INTEGER));
+        addMetadata(color, ColumnMetadata.named("color").withIndex(7).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(columnNumber, ColumnMetadata.named("column_number").withIndex(4).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(gadgetXml, ColumnMetadata.named("gadget_xml").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(portalpage, ColumnMetadata.named("portalpage").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(portletId, ColumnMetadata.named("portlet_id").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(positionseq, ColumnMetadata.named("positionseq").withIndex(5).ofType(Types.NUMERIC).withSize(9));
     }
 
 }

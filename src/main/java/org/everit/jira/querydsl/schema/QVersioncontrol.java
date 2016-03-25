@@ -37,7 +37,7 @@ public class QVersioncontrol extends com.querydsl.sql.RelationalPathBase<QVersio
 
     private static final long serialVersionUID = -94995011;
 
-    public static final QVersioncontrol versioncontrol = new QVersioncontrol("VERSIONCONTROL");
+    public static final QVersioncontrol versioncontrol = new QVersioncontrol("versioncontrol");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -47,10 +47,10 @@ public class QVersioncontrol extends com.querydsl.sql.RelationalPathBase<QVersio
 
     public final StringPath vcstype = createString("vcstype");
 
-    public final com.querydsl.sql.PrimaryKey<QVersioncontrol> sysIdx202 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QVersioncontrol> versioncontrolPk = createPrimaryKey(id);
 
     public QVersioncontrol(String variable) {
-        super(QVersioncontrol.class, forVariable(variable), "PUBLIC", "VERSIONCONTROL");
+        super(QVersioncontrol.class, forVariable(variable), "public", "versioncontrol");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QVersioncontrol extends com.querydsl.sql.RelationalPathBase<QVersio
     }
 
     public QVersioncontrol(Path<? extends QVersioncontrol> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "VERSIONCONTROL");
+        super(path.getType(), path.getMetadata(), "public", "versioncontrol");
         addMetadata();
     }
 
     public QVersioncontrol(PathMetadata metadata) {
-        super(QVersioncontrol.class, metadata, "PUBLIC", "VERSIONCONTROL");
+        super(QVersioncontrol.class, metadata, "public", "versioncontrol");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(vcsdescription, ColumnMetadata.named("VCSDESCRIPTION").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(vcsname, ColumnMetadata.named("VCSNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(vcstype, ColumnMetadata.named("VCSTYPE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(vcsdescription, ColumnMetadata.named("vcsdescription").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(vcsname, ColumnMetadata.named("vcsname").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(vcstype, ColumnMetadata.named("vcstype").withIndex(4).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

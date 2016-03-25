@@ -37,16 +37,16 @@ public class QExternalgadget extends com.querydsl.sql.RelationalPathBase<QExtern
 
     private static final long serialVersionUID = 583732239;
 
-    public static final QExternalgadget externalgadget = new QExternalgadget("EXTERNALGADGET");
+    public static final QExternalgadget externalgadget = new QExternalgadget("externalgadget");
 
     public final StringPath gadgetXml = createString("gadgetXml");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QExternalgadget> sysIdx77 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QExternalgadget> externalgadgetPk = createPrimaryKey(id);
 
     public QExternalgadget(String variable) {
-        super(QExternalgadget.class, forVariable(variable), "PUBLIC", "EXTERNALGADGET");
+        super(QExternalgadget.class, forVariable(variable), "public", "externalgadget");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QExternalgadget extends com.querydsl.sql.RelationalPathBase<QExtern
     }
 
     public QExternalgadget(Path<? extends QExternalgadget> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "EXTERNALGADGET");
+        super(path.getType(), path.getMetadata(), "public", "externalgadget");
         addMetadata();
     }
 
     public QExternalgadget(PathMetadata metadata) {
-        super(QExternalgadget.class, metadata, "PUBLIC", "EXTERNALGADGET");
+        super(QExternalgadget.class, metadata, "public", "externalgadget");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(gadgetXml, ColumnMetadata.named("GADGET_XML").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
+        addMetadata(gadgetXml, ColumnMetadata.named("gadget_xml").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
     }
 
 }

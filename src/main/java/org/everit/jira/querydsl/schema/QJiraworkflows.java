@@ -37,7 +37,7 @@ public class QJiraworkflows extends com.querydsl.sql.RelationalPathBase<QJirawor
 
     private static final long serialVersionUID = 723672430;
 
-    public static final QJiraworkflows jiraworkflows = new QJiraworkflows("JIRAWORKFLOWS");
+    public static final QJiraworkflows jiraworkflows = new QJiraworkflows("jiraworkflows");
 
     public final StringPath creatorname = createString("creatorname");
 
@@ -49,10 +49,10 @@ public class QJiraworkflows extends com.querydsl.sql.RelationalPathBase<QJirawor
 
     public final StringPath workflowname = createString("workflowname");
 
-    public final com.querydsl.sql.PrimaryKey<QJiraworkflows> sysIdx204 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QJiraworkflows> jiraworkflowsPk = createPrimaryKey(id);
 
     public QJiraworkflows(String variable) {
-        super(QJiraworkflows.class, forVariable(variable), "PUBLIC", "JIRAWORKFLOWS");
+        super(QJiraworkflows.class, forVariable(variable), "public", "jiraworkflows");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QJiraworkflows extends com.querydsl.sql.RelationalPathBase<QJirawor
     }
 
     public QJiraworkflows(Path<? extends QJiraworkflows> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JIRAWORKFLOWS");
+        super(path.getType(), path.getMetadata(), "public", "jiraworkflows");
         addMetadata();
     }
 
     public QJiraworkflows(PathMetadata metadata) {
-        super(QJiraworkflows.class, metadata, "PUBLIC", "JIRAWORKFLOWS");
+        super(QJiraworkflows.class, metadata, "public", "jiraworkflows");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(creatorname, ColumnMetadata.named("CREATORNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(descriptor, ColumnMetadata.named("DESCRIPTOR").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(islocked, ColumnMetadata.named("ISLOCKED").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(workflowname, ColumnMetadata.named("WORKFLOWNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(creatorname, ColumnMetadata.named("creatorname").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(descriptor, ColumnMetadata.named("descriptor").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(islocked, ColumnMetadata.named("islocked").withIndex(5).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(workflowname, ColumnMetadata.named("workflowname").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }
