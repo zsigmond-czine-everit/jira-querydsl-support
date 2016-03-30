@@ -27,7 +27,7 @@
 
   <groupId>org.everit.jira</groupId>
   <artifactId>jira-querydsl-support</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>bundle</packaging>
 
   <name>Querydsl Support for JIRA</name>
@@ -170,6 +170,14 @@
           <groupId>com.google.code.findbugs</groupId>
           <artifactId>jsr305</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>jta</groupId>
+          <artifactId>jta</artifactId>
+        </exclusion>
+		<exclusion>
+          <groupId>jndi</groupId>
+          <artifactId>jndi</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
 
@@ -210,8 +218,8 @@
       </releases>
     </repository>
     <repository>
-      <id>everit-proxy</id>
-      <url>https://repository.everit.biz/nexus/content/groups/proxy/</url>
+      <id>everit-public</id>
+      <url>https://repository.everit.biz/nexus/content/groups/public/</url>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
