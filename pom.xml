@@ -39,7 +39,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <jira.version>6.2.5</jira.version>
-    <maven.jira.plugin.version>6.2.3</maven.jira.plugin.version>
+    <maven.jira.plugin.version>5.1.9</maven.jira.plugin.version>
   </properties>
 
   <scm>
