@@ -37,7 +37,7 @@ public class QSchemepermissions extends com.querydsl.sql.RelationalPathBase<QSch
 
     private static final long serialVersionUID = 363516551;
 
-    public static final QSchemepermissions schemepermissions = new QSchemepermissions("SCHEMEPERMISSIONS");
+    public static final QSchemepermissions schemepermissions = new QSchemepermissions("schemepermissions");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -51,10 +51,10 @@ public class QSchemepermissions extends com.querydsl.sql.RelationalPathBase<QSch
 
     public final NumberPath<Long> scheme = createNumber("scheme", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QSchemepermissions> sysIdx184 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QSchemepermissions> schemepermissionsPk = createPrimaryKey(id);
 
     public QSchemepermissions(String variable) {
-        super(QSchemepermissions.class, forVariable(variable), "PUBLIC", "SCHEMEPERMISSIONS");
+        super(QSchemepermissions.class, forVariable(variable), "public", "schemepermissions");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QSchemepermissions extends com.querydsl.sql.RelationalPathBase<QSch
     }
 
     public QSchemepermissions(Path<? extends QSchemepermissions> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "SCHEMEPERMISSIONS");
+        super(path.getType(), path.getMetadata(), "public", "schemepermissions");
         addMetadata();
     }
 
     public QSchemepermissions(PathMetadata metadata) {
-        super(QSchemepermissions.class, metadata, "PUBLIC", "SCHEMEPERMISSIONS");
+        super(QSchemepermissions.class, metadata, "public", "schemepermissions");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(permission, ColumnMetadata.named("PERMISSION").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(permissionKey, ColumnMetadata.named("PERMISSION_KEY").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(permParameter, ColumnMetadata.named("PERM_PARAMETER").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(permType, ColumnMetadata.named("PERM_TYPE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(scheme, ColumnMetadata.named("SCHEME").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(permission, ColumnMetadata.named("permission").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(permissionKey, ColumnMetadata.named("permission_key").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(permParameter, ColumnMetadata.named("perm_parameter").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(permType, ColumnMetadata.named("perm_type").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(scheme, ColumnMetadata.named("scheme").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

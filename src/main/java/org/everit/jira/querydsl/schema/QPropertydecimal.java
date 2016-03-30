@@ -37,16 +37,16 @@ public class QPropertydecimal extends com.querydsl.sql.RelationalPathBase<QPrope
 
     private static final long serialVersionUID = 1694767780;
 
-    public static final QPropertydecimal propertydecimal = new QPropertydecimal("PROPERTYDECIMAL");
+    public static final QPropertydecimal propertydecimal = new QPropertydecimal("propertydecimal");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final NumberPath<Double> propertyvalue = createNumber("propertyvalue", Double.class);
 
-    public final com.querydsl.sql.PrimaryKey<QPropertydecimal> sysIdx145 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPropertydecimal> propertydecimalPk = createPrimaryKey(id);
 
     public QPropertydecimal(String variable) {
-        super(QPropertydecimal.class, forVariable(variable), "PUBLIC", "PROPERTYDECIMAL");
+        super(QPropertydecimal.class, forVariable(variable), "public", "propertydecimal");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QPropertydecimal extends com.querydsl.sql.RelationalPathBase<QPrope
     }
 
     public QPropertydecimal(Path<? extends QPropertydecimal> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROPERTYDECIMAL");
+        super(path.getType(), path.getMetadata(), "public", "propertydecimal");
         addMetadata();
     }
 
     public QPropertydecimal(PathMetadata metadata) {
-        super(QPropertydecimal.class, metadata, "PUBLIC", "PROPERTYDECIMAL");
+        super(QPropertydecimal.class, metadata, "public", "propertydecimal");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(propertyvalue, ColumnMetadata.named("PROPERTYVALUE").withIndex(2).ofType(Types.DOUBLE));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(propertyvalue, ColumnMetadata.named("propertyvalue").withIndex(2).ofType(Types.DOUBLE).withSize(17).withDigits(17));
     }
 
 }

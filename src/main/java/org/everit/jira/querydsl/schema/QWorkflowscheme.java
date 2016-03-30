@@ -37,7 +37,7 @@ public class QWorkflowscheme extends com.querydsl.sql.RelationalPathBase<QWorkfl
 
     private static final long serialVersionUID = 2090064476;
 
-    public static final QWorkflowscheme workflowscheme = new QWorkflowscheme("WORKFLOWSCHEME");
+    public static final QWorkflowscheme workflowscheme = new QWorkflowscheme("workflowscheme");
 
     public final StringPath description = createString("description");
 
@@ -45,10 +45,10 @@ public class QWorkflowscheme extends com.querydsl.sql.RelationalPathBase<QWorkfl
 
     public final StringPath name = createString("name");
 
-    public final com.querydsl.sql.PrimaryKey<QWorkflowscheme> sysIdx205 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QWorkflowscheme> workflowschemePk = createPrimaryKey(id);
 
     public QWorkflowscheme(String variable) {
-        super(QWorkflowscheme.class, forVariable(variable), "PUBLIC", "WORKFLOWSCHEME");
+        super(QWorkflowscheme.class, forVariable(variable), "public", "workflowscheme");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QWorkflowscheme extends com.querydsl.sql.RelationalPathBase<QWorkfl
     }
 
     public QWorkflowscheme(Path<? extends QWorkflowscheme> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "WORKFLOWSCHEME");
+        super(path.getType(), path.getMetadata(), "public", "workflowscheme");
         addMetadata();
     }
 
     public QWorkflowscheme(PathMetadata metadata) {
-        super(QWorkflowscheme.class, metadata, "PUBLIC", "WORKFLOWSCHEME");
+        super(QWorkflowscheme.class, metadata, "public", "workflowscheme");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(name, ColumnMetadata.named("NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(name, ColumnMetadata.named("name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

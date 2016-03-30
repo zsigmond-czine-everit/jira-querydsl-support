@@ -37,7 +37,7 @@ public class QChangeitem extends com.querydsl.sql.RelationalPathBase<QChangeitem
 
     private static final long serialVersionUID = 1537862395;
 
-    public static final QChangeitem changeitem = new QChangeitem("CHANGEITEM");
+    public static final QChangeitem changeitem = new QChangeitem("changeitem");
 
     public final StringPath field = createString("field");
 
@@ -55,10 +55,10 @@ public class QChangeitem extends com.querydsl.sql.RelationalPathBase<QChangeitem
 
     public final StringPath oldvalue = createString("oldvalue");
 
-    public final com.querydsl.sql.PrimaryKey<QChangeitem> sysIdx54 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QChangeitem> changeitemPk = createPrimaryKey(id);
 
     public QChangeitem(String variable) {
-        super(QChangeitem.class, forVariable(variable), "PUBLIC", "CHANGEITEM");
+        super(QChangeitem.class, forVariable(variable), "public", "changeitem");
         addMetadata();
     }
 
@@ -68,24 +68,24 @@ public class QChangeitem extends com.querydsl.sql.RelationalPathBase<QChangeitem
     }
 
     public QChangeitem(Path<? extends QChangeitem> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CHANGEITEM");
+        super(path.getType(), path.getMetadata(), "public", "changeitem");
         addMetadata();
     }
 
     public QChangeitem(PathMetadata metadata) {
-        super(QChangeitem.class, metadata, "PUBLIC", "CHANGEITEM");
+        super(QChangeitem.class, metadata, "public", "changeitem");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(field, ColumnMetadata.named("FIELD").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(fieldtype, ColumnMetadata.named("FIELDTYPE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(groupid, ColumnMetadata.named("GROUPID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(newstring, ColumnMetadata.named("NEWSTRING").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(newvalue, ColumnMetadata.named("NEWVALUE").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(oldstring, ColumnMetadata.named("OLDSTRING").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(oldvalue, ColumnMetadata.named("OLDVALUE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(field, ColumnMetadata.named("field").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(fieldtype, ColumnMetadata.named("fieldtype").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(groupid, ColumnMetadata.named("groupid").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(newstring, ColumnMetadata.named("newstring").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(newvalue, ColumnMetadata.named("newvalue").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(oldstring, ColumnMetadata.named("oldstring").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(oldvalue, ColumnMetadata.named("oldvalue").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
     }
 
 }

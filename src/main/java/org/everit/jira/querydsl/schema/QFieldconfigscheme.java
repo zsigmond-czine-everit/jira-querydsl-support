@@ -37,7 +37,7 @@ public class QFieldconfigscheme extends com.querydsl.sql.RelationalPathBase<QFie
 
     private static final long serialVersionUID = -130197975;
 
-    public static final QFieldconfigscheme fieldconfigscheme = new QFieldconfigscheme("FIELDCONFIGSCHEME");
+    public static final QFieldconfigscheme fieldconfigscheme = new QFieldconfigscheme("fieldconfigscheme");
 
     public final StringPath configname = createString("configname");
 
@@ -49,10 +49,10 @@ public class QFieldconfigscheme extends com.querydsl.sql.RelationalPathBase<QFie
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QFieldconfigscheme> sysIdx80 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QFieldconfigscheme> fieldconfigschemePk = createPrimaryKey(id);
 
     public QFieldconfigscheme(String variable) {
-        super(QFieldconfigscheme.class, forVariable(variable), "PUBLIC", "FIELDCONFIGSCHEME");
+        super(QFieldconfigscheme.class, forVariable(variable), "public", "fieldconfigscheme");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QFieldconfigscheme extends com.querydsl.sql.RelationalPathBase<QFie
     }
 
     public QFieldconfigscheme(Path<? extends QFieldconfigscheme> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "FIELDCONFIGSCHEME");
+        super(path.getType(), path.getMetadata(), "public", "fieldconfigscheme");
         addMetadata();
     }
 
     public QFieldconfigscheme(PathMetadata metadata) {
-        super(QFieldconfigscheme.class, metadata, "PUBLIC", "FIELDCONFIGSCHEME");
+        super(QFieldconfigscheme.class, metadata, "public", "fieldconfigscheme");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(configname, ColumnMetadata.named("CONFIGNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(customfield, ColumnMetadata.named("CUSTOMFIELD").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(fieldid, ColumnMetadata.named("FIELDID").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
+        addMetadata(configname, ColumnMetadata.named("configname").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(customfield, ColumnMetadata.named("customfield").withIndex(5).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(fieldid, ColumnMetadata.named("fieldid").withIndex(4).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
     }
 
 }

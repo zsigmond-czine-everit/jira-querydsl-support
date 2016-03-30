@@ -37,7 +37,7 @@ public class QRemotelink extends com.querydsl.sql.RelationalPathBase<QRemotelink
 
     private static final long serialVersionUID = 416205176;
 
-    public static final QRemotelink remotelink = new QRemotelink("REMOTELINK");
+    public static final QRemotelink remotelink = new QRemotelink("remotelink");
 
     public final StringPath applicationname = createString("applicationname");
 
@@ -77,10 +77,10 @@ public class QRemotelink extends com.querydsl.sql.RelationalPathBase<QRemotelink
 
     public final StringPath url = createString("url");
 
-    public final com.querydsl.sql.PrimaryKey<QRemotelink> sysIdx178 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QRemotelink> remotelinkPk = createPrimaryKey(id);
 
     public QRemotelink(String variable) {
-        super(QRemotelink.class, forVariable(variable), "PUBLIC", "REMOTELINK");
+        super(QRemotelink.class, forVariable(variable), "public", "remotelink");
         addMetadata();
     }
 
@@ -90,35 +90,35 @@ public class QRemotelink extends com.querydsl.sql.RelationalPathBase<QRemotelink
     }
 
     public QRemotelink(Path<? extends QRemotelink> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "REMOTELINK");
+        super(path.getType(), path.getMetadata(), "public", "remotelink");
         addMetadata();
     }
 
     public QRemotelink(PathMetadata metadata) {
-        super(QRemotelink.class, metadata, "PUBLIC", "REMOTELINK");
+        super(QRemotelink.class, metadata, "public", "remotelink");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(applicationname, ColumnMetadata.named("APPLICATIONNAME").withIndex(19).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(applicationtype, ColumnMetadata.named("APPLICATIONTYPE").withIndex(18).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(globalid, ColumnMetadata.named("GLOBALID").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(icontitle, ColumnMetadata.named("ICONTITLE").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(iconurl, ColumnMetadata.named("ICONURL").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issueid, ColumnMetadata.named("ISSUEID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(relationship, ColumnMetadata.named("RELATIONSHIP").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(resolved, ColumnMetadata.named("RESOLVED").withIndex(10).ofType(Types.CHAR).withSize(2147483647));
-        addMetadata(statuscategorycolorname, ColumnMetadata.named("STATUSCATEGORYCOLORNAME").withIndex(17).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(statuscategorykey, ColumnMetadata.named("STATUSCATEGORYKEY").withIndex(16).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(statusdescription, ColumnMetadata.named("STATUSDESCRIPTION").withIndex(12).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(statusiconlink, ColumnMetadata.named("STATUSICONLINK").withIndex(15).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(statusicontitle, ColumnMetadata.named("STATUSICONTITLE").withIndex(14).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(statusiconurl, ColumnMetadata.named("STATUSICONURL").withIndex(13).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(statusname, ColumnMetadata.named("STATUSNAME").withIndex(11).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(summary, ColumnMetadata.named("SUMMARY").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(title, ColumnMetadata.named("TITLE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(url, ColumnMetadata.named("URL").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(applicationname, ColumnMetadata.named("applicationname").withIndex(19).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(applicationtype, ColumnMetadata.named("applicationtype").withIndex(18).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(globalid, ColumnMetadata.named("globalid").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(icontitle, ColumnMetadata.named("icontitle").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(iconurl, ColumnMetadata.named("iconurl").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issueid, ColumnMetadata.named("issueid").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(relationship, ColumnMetadata.named("relationship").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(resolved, ColumnMetadata.named("resolved").withIndex(10).ofType(Types.CHAR).withSize(1));
+        addMetadata(statuscategorycolorname, ColumnMetadata.named("statuscategorycolorname").withIndex(17).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(statuscategorykey, ColumnMetadata.named("statuscategorykey").withIndex(16).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(statusdescription, ColumnMetadata.named("statusdescription").withIndex(12).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(statusiconlink, ColumnMetadata.named("statusiconlink").withIndex(15).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(statusicontitle, ColumnMetadata.named("statusicontitle").withIndex(14).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(statusiconurl, ColumnMetadata.named("statusiconurl").withIndex(13).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(statusname, ColumnMetadata.named("statusname").withIndex(11).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(summary, ColumnMetadata.named("summary").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(title, ColumnMetadata.named("title").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(url, ColumnMetadata.named("url").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
     }
 
 }

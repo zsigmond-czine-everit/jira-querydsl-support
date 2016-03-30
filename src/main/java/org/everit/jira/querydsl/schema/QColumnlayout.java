@@ -37,7 +37,7 @@ public class QColumnlayout extends com.querydsl.sql.RelationalPathBase<QColumnla
 
     private static final long serialVersionUID = 127794232;
 
-    public static final QColumnlayout columnlayout = new QColumnlayout("COLUMNLAYOUT");
+    public static final QColumnlayout columnlayout = new QColumnlayout("columnlayout");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -45,10 +45,10 @@ public class QColumnlayout extends com.querydsl.sql.RelationalPathBase<QColumnla
 
     public final StringPath username = createString("username");
 
-    public final com.querydsl.sql.PrimaryKey<QColumnlayout> sysIdx60 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QColumnlayout> columnlayoutPk = createPrimaryKey(id);
 
     public QColumnlayout(String variable) {
-        super(QColumnlayout.class, forVariable(variable), "PUBLIC", "COLUMNLAYOUT");
+        super(QColumnlayout.class, forVariable(variable), "public", "columnlayout");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QColumnlayout extends com.querydsl.sql.RelationalPathBase<QColumnla
     }
 
     public QColumnlayout(Path<? extends QColumnlayout> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "COLUMNLAYOUT");
+        super(path.getType(), path.getMetadata(), "public", "columnlayout");
         addMetadata();
     }
 
     public QColumnlayout(PathMetadata metadata) {
-        super(QColumnlayout.class, metadata, "PUBLIC", "COLUMNLAYOUT");
+        super(QColumnlayout.class, metadata, "public", "columnlayout");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(searchrequest, ColumnMetadata.named("SEARCHREQUEST").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(username, ColumnMetadata.named("USERNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(searchrequest, ColumnMetadata.named("searchrequest").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(username, ColumnMetadata.named("username").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

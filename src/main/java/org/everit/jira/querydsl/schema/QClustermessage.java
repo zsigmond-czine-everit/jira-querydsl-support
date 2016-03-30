@@ -37,7 +37,7 @@ public class QClustermessage extends com.querydsl.sql.RelationalPathBase<QCluste
 
     private static final long serialVersionUID = 666794245;
 
-    public static final QClustermessage clustermessage = new QClustermessage("CLUSTERMESSAGE");
+    public static final QClustermessage clustermessage = new QClustermessage("clustermessage");
 
     public final StringPath claimedByNode = createString("claimedByNode");
 
@@ -51,10 +51,10 @@ public class QClustermessage extends com.querydsl.sql.RelationalPathBase<QCluste
 
     public final StringPath sourceNode = createString("sourceNode");
 
-    public final com.querydsl.sql.PrimaryKey<QClustermessage> sysIdx56 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QClustermessage> clustermessagePk = createPrimaryKey(id);
 
     public QClustermessage(String variable) {
-        super(QClustermessage.class, forVariable(variable), "PUBLIC", "CLUSTERMESSAGE");
+        super(QClustermessage.class, forVariable(variable), "public", "clustermessage");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QClustermessage extends com.querydsl.sql.RelationalPathBase<QCluste
     }
 
     public QClustermessage(Path<? extends QClustermessage> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CLUSTERMESSAGE");
+        super(path.getType(), path.getMetadata(), "public", "clustermessage");
         addMetadata();
     }
 
     public QClustermessage(PathMetadata metadata) {
-        super(QClustermessage.class, metadata, "PUBLIC", "CLUSTERMESSAGE");
+        super(QClustermessage.class, metadata, "public", "clustermessage");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(claimedByNode, ColumnMetadata.named("CLAIMED_BY_NODE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(destinationNode, ColumnMetadata.named("DESTINATION_NODE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(message, ColumnMetadata.named("MESSAGE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(messageTime, ColumnMetadata.named("MESSAGE_TIME").withIndex(6).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(sourceNode, ColumnMetadata.named("SOURCE_NODE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(claimedByNode, ColumnMetadata.named("claimed_by_node").withIndex(4).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(destinationNode, ColumnMetadata.named("destination_node").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(message, ColumnMetadata.named("message").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(messageTime, ColumnMetadata.named("message_time").withIndex(6).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(sourceNode, ColumnMetadata.named("source_node").withIndex(2).ofType(Types.VARCHAR).withSize(60));
     }
 
 }

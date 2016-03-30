@@ -37,16 +37,16 @@ public class QPropertystring extends com.querydsl.sql.RelationalPathBase<QProper
 
     private static final long serialVersionUID = -471424418;
 
-    public static final QPropertystring propertystring = new QPropertystring("PROPERTYSTRING");
+    public static final QPropertystring propertystring = new QPropertystring("propertystring");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath propertyvalue = createString("propertyvalue");
 
-    public final com.querydsl.sql.PrimaryKey<QPropertystring> sysIdx148 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPropertystring> propertystringPk = createPrimaryKey(id);
 
     public QPropertystring(String variable) {
-        super(QPropertystring.class, forVariable(variable), "PUBLIC", "PROPERTYSTRING");
+        super(QPropertystring.class, forVariable(variable), "public", "propertystring");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QPropertystring extends com.querydsl.sql.RelationalPathBase<QProper
     }
 
     public QPropertystring(Path<? extends QPropertystring> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROPERTYSTRING");
+        super(path.getType(), path.getMetadata(), "public", "propertystring");
         addMetadata();
     }
 
     public QPropertystring(PathMetadata metadata) {
-        super(QPropertystring.class, metadata, "PUBLIC", "PROPERTYSTRING");
+        super(QPropertystring.class, metadata, "public", "propertystring");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(propertyvalue, ColumnMetadata.named("PROPERTYVALUE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(propertyvalue, ColumnMetadata.named("propertyvalue").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
     }
 
 }

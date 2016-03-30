@@ -37,7 +37,7 @@ public class QIssuelinktype extends com.querydsl.sql.RelationalPathBase<QIssueli
 
     private static final long serialVersionUID = -1190219051;
 
-    public static final QIssuelinktype issuelinktype = new QIssuelinktype("ISSUELINKTYPE");
+    public static final QIssuelinktype issuelinktype = new QIssuelinktype("issuelinktype");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -49,10 +49,10 @@ public class QIssuelinktype extends com.querydsl.sql.RelationalPathBase<QIssueli
 
     public final StringPath pstyle = createString("pstyle");
 
-    public final com.querydsl.sql.PrimaryKey<QIssuelinktype> sysIdx102 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QIssuelinktype> issuelinktypePk = createPrimaryKey(id);
 
     public QIssuelinktype(String variable) {
-        super(QIssuelinktype.class, forVariable(variable), "PUBLIC", "ISSUELINKTYPE");
+        super(QIssuelinktype.class, forVariable(variable), "public", "issuelinktype");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QIssuelinktype extends com.querydsl.sql.RelationalPathBase<QIssueli
     }
 
     public QIssuelinktype(Path<? extends QIssuelinktype> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "ISSUELINKTYPE");
+        super(path.getType(), path.getMetadata(), "public", "issuelinktype");
         addMetadata();
     }
 
     public QIssuelinktype(PathMetadata metadata) {
-        super(QIssuelinktype.class, metadata, "PUBLIC", "ISSUELINKTYPE");
+        super(QIssuelinktype.class, metadata, "public", "issuelinktype");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(inward, ColumnMetadata.named("INWARD").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(linkname, ColumnMetadata.named("LINKNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(outward, ColumnMetadata.named("OUTWARD").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(pstyle, ColumnMetadata.named("PSTYLE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(inward, ColumnMetadata.named("inward").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(linkname, ColumnMetadata.named("linkname").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(outward, ColumnMetadata.named("outward").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(pstyle, ColumnMetadata.named("pstyle").withIndex(5).ofType(Types.VARCHAR).withSize(60));
     }
 
 }

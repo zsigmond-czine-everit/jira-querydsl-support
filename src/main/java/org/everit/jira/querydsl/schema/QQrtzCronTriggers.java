@@ -37,7 +37,7 @@ public class QQrtzCronTriggers extends com.querydsl.sql.RelationalPathBase<QQrtz
 
     private static final long serialVersionUID = -381106520;
 
-    public static final QQrtzCronTriggers qrtzCronTriggers = new QQrtzCronTriggers("QRTZ_CRON_TRIGGERS");
+    public static final QQrtzCronTriggers qrtzCronTriggers = new QQrtzCronTriggers("qrtz_cron_triggers");
 
     public final StringPath cronexperssion = createString("cronexperssion");
 
@@ -45,10 +45,10 @@ public class QQrtzCronTriggers extends com.querydsl.sql.RelationalPathBase<QQrtz
 
     public final NumberPath<Long> triggerId = createNumber("triggerId", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QQrtzCronTriggers> sysIdx167 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QQrtzCronTriggers> qrtzCronTriggersPk = createPrimaryKey(id);
 
     public QQrtzCronTriggers(String variable) {
-        super(QQrtzCronTriggers.class, forVariable(variable), "PUBLIC", "QRTZ_CRON_TRIGGERS");
+        super(QQrtzCronTriggers.class, forVariable(variable), "public", "qrtz_cron_triggers");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QQrtzCronTriggers extends com.querydsl.sql.RelationalPathBase<QQrtz
     }
 
     public QQrtzCronTriggers(Path<? extends QQrtzCronTriggers> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "QRTZ_CRON_TRIGGERS");
+        super(path.getType(), path.getMetadata(), "public", "qrtz_cron_triggers");
         addMetadata();
     }
 
     public QQrtzCronTriggers(PathMetadata metadata) {
-        super(QQrtzCronTriggers.class, metadata, "PUBLIC", "QRTZ_CRON_TRIGGERS");
+        super(QQrtzCronTriggers.class, metadata, "public", "qrtz_cron_triggers");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(cronexperssion, ColumnMetadata.named("CRONEXPERSSION").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(triggerId, ColumnMetadata.named("TRIGGER_ID").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(cronexperssion, ColumnMetadata.named("cronexperssion").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(triggerId, ColumnMetadata.named("trigger_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

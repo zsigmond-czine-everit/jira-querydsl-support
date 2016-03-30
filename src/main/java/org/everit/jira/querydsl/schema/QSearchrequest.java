@@ -37,7 +37,7 @@ public class QSearchrequest extends com.querydsl.sql.RelationalPathBase<QSearchr
 
     private static final long serialVersionUID = 1317576879;
 
-    public static final QSearchrequest searchrequest = new QSearchrequest("SEARCHREQUEST");
+    public static final QSearchrequest searchrequest = new QSearchrequest("searchrequest");
 
     public final StringPath authorname = createString("authorname");
 
@@ -59,10 +59,10 @@ public class QSearchrequest extends com.querydsl.sql.RelationalPathBase<QSearchr
 
     public final StringPath username = createString("username");
 
-    public final com.querydsl.sql.PrimaryKey<QSearchrequest> sysIdx185 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QSearchrequest> searchrequestPk = createPrimaryKey(id);
 
     public QSearchrequest(String variable) {
-        super(QSearchrequest.class, forVariable(variable), "PUBLIC", "SEARCHREQUEST");
+        super(QSearchrequest.class, forVariable(variable), "public", "searchrequest");
         addMetadata();
     }
 
@@ -72,26 +72,26 @@ public class QSearchrequest extends com.querydsl.sql.RelationalPathBase<QSearchr
     }
 
     public QSearchrequest(Path<? extends QSearchrequest> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "SEARCHREQUEST");
+        super(path.getType(), path.getMetadata(), "public", "searchrequest");
         addMetadata();
     }
 
     public QSearchrequest(PathMetadata metadata) {
-        super(QSearchrequest.class, metadata, "PUBLIC", "SEARCHREQUEST");
+        super(QSearchrequest.class, metadata, "public", "searchrequest");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(authorname, ColumnMetadata.named("AUTHORNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(favCount, ColumnMetadata.named("FAV_COUNT").withIndex(9).ofType(Types.BIGINT));
-        addMetadata(filtername, ColumnMetadata.named("FILTERNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(filternameLower, ColumnMetadata.named("FILTERNAME_LOWER").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(groupname, ColumnMetadata.named("GROUPNAME").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(projectid, ColumnMetadata.named("PROJECTID").withIndex(7).ofType(Types.BIGINT));
-        addMetadata(reqcontent, ColumnMetadata.named("REQCONTENT").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(username, ColumnMetadata.named("USERNAME").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(authorname, ColumnMetadata.named("authorname").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(favCount, ColumnMetadata.named("fav_count").withIndex(9).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(filtername, ColumnMetadata.named("filtername").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(filternameLower, ColumnMetadata.named("filtername_lower").withIndex(10).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(groupname, ColumnMetadata.named("groupname").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(projectid, ColumnMetadata.named("projectid").withIndex(7).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(reqcontent, ColumnMetadata.named("reqcontent").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(username, ColumnMetadata.named("username").withIndex(5).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

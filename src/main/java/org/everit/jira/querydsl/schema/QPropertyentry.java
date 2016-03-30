@@ -37,7 +37,7 @@ public class QPropertyentry extends com.querydsl.sql.RelationalPathBase<QPropert
 
     private static final long serialVersionUID = -443955067;
 
-    public static final QPropertyentry propertyentry = new QPropertyentry("PROPERTYENTRY");
+    public static final QPropertyentry propertyentry = new QPropertyentry("propertyentry");
 
     public final NumberPath<Long> entityId = createNumber("entityId", Long.class);
 
@@ -49,10 +49,10 @@ public class QPropertyentry extends com.querydsl.sql.RelationalPathBase<QPropert
 
     public final NumberPath<Integer> propertytype = createNumber("propertytype", Integer.class);
 
-    public final com.querydsl.sql.PrimaryKey<QPropertyentry> sysIdx146 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPropertyentry> propertyentryPk = createPrimaryKey(id);
 
     public QPropertyentry(String variable) {
-        super(QPropertyentry.class, forVariable(variable), "PUBLIC", "PROPERTYENTRY");
+        super(QPropertyentry.class, forVariable(variable), "public", "propertyentry");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QPropertyentry extends com.querydsl.sql.RelationalPathBase<QPropert
     }
 
     public QPropertyentry(Path<? extends QPropertyentry> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROPERTYENTRY");
+        super(path.getType(), path.getMetadata(), "public", "propertyentry");
         addMetadata();
     }
 
     public QPropertyentry(PathMetadata metadata) {
-        super(QPropertyentry.class, metadata, "PUBLIC", "PROPERTYENTRY");
+        super(QPropertyentry.class, metadata, "public", "propertyentry");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(entityId, ColumnMetadata.named("ENTITY_ID").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(entityName, ColumnMetadata.named("ENTITY_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(propertyKey, ColumnMetadata.named("PROPERTY_KEY").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(propertytype, ColumnMetadata.named("PROPERTYTYPE").withIndex(5).ofType(Types.INTEGER));
+        addMetadata(entityId, ColumnMetadata.named("entity_id").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(entityName, ColumnMetadata.named("entity_name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(propertyKey, ColumnMetadata.named("property_key").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(propertytype, ColumnMetadata.named("propertytype").withIndex(5).ofType(Types.NUMERIC).withSize(9));
     }
 
 }

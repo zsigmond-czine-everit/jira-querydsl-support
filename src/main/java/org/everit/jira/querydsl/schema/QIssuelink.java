@@ -37,7 +37,7 @@ public class QIssuelink extends com.querydsl.sql.RelationalPathBase<QIssuelink> 
 
     private static final long serialVersionUID = 26749211;
 
-    public static final QIssuelink issuelink = new QIssuelink("ISSUELINK");
+    public static final QIssuelink issuelink = new QIssuelink("issuelink");
 
     public final NumberPath<Long> destination = createNumber("destination", Long.class);
 
@@ -49,10 +49,10 @@ public class QIssuelink extends com.querydsl.sql.RelationalPathBase<QIssuelink> 
 
     public final NumberPath<Long> source = createNumber("source", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QIssuelink> sysIdx101 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QIssuelink> issuelinkPk = createPrimaryKey(id);
 
     public QIssuelink(String variable) {
-        super(QIssuelink.class, forVariable(variable), "PUBLIC", "ISSUELINK");
+        super(QIssuelink.class, forVariable(variable), "public", "issuelink");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QIssuelink extends com.querydsl.sql.RelationalPathBase<QIssuelink> 
     }
 
     public QIssuelink(Path<? extends QIssuelink> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "ISSUELINK");
+        super(path.getType(), path.getMetadata(), "public", "issuelink");
         addMetadata();
     }
 
     public QIssuelink(PathMetadata metadata) {
-        super(QIssuelink.class, metadata, "PUBLIC", "ISSUELINK");
+        super(QIssuelink.class, metadata, "public", "issuelink");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(destination, ColumnMetadata.named("DESTINATION").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(linktype, ColumnMetadata.named("LINKTYPE").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(source, ColumnMetadata.named("SOURCE").withIndex(3).ofType(Types.BIGINT));
+        addMetadata(destination, ColumnMetadata.named("destination").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(linktype, ColumnMetadata.named("linktype").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(5).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(source, ColumnMetadata.named("source").withIndex(3).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

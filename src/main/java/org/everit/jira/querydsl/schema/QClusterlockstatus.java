@@ -37,7 +37,7 @@ public class QClusterlockstatus extends com.querydsl.sql.RelationalPathBase<QClu
 
     private static final long serialVersionUID = -552483041;
 
-    public static final QClusterlockstatus clusterlockstatus = new QClusterlockstatus("CLUSTERLOCKSTATUS");
+    public static final QClusterlockstatus clusterlockstatus = new QClusterlockstatus("clusterlockstatus");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -47,10 +47,10 @@ public class QClusterlockstatus extends com.querydsl.sql.RelationalPathBase<QClu
 
     public final NumberPath<Long> updateTime = createNumber("updateTime", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QClusterlockstatus> sysIdx55 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QClusterlockstatus> clusterlockstatusPk = createPrimaryKey(id);
 
     public QClusterlockstatus(String variable) {
-        super(QClusterlockstatus.class, forVariable(variable), "PUBLIC", "CLUSTERLOCKSTATUS");
+        super(QClusterlockstatus.class, forVariable(variable), "public", "clusterlockstatus");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QClusterlockstatus extends com.querydsl.sql.RelationalPathBase<QClu
     }
 
     public QClusterlockstatus(Path<? extends QClusterlockstatus> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CLUSTERLOCKSTATUS");
+        super(path.getType(), path.getMetadata(), "public", "clusterlockstatus");
         addMetadata();
     }
 
     public QClusterlockstatus(PathMetadata metadata) {
-        super(QClusterlockstatus.class, metadata, "PUBLIC", "CLUSTERLOCKSTATUS");
+        super(QClusterlockstatus.class, metadata, "public", "clusterlockstatus");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(lockedByNode, ColumnMetadata.named("LOCKED_BY_NODE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(lockName, ColumnMetadata.named("LOCK_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(updateTime, ColumnMetadata.named("UPDATE_TIME").withIndex(4).ofType(Types.BIGINT));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(lockedByNode, ColumnMetadata.named("locked_by_node").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(lockName, ColumnMetadata.named("lock_name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(updateTime, ColumnMetadata.named("update_time").withIndex(4).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

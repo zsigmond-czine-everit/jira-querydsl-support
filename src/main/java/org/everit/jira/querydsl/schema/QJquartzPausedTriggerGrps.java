@@ -37,16 +37,16 @@ public class QJquartzPausedTriggerGrps extends com.querydsl.sql.RelationalPathBa
 
     private static final long serialVersionUID = 326546731;
 
-    public static final QJquartzPausedTriggerGrps jquartzPausedTriggerGrps = new QJquartzPausedTriggerGrps("JQUARTZ_PAUSED_TRIGGER_GRPS");
+    public static final QJquartzPausedTriggerGrps jquartzPausedTriggerGrps = new QJquartzPausedTriggerGrps("jquartz_paused_trigger_grps");
 
     public final StringPath schedName = createString("schedName");
 
     public final StringPath triggerGroup = createString("triggerGroup");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzPausedTriggerGrps> sysIdx114 = createPrimaryKey(triggerGroup);
+    public final com.querydsl.sql.PrimaryKey<QJquartzPausedTriggerGrps> jquartzPausedTriggerGrpsPk = createPrimaryKey(triggerGroup);
 
     public QJquartzPausedTriggerGrps(String variable) {
-        super(QJquartzPausedTriggerGrps.class, forVariable(variable), "PUBLIC", "JQUARTZ_PAUSED_TRIGGER_GRPS");
+        super(QJquartzPausedTriggerGrps.class, forVariable(variable), "public", "jquartz_paused_trigger_grps");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QJquartzPausedTriggerGrps extends com.querydsl.sql.RelationalPathBa
     }
 
     public QJquartzPausedTriggerGrps(Path<? extends QJquartzPausedTriggerGrps> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_PAUSED_TRIGGER_GRPS");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_paused_trigger_grps");
         addMetadata();
     }
 
     public QJquartzPausedTriggerGrps(PathMetadata metadata) {
-        super(QJquartzPausedTriggerGrps.class, metadata, "PUBLIC", "JQUARTZ_PAUSED_TRIGGER_GRPS");
+        super(QJquartzPausedTriggerGrps.class, metadata, "public", "jquartz_paused_trigger_grps");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(schedName, ColumnMetadata.named("SCHED_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(120));
-        addMetadata(triggerGroup, ColumnMetadata.named("TRIGGER_GROUP").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(schedName, ColumnMetadata.named("sched_name").withIndex(1).ofType(Types.VARCHAR).withSize(120));
+        addMetadata(triggerGroup, ColumnMetadata.named("trigger_group").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
     }
 
 }

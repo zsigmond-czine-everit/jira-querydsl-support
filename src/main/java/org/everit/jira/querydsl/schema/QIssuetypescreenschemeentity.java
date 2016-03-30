@@ -37,7 +37,7 @@ public class QIssuetypescreenschemeentity extends com.querydsl.sql.RelationalPat
 
     private static final long serialVersionUID = 1378799567;
 
-    public static final QIssuetypescreenschemeentity issuetypescreenschemeentity = new QIssuetypescreenschemeentity("ISSUETYPESCREENSCHEMEENTITY");
+    public static final QIssuetypescreenschemeentity issuetypescreenschemeentity = new QIssuetypescreenschemeentity("issuetypescreenschemeentity");
 
     public final NumberPath<Long> fieldscreenscheme = createNumber("fieldscreenscheme", Long.class);
 
@@ -47,10 +47,10 @@ public class QIssuetypescreenschemeentity extends com.querydsl.sql.RelationalPat
 
     public final NumberPath<Long> scheme = createNumber("scheme", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QIssuetypescreenschemeentity> sysIdx106 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QIssuetypescreenschemeentity> issuetypescreenschemeentityPk = createPrimaryKey(id);
 
     public QIssuetypescreenschemeentity(String variable) {
-        super(QIssuetypescreenschemeentity.class, forVariable(variable), "PUBLIC", "ISSUETYPESCREENSCHEMEENTITY");
+        super(QIssuetypescreenschemeentity.class, forVariable(variable), "public", "issuetypescreenschemeentity");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QIssuetypescreenschemeentity extends com.querydsl.sql.RelationalPat
     }
 
     public QIssuetypescreenschemeentity(Path<? extends QIssuetypescreenschemeentity> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "ISSUETYPESCREENSCHEMEENTITY");
+        super(path.getType(), path.getMetadata(), "public", "issuetypescreenschemeentity");
         addMetadata();
     }
 
     public QIssuetypescreenschemeentity(PathMetadata metadata) {
-        super(QIssuetypescreenschemeentity.class, metadata, "PUBLIC", "ISSUETYPESCREENSCHEMEENTITY");
+        super(QIssuetypescreenschemeentity.class, metadata, "public", "issuetypescreenschemeentity");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(fieldscreenscheme, ColumnMetadata.named("FIELDSCREENSCHEME").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issuetype, ColumnMetadata.named("ISSUETYPE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(scheme, ColumnMetadata.named("SCHEME").withIndex(3).ofType(Types.BIGINT));
+        addMetadata(fieldscreenscheme, ColumnMetadata.named("fieldscreenscheme").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issuetype, ColumnMetadata.named("issuetype").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(scheme, ColumnMetadata.named("scheme").withIndex(3).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

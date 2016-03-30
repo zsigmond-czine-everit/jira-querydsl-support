@@ -37,7 +37,7 @@ public class QFieldlayoutschemeassociation extends com.querydsl.sql.RelationalPa
 
     private static final long serialVersionUID = -494692400;
 
-    public static final QFieldlayoutschemeassociation fieldlayoutschemeassociation = new QFieldlayoutschemeassociation("FIELDLAYOUTSCHEMEASSOCIATION");
+    public static final QFieldlayoutschemeassociation fieldlayoutschemeassociation = new QFieldlayoutschemeassociation("fieldlayoutschemeassociation");
 
     public final NumberPath<Long> fieldlayoutscheme = createNumber("fieldlayoutscheme", Long.class);
 
@@ -47,10 +47,10 @@ public class QFieldlayoutschemeassociation extends com.querydsl.sql.RelationalPa
 
     public final NumberPath<Long> project = createNumber("project", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QFieldlayoutschemeassociation> sysIdx86 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QFieldlayoutschemeassociation> fieldlayoutschemeassociatioPk = createPrimaryKey(id);
 
     public QFieldlayoutschemeassociation(String variable) {
-        super(QFieldlayoutschemeassociation.class, forVariable(variable), "PUBLIC", "FIELDLAYOUTSCHEMEASSOCIATION");
+        super(QFieldlayoutschemeassociation.class, forVariable(variable), "public", "fieldlayoutschemeassociation");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QFieldlayoutschemeassociation extends com.querydsl.sql.RelationalPa
     }
 
     public QFieldlayoutschemeassociation(Path<? extends QFieldlayoutschemeassociation> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "FIELDLAYOUTSCHEMEASSOCIATION");
+        super(path.getType(), path.getMetadata(), "public", "fieldlayoutschemeassociation");
         addMetadata();
     }
 
     public QFieldlayoutschemeassociation(PathMetadata metadata) {
-        super(QFieldlayoutschemeassociation.class, metadata, "PUBLIC", "FIELDLAYOUTSCHEMEASSOCIATION");
+        super(QFieldlayoutschemeassociation.class, metadata, "public", "fieldlayoutschemeassociation");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(fieldlayoutscheme, ColumnMetadata.named("FIELDLAYOUTSCHEME").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issuetype, ColumnMetadata.named("ISSUETYPE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(project, ColumnMetadata.named("PROJECT").withIndex(3).ofType(Types.BIGINT));
+        addMetadata(fieldlayoutscheme, ColumnMetadata.named("fieldlayoutscheme").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issuetype, ColumnMetadata.named("issuetype").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(project, ColumnMetadata.named("project").withIndex(3).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

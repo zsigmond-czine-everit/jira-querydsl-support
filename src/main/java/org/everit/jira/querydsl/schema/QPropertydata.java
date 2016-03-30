@@ -37,16 +37,16 @@ public class QPropertydata extends com.querydsl.sql.RelationalPathBase<QProperty
 
     private static final long serialVersionUID = -984194761;
 
-    public static final QPropertydata propertydata = new QPropertydata("PROPERTYDATA");
+    public static final QPropertydata propertydata = new QPropertydata("propertydata");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final SimplePath<Object> propertyvalue = createSimple("propertyvalue", Object.class);
+    public final NumberPath<Long> propertyvalue = createNumber("propertyvalue", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QPropertydata> sysIdx143 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPropertydata> propertydataPk = createPrimaryKey(id);
 
     public QPropertydata(String variable) {
-        super(QPropertydata.class, forVariable(variable), "PUBLIC", "PROPERTYDATA");
+        super(QPropertydata.class, forVariable(variable), "public", "propertydata");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QPropertydata extends com.querydsl.sql.RelationalPathBase<QProperty
     }
 
     public QPropertydata(Path<? extends QPropertydata> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROPERTYDATA");
+        super(path.getType(), path.getMetadata(), "public", "propertydata");
         addMetadata();
     }
 
     public QPropertydata(PathMetadata metadata) {
-        super(QPropertydata.class, metadata, "PUBLIC", "PROPERTYDATA");
+        super(QPropertydata.class, metadata, "public", "propertydata");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(propertyvalue, ColumnMetadata.named("PROPERTYVALUE").withIndex(2).ofType(Types.OTHER));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(propertyvalue, ColumnMetadata.named("propertyvalue").withIndex(2).ofType(Types.BIGINT).withSize(10));
     }
 
 }

@@ -37,7 +37,7 @@ public class QCwdApplicationAddress extends com.querydsl.sql.RelationalPathBase<
 
     private static final long serialVersionUID = -1496379428;
 
-    public static final QCwdApplicationAddress cwdApplicationAddress = new QCwdApplicationAddress("CWD_APPLICATION_ADDRESS");
+    public static final QCwdApplicationAddress cwdApplicationAddress = new QCwdApplicationAddress("cwd_application_address");
 
     public final NumberPath<Long> applicationId = createNumber("applicationId", Long.class);
 
@@ -47,10 +47,10 @@ public class QCwdApplicationAddress extends com.querydsl.sql.RelationalPathBase<
 
     public final NumberPath<Integer> remoteAddressMask = createNumber("remoteAddressMask", Integer.class);
 
-    public final com.querydsl.sql.PrimaryKey<QCwdApplicationAddress> sysIdx177 = createPrimaryKey(applicationId, remoteAddress);
+    public final com.querydsl.sql.PrimaryKey<QCwdApplicationAddress> cwdApplicationAddressPk = createPrimaryKey(applicationId, remoteAddress);
 
     public QCwdApplicationAddress(String variable) {
-        super(QCwdApplicationAddress.class, forVariable(variable), "PUBLIC", "CWD_APPLICATION_ADDRESS");
+        super(QCwdApplicationAddress.class, forVariable(variable), "public", "cwd_application_address");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QCwdApplicationAddress extends com.querydsl.sql.RelationalPathBase<
     }
 
     public QCwdApplicationAddress(Path<? extends QCwdApplicationAddress> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CWD_APPLICATION_ADDRESS");
+        super(path.getType(), path.getMetadata(), "public", "cwd_application_address");
         addMetadata();
     }
 
     public QCwdApplicationAddress(PathMetadata metadata) {
-        super(QCwdApplicationAddress.class, metadata, "PUBLIC", "CWD_APPLICATION_ADDRESS");
+        super(QCwdApplicationAddress.class, metadata, "public", "cwd_application_address");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(applicationId, ColumnMetadata.named("APPLICATION_ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(encodedAddressBinary, ColumnMetadata.named("ENCODED_ADDRESS_BINARY").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(remoteAddress, ColumnMetadata.named("REMOTE_ADDRESS").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(remoteAddressMask, ColumnMetadata.named("REMOTE_ADDRESS_MASK").withIndex(4).ofType(Types.INTEGER));
+        addMetadata(applicationId, ColumnMetadata.named("application_id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(encodedAddressBinary, ColumnMetadata.named("encoded_address_binary").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(remoteAddress, ColumnMetadata.named("remote_address").withIndex(2).ofType(Types.VARCHAR).withSize(255).notNull());
+        addMetadata(remoteAddressMask, ColumnMetadata.named("remote_address_mask").withIndex(4).ofType(Types.NUMERIC).withSize(9));
     }
 
 }

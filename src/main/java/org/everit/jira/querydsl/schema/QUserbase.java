@@ -37,7 +37,7 @@ public class QUserbase extends com.querydsl.sql.RelationalPathBase<QUserbase> {
 
     private static final long serialVersionUID = 837187412;
 
-    public static final QUserbase userbase = new QUserbase("USERBASE");
+    public static final QUserbase userbase = new QUserbase("userbase");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -45,10 +45,10 @@ public class QUserbase extends com.querydsl.sql.RelationalPathBase<QUserbase> {
 
     public final StringPath username = createString("username");
 
-    public final com.querydsl.sql.PrimaryKey<QUserbase> sysIdx150 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QUserbase> userbasePk = createPrimaryKey(id);
 
     public QUserbase(String variable) {
-        super(QUserbase.class, forVariable(variable), "PUBLIC", "USERBASE");
+        super(QUserbase.class, forVariable(variable), "public", "userbase");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QUserbase extends com.querydsl.sql.RelationalPathBase<QUserbase> {
     }
 
     public QUserbase(Path<? extends QUserbase> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "USERBASE");
+        super(path.getType(), path.getMetadata(), "public", "userbase");
         addMetadata();
     }
 
     public QUserbase(PathMetadata metadata) {
-        super(QUserbase.class, metadata, "PUBLIC", "USERBASE");
+        super(QUserbase.class, metadata, "public", "userbase");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(passwordHash, ColumnMetadata.named("PASSWORD_HASH").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(username, ColumnMetadata.named("USERNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(passwordHash, ColumnMetadata.named("password_hash").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(username, ColumnMetadata.named("username").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

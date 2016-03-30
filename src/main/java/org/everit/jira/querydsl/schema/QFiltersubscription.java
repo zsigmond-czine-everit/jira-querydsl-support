@@ -37,7 +37,7 @@ public class QFiltersubscription extends com.querydsl.sql.RelationalPathBase<QFi
 
     private static final long serialVersionUID = 1168682189;
 
-    public static final QFiltersubscription filtersubscription = new QFiltersubscription("FILTERSUBSCRIPTION");
+    public static final QFiltersubscription filtersubscription = new QFiltersubscription("filtersubscription");
 
     public final StringPath emailOnEmpty = createString("emailOnEmpty");
 
@@ -51,10 +51,10 @@ public class QFiltersubscription extends com.querydsl.sql.RelationalPathBase<QFi
 
     public final StringPath username = createString("username");
 
-    public final com.querydsl.sql.PrimaryKey<QFiltersubscription> sysIdx94 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QFiltersubscription> filtersubscriptionPk = createPrimaryKey(id);
 
     public QFiltersubscription(String variable) {
-        super(QFiltersubscription.class, forVariable(variable), "PUBLIC", "FILTERSUBSCRIPTION");
+        super(QFiltersubscription.class, forVariable(variable), "public", "filtersubscription");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QFiltersubscription extends com.querydsl.sql.RelationalPathBase<QFi
     }
 
     public QFiltersubscription(Path<? extends QFiltersubscription> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "FILTERSUBSCRIPTION");
+        super(path.getType(), path.getMetadata(), "public", "filtersubscription");
         addMetadata();
     }
 
     public QFiltersubscription(PathMetadata metadata) {
-        super(QFiltersubscription.class, metadata, "PUBLIC", "FILTERSUBSCRIPTION");
+        super(QFiltersubscription.class, metadata, "public", "filtersubscription");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(emailOnEmpty, ColumnMetadata.named("EMAIL_ON_EMPTY").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(filterID, ColumnMetadata.named("FILTER_I_D").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(groupname, ColumnMetadata.named("GROUPNAME").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(lastRun, ColumnMetadata.named("LAST_RUN").withIndex(5).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(username, ColumnMetadata.named("USERNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(emailOnEmpty, ColumnMetadata.named("email_on_empty").withIndex(6).ofType(Types.VARCHAR).withSize(10));
+        addMetadata(filterID, ColumnMetadata.named("filter_i_d").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(groupname, ColumnMetadata.named("groupname").withIndex(4).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(lastRun, ColumnMetadata.named("last_run").withIndex(5).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(username, ColumnMetadata.named("username").withIndex(3).ofType(Types.VARCHAR).withSize(60));
     }
 
 }

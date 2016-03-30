@@ -37,7 +37,7 @@ public class QUserpickerfilter extends com.querydsl.sql.RelationalPathBase<QUser
 
     private static final long serialVersionUID = -398856439;
 
-    public static final QUserpickerfilter userpickerfilter = new QUserpickerfilter("USERPICKERFILTER");
+    public static final QUserpickerfilter userpickerfilter = new QUserpickerfilter("userpickerfilter");
 
     public final NumberPath<Long> customfield = createNumber("customfield", Long.class);
 
@@ -47,10 +47,10 @@ public class QUserpickerfilter extends com.querydsl.sql.RelationalPathBase<QUser
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QUserpickerfilter> sysIdx198 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QUserpickerfilter> userpickerfilterPk = createPrimaryKey(id);
 
     public QUserpickerfilter(String variable) {
-        super(QUserpickerfilter.class, forVariable(variable), "PUBLIC", "USERPICKERFILTER");
+        super(QUserpickerfilter.class, forVariable(variable), "public", "userpickerfilter");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QUserpickerfilter extends com.querydsl.sql.RelationalPathBase<QUser
     }
 
     public QUserpickerfilter(Path<? extends QUserpickerfilter> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "USERPICKERFILTER");
+        super(path.getType(), path.getMetadata(), "public", "userpickerfilter");
         addMetadata();
     }
 
     public QUserpickerfilter(PathMetadata metadata) {
-        super(QUserpickerfilter.class, metadata, "PUBLIC", "USERPICKERFILTER");
+        super(QUserpickerfilter.class, metadata, "public", "userpickerfilter");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(customfield, ColumnMetadata.named("CUSTOMFIELD").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(customfieldconfig, ColumnMetadata.named("CUSTOMFIELDCONFIG").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(enabled, ColumnMetadata.named("ENABLED").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
+        addMetadata(customfield, ColumnMetadata.named("customfield").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(customfieldconfig, ColumnMetadata.named("customfieldconfig").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(enabled, ColumnMetadata.named("enabled").withIndex(4).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
     }
 
 }

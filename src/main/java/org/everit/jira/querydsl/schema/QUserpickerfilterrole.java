@@ -37,7 +37,7 @@ public class QUserpickerfilterrole extends com.querydsl.sql.RelationalPathBase<Q
 
     private static final long serialVersionUID = 1281278719;
 
-    public static final QUserpickerfilterrole userpickerfilterrole = new QUserpickerfilterrole("USERPICKERFILTERROLE");
+    public static final QUserpickerfilterrole userpickerfilterrole = new QUserpickerfilterrole("userpickerfilterrole");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -45,10 +45,10 @@ public class QUserpickerfilterrole extends com.querydsl.sql.RelationalPathBase<Q
 
     public final NumberPath<Long> userpickerfilter = createNumber("userpickerfilter", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QUserpickerfilterrole> sysIdx200 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QUserpickerfilterrole> userpickerfilterrolePk = createPrimaryKey(id);
 
     public QUserpickerfilterrole(String variable) {
-        super(QUserpickerfilterrole.class, forVariable(variable), "PUBLIC", "USERPICKERFILTERROLE");
+        super(QUserpickerfilterrole.class, forVariable(variable), "public", "userpickerfilterrole");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QUserpickerfilterrole extends com.querydsl.sql.RelationalPathBase<Q
     }
 
     public QUserpickerfilterrole(Path<? extends QUserpickerfilterrole> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "USERPICKERFILTERROLE");
+        super(path.getType(), path.getMetadata(), "public", "userpickerfilterrole");
         addMetadata();
     }
 
     public QUserpickerfilterrole(PathMetadata metadata) {
-        super(QUserpickerfilterrole.class, metadata, "PUBLIC", "USERPICKERFILTERROLE");
+        super(QUserpickerfilterrole.class, metadata, "public", "userpickerfilterrole");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(projectroleid, ColumnMetadata.named("PROJECTROLEID").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(userpickerfilter, ColumnMetadata.named("USERPICKERFILTER").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(projectroleid, ColumnMetadata.named("projectroleid").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(userpickerfilter, ColumnMetadata.named("userpickerfilter").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

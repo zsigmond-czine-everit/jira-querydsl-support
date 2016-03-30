@@ -37,7 +37,7 @@ public class QSchemeissuesecurities extends com.querydsl.sql.RelationalPathBase<
 
     private static final long serialVersionUID = 1037814266;
 
-    public static final QSchemeissuesecurities schemeissuesecurities = new QSchemeissuesecurities("SCHEMEISSUESECURITIES");
+    public static final QSchemeissuesecurities schemeissuesecurities = new QSchemeissuesecurities("schemeissuesecurities");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -49,10 +49,10 @@ public class QSchemeissuesecurities extends com.querydsl.sql.RelationalPathBase<
 
     public final NumberPath<Long> security = createNumber("security", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QSchemeissuesecurities> sysIdx182 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QSchemeissuesecurities> schemeissuesecuritiesPk = createPrimaryKey(id);
 
     public QSchemeissuesecurities(String variable) {
-        super(QSchemeissuesecurities.class, forVariable(variable), "PUBLIC", "SCHEMEISSUESECURITIES");
+        super(QSchemeissuesecurities.class, forVariable(variable), "public", "schemeissuesecurities");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QSchemeissuesecurities extends com.querydsl.sql.RelationalPathBase<
     }
 
     public QSchemeissuesecurities(Path<? extends QSchemeissuesecurities> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "SCHEMEISSUESECURITIES");
+        super(path.getType(), path.getMetadata(), "public", "schemeissuesecurities");
         addMetadata();
     }
 
     public QSchemeissuesecurities(PathMetadata metadata) {
-        super(QSchemeissuesecurities.class, metadata, "PUBLIC", "SCHEMEISSUESECURITIES");
+        super(QSchemeissuesecurities.class, metadata, "public", "schemeissuesecurities");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(scheme, ColumnMetadata.named("SCHEME").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(secParameter, ColumnMetadata.named("SEC_PARAMETER").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(secType, ColumnMetadata.named("SEC_TYPE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(security, ColumnMetadata.named("SECURITY").withIndex(3).ofType(Types.BIGINT));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(scheme, ColumnMetadata.named("scheme").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(secParameter, ColumnMetadata.named("sec_parameter").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(secType, ColumnMetadata.named("sec_type").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(security, ColumnMetadata.named("security").withIndex(3).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

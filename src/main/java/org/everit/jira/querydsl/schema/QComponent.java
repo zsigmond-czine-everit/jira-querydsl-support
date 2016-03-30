@@ -37,7 +37,7 @@ public class QComponent extends com.querydsl.sql.RelationalPathBase<QComponent> 
 
     private static final long serialVersionUID = -1558642235;
 
-    public static final QComponent component = new QComponent("COMPONENT");
+    public static final QComponent component = new QComponent("component");
 
     public final NumberPath<Long> assigneetype = createNumber("assigneetype", Long.class);
 
@@ -53,10 +53,10 @@ public class QComponent extends com.querydsl.sql.RelationalPathBase<QComponent> 
 
     public final StringPath url = createString("url");
 
-    public final com.querydsl.sql.PrimaryKey<QComponent> sysIdx62 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QComponent> componentPk = createPrimaryKey(id);
 
     public QComponent(String variable) {
-        super(QComponent.class, forVariable(variable), "PUBLIC", "COMPONENT");
+        super(QComponent.class, forVariable(variable), "public", "component");
         addMetadata();
     }
 
@@ -66,23 +66,23 @@ public class QComponent extends com.querydsl.sql.RelationalPathBase<QComponent> 
     }
 
     public QComponent(Path<? extends QComponent> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "COMPONENT");
+        super(path.getType(), path.getMetadata(), "public", "component");
         addMetadata();
     }
 
     public QComponent(PathMetadata metadata) {
-        super(QComponent.class, metadata, "PUBLIC", "COMPONENT");
+        super(QComponent.class, metadata, "public", "component");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(assigneetype, ColumnMetadata.named("ASSIGNEETYPE").withIndex(7).ofType(Types.BIGINT));
-        addMetadata(cname, ColumnMetadata.named("CNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(lead, ColumnMetadata.named("LEAD").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(project, ColumnMetadata.named("PROJECT").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(url, ColumnMetadata.named("URL").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(assigneetype, ColumnMetadata.named("assigneetype").withIndex(7).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(cname, ColumnMetadata.named("cname").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(lead, ColumnMetadata.named("lead").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(project, ColumnMetadata.named("project").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(url, ColumnMetadata.named("url").withIndex(5).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

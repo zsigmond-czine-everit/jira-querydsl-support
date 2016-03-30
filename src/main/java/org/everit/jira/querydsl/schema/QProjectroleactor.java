@@ -37,7 +37,7 @@ public class QProjectroleactor extends com.querydsl.sql.RelationalPathBase<QProj
 
     private static final long serialVersionUID = -921383298;
 
-    public static final QProjectroleactor projectroleactor = new QProjectroleactor("PROJECTROLEACTOR");
+    public static final QProjectroleactor projectroleactor = new QProjectroleactor("projectroleactor");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -49,10 +49,10 @@ public class QProjectroleactor extends com.querydsl.sql.RelationalPathBase<QProj
 
     public final StringPath roletypeparameter = createString("roletypeparameter");
 
-    public final com.querydsl.sql.PrimaryKey<QProjectroleactor> sysIdx165 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QProjectroleactor> projectroleactorPk = createPrimaryKey(id);
 
     public QProjectroleactor(String variable) {
-        super(QProjectroleactor.class, forVariable(variable), "PUBLIC", "PROJECTROLEACTOR");
+        super(QProjectroleactor.class, forVariable(variable), "public", "projectroleactor");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QProjectroleactor extends com.querydsl.sql.RelationalPathBase<QProj
     }
 
     public QProjectroleactor(Path<? extends QProjectroleactor> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROJECTROLEACTOR");
+        super(path.getType(), path.getMetadata(), "public", "projectroleactor");
         addMetadata();
     }
 
     public QProjectroleactor(PathMetadata metadata) {
-        super(QProjectroleactor.class, metadata, "PUBLIC", "PROJECTROLEACTOR");
+        super(QProjectroleactor.class, metadata, "public", "projectroleactor");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(pid, ColumnMetadata.named("PID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(projectroleid, ColumnMetadata.named("PROJECTROLEID").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(roletype, ColumnMetadata.named("ROLETYPE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(roletypeparameter, ColumnMetadata.named("ROLETYPEPARAMETER").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(pid, ColumnMetadata.named("pid").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(projectroleid, ColumnMetadata.named("projectroleid").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(roletype, ColumnMetadata.named("roletype").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(roletypeparameter, ColumnMetadata.named("roletypeparameter").withIndex(5).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

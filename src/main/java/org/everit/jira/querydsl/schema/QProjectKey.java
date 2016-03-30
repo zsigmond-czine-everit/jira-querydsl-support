@@ -37,7 +37,7 @@ public class QProjectKey extends com.querydsl.sql.RelationalPathBase<QProjectKey
 
     private static final long serialVersionUID = 1699155134;
 
-    public static final QProjectKey projectKey1 = new QProjectKey("PROJECT_KEY");
+    public static final QProjectKey projectKey1 = new QProjectKey("project_key");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -45,10 +45,10 @@ public class QProjectKey extends com.querydsl.sql.RelationalPathBase<QProjectKey
 
     public final StringPath projectKey = createString("projectKey");
 
-    public final com.querydsl.sql.PrimaryKey<QProjectKey> sysIdx163 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QProjectKey> projectKeyPk = createPrimaryKey(id);
 
     public QProjectKey(String variable) {
-        super(QProjectKey.class, forVariable(variable), "PUBLIC", "PROJECT_KEY");
+        super(QProjectKey.class, forVariable(variable), "public", "project_key");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QProjectKey extends com.querydsl.sql.RelationalPathBase<QProjectKey
     }
 
     public QProjectKey(Path<? extends QProjectKey> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROJECT_KEY");
+        super(path.getType(), path.getMetadata(), "public", "project_key");
         addMetadata();
     }
 
     public QProjectKey(PathMetadata metadata) {
-        super(QProjectKey.class, metadata, "PUBLIC", "PROJECT_KEY");
+        super(QProjectKey.class, metadata, "public", "project_key");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(projectId, ColumnMetadata.named("PROJECT_ID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(projectKey, ColumnMetadata.named("PROJECT_KEY").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(projectId, ColumnMetadata.named("project_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(projectKey, ColumnMetadata.named("project_key").withIndex(3).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

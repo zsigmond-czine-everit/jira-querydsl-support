@@ -37,7 +37,7 @@ public class QOauthspconsumer extends com.querydsl.sql.RelationalPathBase<QOauth
 
     private static final long serialVersionUID = -1946545678;
 
-    public static final QOauthspconsumer oauthspconsumer = new QOauthspconsumer("OAUTHSPCONSUMER");
+    public static final QOauthspconsumer oauthspconsumer = new QOauthspconsumer("oauthspconsumer");
 
     public final StringPath callback = createString("callback");
 
@@ -61,10 +61,10 @@ public class QOauthspconsumer extends com.querydsl.sql.RelationalPathBase<QOauth
 
     public final StringPath twoLOImpersonationAllowed = createString("twoLOImpersonationAllowed");
 
-    public final com.querydsl.sql.PrimaryKey<QOauthspconsumer> sysIdx135 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QOauthspconsumer> oauthspconsumerPk = createPrimaryKey(id);
 
     public QOauthspconsumer(String variable) {
-        super(QOauthspconsumer.class, forVariable(variable), "PUBLIC", "OAUTHSPCONSUMER");
+        super(QOauthspconsumer.class, forVariable(variable), "public", "oauthspconsumer");
         addMetadata();
     }
 
@@ -74,27 +74,27 @@ public class QOauthspconsumer extends com.querydsl.sql.RelationalPathBase<QOauth
     }
 
     public QOauthspconsumer(Path<? extends QOauthspconsumer> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "OAUTHSPCONSUMER");
+        super(path.getType(), path.getMetadata(), "public", "oauthspconsumer");
         addMetadata();
     }
 
     public QOauthspconsumer(PathMetadata metadata) {
-        super(QOauthspconsumer.class, metadata, "PUBLIC", "OAUTHSPCONSUMER");
+        super(QOauthspconsumer.class, metadata, "public", "oauthspconsumer");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(callback, ColumnMetadata.named("CALLBACK").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(consumerKey, ColumnMetadata.named("CONSUMER_KEY").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(consumername, ColumnMetadata.named("CONSUMERNAME").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(2).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(executingTwoLOUser, ColumnMetadata.named("EXECUTING_TWO_L_O_USER").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(publicKey, ColumnMetadata.named("PUBLIC_KEY").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(threeLOAllowed, ColumnMetadata.named("THREE_L_O_ALLOWED").withIndex(11).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(twoLOAllowed, ColumnMetadata.named("TWO_L_O_ALLOWED").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(twoLOImpersonationAllowed, ColumnMetadata.named("TWO_L_O_IMPERSONATION_ALLOWED").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(callback, ColumnMetadata.named("callback").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(consumerKey, ColumnMetadata.named("consumer_key").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(consumername, ColumnMetadata.named("consumername").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(2).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(executingTwoLOUser, ColumnMetadata.named("executing_two_l_o_user").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(publicKey, ColumnMetadata.named("public_key").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(threeLOAllowed, ColumnMetadata.named("three_l_o_allowed").withIndex(11).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(twoLOAllowed, ColumnMetadata.named("two_l_o_allowed").withIndex(8).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(twoLOImpersonationAllowed, ColumnMetadata.named("two_l_o_impersonation_allowed").withIndex(10).ofType(Types.VARCHAR).withSize(60));
     }
 
 }

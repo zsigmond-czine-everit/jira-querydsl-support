@@ -37,7 +37,7 @@ public class QFieldscreentab extends com.querydsl.sql.RelationalPathBase<QFields
 
     private static final long serialVersionUID = 1025558567;
 
-    public static final QFieldscreentab fieldscreentab = new QFieldscreentab("FIELDSCREENTAB");
+    public static final QFieldscreentab fieldscreentab = new QFieldscreentab("fieldscreentab");
 
     public final StringPath description = createString("description");
 
@@ -49,10 +49,10 @@ public class QFieldscreentab extends com.querydsl.sql.RelationalPathBase<QFields
 
     public final NumberPath<Long> sequence = createNumber("sequence", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QFieldscreentab> sysIdx92 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QFieldscreentab> fieldscreentabPk = createPrimaryKey(id);
 
     public QFieldscreentab(String variable) {
-        super(QFieldscreentab.class, forVariable(variable), "PUBLIC", "FIELDSCREENTAB");
+        super(QFieldscreentab.class, forVariable(variable), "public", "fieldscreentab");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QFieldscreentab extends com.querydsl.sql.RelationalPathBase<QFields
     }
 
     public QFieldscreentab(Path<? extends QFieldscreentab> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "FIELDSCREENTAB");
+        super(path.getType(), path.getMetadata(), "public", "fieldscreentab");
         addMetadata();
     }
 
     public QFieldscreentab(PathMetadata metadata) {
-        super(QFieldscreentab.class, metadata, "PUBLIC", "FIELDSCREENTAB");
+        super(QFieldscreentab.class, metadata, "public", "fieldscreentab");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(fieldscreen, ColumnMetadata.named("FIELDSCREEN").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(name, ColumnMetadata.named("NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(4).ofType(Types.BIGINT));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(fieldscreen, ColumnMetadata.named("fieldscreen").withIndex(5).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(name, ColumnMetadata.named("name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(4).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

@@ -37,7 +37,7 @@ public class QEntityPropertyIndexDocument extends com.querydsl.sql.RelationalPat
 
     private static final long serialVersionUID = -1507874083;
 
-    public static final QEntityPropertyIndexDocument entityPropertyIndexDocument = new QEntityPropertyIndexDocument("ENTITY_PROPERTY_INDEX_DOCUMENT");
+    public static final QEntityPropertyIndexDocument entityPropertyIndexDocument = new QEntityPropertyIndexDocument("entity_property_index_document");
 
     public final StringPath document = createString("document");
 
@@ -51,10 +51,10 @@ public class QEntityPropertyIndexDocument extends com.querydsl.sql.RelationalPat
 
     public final DateTimePath<java.sql.Timestamp> updated = createDateTime("updated", java.sql.Timestamp.class);
 
-    public final com.querydsl.sql.PrimaryKey<QEntityPropertyIndexDocument> sysIdx74 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QEntityPropertyIndexDocument> entityPropertyIndexDocumPk = createPrimaryKey(id);
 
     public QEntityPropertyIndexDocument(String variable) {
-        super(QEntityPropertyIndexDocument.class, forVariable(variable), "PUBLIC", "ENTITY_PROPERTY_INDEX_DOCUMENT");
+        super(QEntityPropertyIndexDocument.class, forVariable(variable), "public", "entity_property_index_document");
         addMetadata();
     }
 
@@ -64,22 +64,22 @@ public class QEntityPropertyIndexDocument extends com.querydsl.sql.RelationalPat
     }
 
     public QEntityPropertyIndexDocument(Path<? extends QEntityPropertyIndexDocument> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "ENTITY_PROPERTY_INDEX_DOCUMENT");
+        super(path.getType(), path.getMetadata(), "public", "entity_property_index_document");
         addMetadata();
     }
 
     public QEntityPropertyIndexDocument(PathMetadata metadata) {
-        super(QEntityPropertyIndexDocument.class, metadata, "PUBLIC", "ENTITY_PROPERTY_INDEX_DOCUMENT");
+        super(QEntityPropertyIndexDocument.class, metadata, "public", "entity_property_index_document");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(document, ColumnMetadata.named("DOCUMENT").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(entityKey, ColumnMetadata.named("ENTITY_KEY").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(moduleKey, ColumnMetadata.named("MODULE_KEY").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(pluginKey, ColumnMetadata.named("PLUGIN_KEY").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(updated, ColumnMetadata.named("UPDATED").withIndex(5).ofType(Types.TIMESTAMP).withSize(6));
+        addMetadata(document, ColumnMetadata.named("document").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(entityKey, ColumnMetadata.named("entity_key").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(moduleKey, ColumnMetadata.named("module_key").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(pluginKey, ColumnMetadata.named("plugin_key").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(updated, ColumnMetadata.named("updated").withIndex(5).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
     }
 
 }

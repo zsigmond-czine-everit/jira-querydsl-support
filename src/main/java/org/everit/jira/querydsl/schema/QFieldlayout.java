@@ -37,7 +37,7 @@ public class QFieldlayout extends com.querydsl.sql.RelationalPathBase<QFieldlayo
 
     private static final long serialVersionUID = -1163179156;
 
-    public static final QFieldlayout fieldlayout = new QFieldlayout("FIELDLAYOUT");
+    public static final QFieldlayout fieldlayout = new QFieldlayout("fieldlayout");
 
     public final StringPath description = createString("description");
 
@@ -49,10 +49,10 @@ public class QFieldlayout extends com.querydsl.sql.RelationalPathBase<QFieldlayo
 
     public final StringPath name = createString("name");
 
-    public final com.querydsl.sql.PrimaryKey<QFieldlayout> sysIdx83 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QFieldlayout> fieldlayoutPk = createPrimaryKey(id);
 
     public QFieldlayout(String variable) {
-        super(QFieldlayout.class, forVariable(variable), "PUBLIC", "FIELDLAYOUT");
+        super(QFieldlayout.class, forVariable(variable), "public", "fieldlayout");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QFieldlayout extends com.querydsl.sql.RelationalPathBase<QFieldlayo
     }
 
     public QFieldlayout(Path<? extends QFieldlayout> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "FIELDLAYOUT");
+        super(path.getType(), path.getMetadata(), "public", "fieldlayout");
         addMetadata();
     }
 
     public QFieldlayout(PathMetadata metadata) {
-        super(QFieldlayout.class, metadata, "PUBLIC", "FIELDLAYOUT");
+        super(QFieldlayout.class, metadata, "public", "fieldlayout");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(layoutscheme, ColumnMetadata.named("LAYOUTSCHEME").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(layoutType, ColumnMetadata.named("LAYOUT_TYPE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(name, ColumnMetadata.named("NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(layoutscheme, ColumnMetadata.named("layoutscheme").withIndex(5).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(layoutType, ColumnMetadata.named("layout_type").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(name, ColumnMetadata.named("name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

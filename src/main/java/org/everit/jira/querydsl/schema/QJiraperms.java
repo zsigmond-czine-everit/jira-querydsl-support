@@ -37,7 +37,7 @@ public class QJiraperms extends com.querydsl.sql.RelationalPathBase<QJiraperms> 
 
     private static final long serialVersionUID = 815899997;
 
-    public static final QJiraperms jiraperms = new QJiraperms("JIRAPERMS");
+    public static final QJiraperms jiraperms = new QJiraperms("jiraperms");
 
     public final StringPath groupname = createString("groupname");
 
@@ -47,10 +47,10 @@ public class QJiraperms extends com.querydsl.sql.RelationalPathBase<QJiraperms> 
 
     public final NumberPath<Long> projectid = createNumber("projectid", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QJiraperms> sysIdx153 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QJiraperms> jirapermsPk = createPrimaryKey(id);
 
     public QJiraperms(String variable) {
-        super(QJiraperms.class, forVariable(variable), "PUBLIC", "JIRAPERMS");
+        super(QJiraperms.class, forVariable(variable), "public", "jiraperms");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QJiraperms extends com.querydsl.sql.RelationalPathBase<QJiraperms> 
     }
 
     public QJiraperms(Path<? extends QJiraperms> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JIRAPERMS");
+        super(path.getType(), path.getMetadata(), "public", "jiraperms");
         addMetadata();
     }
 
     public QJiraperms(PathMetadata metadata) {
-        super(QJiraperms.class, metadata, "PUBLIC", "JIRAPERMS");
+        super(QJiraperms.class, metadata, "public", "jiraperms");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(groupname, ColumnMetadata.named("GROUPNAME").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(permtype, ColumnMetadata.named("PERMTYPE").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(projectid, ColumnMetadata.named("PROJECTID").withIndex(3).ofType(Types.BIGINT));
+        addMetadata(groupname, ColumnMetadata.named("groupname").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(permtype, ColumnMetadata.named("permtype").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(projectid, ColumnMetadata.named("projectid").withIndex(3).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

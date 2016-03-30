@@ -37,16 +37,16 @@ public class QPropertynumber extends com.querydsl.sql.RelationalPathBase<QProper
 
     private static final long serialVersionUID = -613802602;
 
-    public static final QPropertynumber propertynumber = new QPropertynumber("PROPERTYNUMBER");
+    public static final QPropertynumber propertynumber = new QPropertynumber("propertynumber");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final NumberPath<Long> propertyvalue = createNumber("propertyvalue", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QPropertynumber> sysIdx147 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPropertynumber> propertynumberPk = createPrimaryKey(id);
 
     public QPropertynumber(String variable) {
-        super(QPropertynumber.class, forVariable(variable), "PUBLIC", "PROPERTYNUMBER");
+        super(QPropertynumber.class, forVariable(variable), "public", "propertynumber");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QPropertynumber extends com.querydsl.sql.RelationalPathBase<QProper
     }
 
     public QPropertynumber(Path<? extends QPropertynumber> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PROPERTYNUMBER");
+        super(path.getType(), path.getMetadata(), "public", "propertynumber");
         addMetadata();
     }
 
     public QPropertynumber(PathMetadata metadata) {
-        super(QPropertynumber.class, metadata, "PUBLIC", "PROPERTYNUMBER");
+        super(QPropertynumber.class, metadata, "public", "propertynumber");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(propertyvalue, ColumnMetadata.named("PROPERTYVALUE").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(propertyvalue, ColumnMetadata.named("propertyvalue").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

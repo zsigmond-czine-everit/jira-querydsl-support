@@ -37,7 +37,7 @@ public class QAppUser extends com.querydsl.sql.RelationalPathBase<QAppUser> {
 
     private static final long serialVersionUID = -2005247916;
 
-    public static final QAppUser appUser = new QAppUser("APP_USER");
+    public static final QAppUser appUser = new QAppUser("app_user");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -45,10 +45,10 @@ public class QAppUser extends com.querydsl.sql.RelationalPathBase<QAppUser> {
 
     public final StringPath userKey = createString("userKey");
 
-    public final com.querydsl.sql.PrimaryKey<QAppUser> sysIdx48 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QAppUser> appUserPk = createPrimaryKey(id);
 
     public QAppUser(String variable) {
-        super(QAppUser.class, forVariable(variable), "PUBLIC", "APP_USER");
+        super(QAppUser.class, forVariable(variable), "public", "app_user");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QAppUser extends com.querydsl.sql.RelationalPathBase<QAppUser> {
     }
 
     public QAppUser(Path<? extends QAppUser> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "APP_USER");
+        super(path.getType(), path.getMetadata(), "public", "app_user");
         addMetadata();
     }
 
     public QAppUser(PathMetadata metadata) {
-        super(QAppUser.class, metadata, "PUBLIC", "APP_USER");
+        super(QAppUser.class, metadata, "public", "app_user");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(lowerUserName, ColumnMetadata.named("LOWER_USER_NAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(userKey, ColumnMetadata.named("USER_KEY").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(lowerUserName, ColumnMetadata.named("lower_user_name").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(userKey, ColumnMetadata.named("user_key").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

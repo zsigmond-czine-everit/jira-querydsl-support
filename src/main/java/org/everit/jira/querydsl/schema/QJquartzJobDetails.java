@@ -37,7 +37,7 @@ public class QJquartzJobDetails extends com.querydsl.sql.RelationalPathBase<QJqu
 
     private static final long serialVersionUID = -689504782;
 
-    public static final QJquartzJobDetails jquartzJobDetails = new QJquartzJobDetails("JQUARTZ_JOB_DETAILS");
+    public static final QJquartzJobDetails jquartzJobDetails = new QJquartzJobDetails("jquartz_job_details");
 
     public final StringPath description = createString("description");
 
@@ -63,10 +63,10 @@ public class QJquartzJobDetails extends com.querydsl.sql.RelationalPathBase<QJqu
 
     public final StringPath schedName = createString("schedName");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzJobDetails> sysIdx111 = createPrimaryKey(jobGroup, jobName);
+    public final com.querydsl.sql.PrimaryKey<QJquartzJobDetails> jquartzJobDetailsPk = createPrimaryKey(jobName, jobGroup);
 
     public QJquartzJobDetails(String variable) {
-        super(QJquartzJobDetails.class, forVariable(variable), "PUBLIC", "JQUARTZ_JOB_DETAILS");
+        super(QJquartzJobDetails.class, forVariable(variable), "public", "jquartz_job_details");
         addMetadata();
     }
 
@@ -76,28 +76,28 @@ public class QJquartzJobDetails extends com.querydsl.sql.RelationalPathBase<QJqu
     }
 
     public QJquartzJobDetails(Path<? extends QJquartzJobDetails> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_JOB_DETAILS");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_job_details");
         addMetadata();
     }
 
     public QJquartzJobDetails(PathMetadata metadata) {
-        super(QJquartzJobDetails.class, metadata, "PUBLIC", "JQUARTZ_JOB_DETAILS");
+        super(QJquartzJobDetails.class, metadata, "public", "jquartz_job_details");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(4).ofType(Types.VARCHAR).withSize(250));
-        addMetadata(isDurable, ColumnMetadata.named("IS_DURABLE").withIndex(6).ofType(Types.BOOLEAN));
-        addMetadata(isNonconcurrent, ColumnMetadata.named("IS_NONCONCURRENT").withIndex(9).ofType(Types.BOOLEAN));
-        addMetadata(isStateful, ColumnMetadata.named("IS_STATEFUL").withIndex(8).ofType(Types.BOOLEAN));
-        addMetadata(isUpdateData, ColumnMetadata.named("IS_UPDATE_DATA").withIndex(10).ofType(Types.BOOLEAN));
-        addMetadata(isVolatile, ColumnMetadata.named("IS_VOLATILE").withIndex(7).ofType(Types.BOOLEAN));
-        addMetadata(jobClassName, ColumnMetadata.named("JOB_CLASS_NAME").withIndex(5).ofType(Types.VARCHAR).withSize(250));
-        addMetadata(jobData, ColumnMetadata.named("JOB_DATA").withIndex(12).ofType(Types.VARBINARY).withSize(16000));
-        addMetadata(jobGroup, ColumnMetadata.named("JOB_GROUP").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(jobName, ColumnMetadata.named("JOB_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(requestsRecovery, ColumnMetadata.named("REQUESTS_RECOVERY").withIndex(11).ofType(Types.BOOLEAN));
-        addMetadata(schedName, ColumnMetadata.named("SCHED_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(120));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(4).ofType(Types.VARCHAR).withSize(250));
+        addMetadata(isDurable, ColumnMetadata.named("is_durable").withIndex(6).ofType(Types.BIT).withSize(1));
+        addMetadata(isNonconcurrent, ColumnMetadata.named("is_nonconcurrent").withIndex(9).ofType(Types.BIT).withSize(1));
+        addMetadata(isStateful, ColumnMetadata.named("is_stateful").withIndex(8).ofType(Types.BIT).withSize(1));
+        addMetadata(isUpdateData, ColumnMetadata.named("is_update_data").withIndex(10).ofType(Types.BIT).withSize(1));
+        addMetadata(isVolatile, ColumnMetadata.named("is_volatile").withIndex(7).ofType(Types.BIT).withSize(1));
+        addMetadata(jobClassName, ColumnMetadata.named("job_class_name").withIndex(5).ofType(Types.VARCHAR).withSize(250));
+        addMetadata(jobData, ColumnMetadata.named("job_data").withIndex(12).ofType(Types.BINARY).withSize(2147483647));
+        addMetadata(jobGroup, ColumnMetadata.named("job_group").withIndex(3).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(jobName, ColumnMetadata.named("job_name").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(requestsRecovery, ColumnMetadata.named("requests_recovery").withIndex(11).ofType(Types.BIT).withSize(1));
+        addMetadata(schedName, ColumnMetadata.named("sched_name").withIndex(1).ofType(Types.VARCHAR).withSize(120));
     }
 
 }

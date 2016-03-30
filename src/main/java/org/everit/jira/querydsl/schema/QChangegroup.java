@@ -37,7 +37,7 @@ public class QChangegroup extends com.querydsl.sql.RelationalPathBase<QChangegro
 
     private static final long serialVersionUID = 427197335;
 
-    public static final QChangegroup changegroup = new QChangegroup("CHANGEGROUP");
+    public static final QChangegroup changegroup = new QChangegroup("changegroup");
 
     public final StringPath author = createString("author");
 
@@ -47,10 +47,10 @@ public class QChangegroup extends com.querydsl.sql.RelationalPathBase<QChangegro
 
     public final NumberPath<Long> issueid = createNumber("issueid", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QChangegroup> sysIdx53 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QChangegroup> changegroupPk = createPrimaryKey(id);
 
     public QChangegroup(String variable) {
-        super(QChangegroup.class, forVariable(variable), "PUBLIC", "CHANGEGROUP");
+        super(QChangegroup.class, forVariable(variable), "public", "changegroup");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QChangegroup extends com.querydsl.sql.RelationalPathBase<QChangegro
     }
 
     public QChangegroup(Path<? extends QChangegroup> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CHANGEGROUP");
+        super(path.getType(), path.getMetadata(), "public", "changegroup");
         addMetadata();
     }
 
     public QChangegroup(PathMetadata metadata) {
-        super(QChangegroup.class, metadata, "PUBLIC", "CHANGEGROUP");
+        super(QChangegroup.class, metadata, "public", "changegroup");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(author, ColumnMetadata.named("AUTHOR").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(4).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issueid, ColumnMetadata.named("ISSUEID").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(author, ColumnMetadata.named("author").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(4).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issueid, ColumnMetadata.named("issueid").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

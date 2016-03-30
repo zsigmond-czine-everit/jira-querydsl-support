@@ -37,7 +37,7 @@ public class QOauthconsumer extends com.querydsl.sql.RelationalPathBase<QOauthco
 
     private static final long serialVersionUID = 1323060309;
 
-    public static final QOauthconsumer oauthconsumer = new QOauthconsumer("OAUTHCONSUMER");
+    public static final QOauthconsumer oauthconsumer = new QOauthconsumer("oauthconsumer");
 
     public final StringPath callback = createString("callback");
 
@@ -61,10 +61,10 @@ public class QOauthconsumer extends com.querydsl.sql.RelationalPathBase<QOauthco
 
     public final StringPath signatureMethod = createString("signatureMethod");
 
-    public final com.querydsl.sql.PrimaryKey<QOauthconsumer> sysIdx133 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QOauthconsumer> oauthconsumerPk = createPrimaryKey(id);
 
     public QOauthconsumer(String variable) {
-        super(QOauthconsumer.class, forVariable(variable), "PUBLIC", "OAUTHCONSUMER");
+        super(QOauthconsumer.class, forVariable(variable), "public", "oauthconsumer");
         addMetadata();
     }
 
@@ -74,27 +74,27 @@ public class QOauthconsumer extends com.querydsl.sql.RelationalPathBase<QOauthco
     }
 
     public QOauthconsumer(Path<? extends QOauthconsumer> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "OAUTHCONSUMER");
+        super(path.getType(), path.getMetadata(), "public", "oauthconsumer");
         addMetadata();
     }
 
     public QOauthconsumer(PathMetadata metadata) {
-        super(QOauthconsumer.class, metadata, "PUBLIC", "OAUTHCONSUMER");
+        super(QOauthconsumer.class, metadata, "public", "oauthconsumer");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(callback, ColumnMetadata.named("CALLBACK").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(consumerKey, ColumnMetadata.named("CONSUMER_KEY").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(consumername, ColumnMetadata.named("CONSUMERNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(consumerservice, ColumnMetadata.named("CONSUMERSERVICE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(2).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(privateKey, ColumnMetadata.named("PRIVATE_KEY").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(publicKey, ColumnMetadata.named("PUBLIC_KEY").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(sharedSecret, ColumnMetadata.named("SHARED_SECRET").withIndex(11).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(signatureMethod, ColumnMetadata.named("SIGNATURE_METHOD").withIndex(10).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(callback, ColumnMetadata.named("callback").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(consumerKey, ColumnMetadata.named("consumer_key").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(consumername, ColumnMetadata.named("consumername").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(consumerservice, ColumnMetadata.named("consumerservice").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(2).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(privateKey, ColumnMetadata.named("private_key").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(publicKey, ColumnMetadata.named("public_key").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(sharedSecret, ColumnMetadata.named("shared_secret").withIndex(11).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(signatureMethod, ColumnMetadata.named("signature_method").withIndex(10).ofType(Types.VARCHAR).withSize(60));
     }
 
 }

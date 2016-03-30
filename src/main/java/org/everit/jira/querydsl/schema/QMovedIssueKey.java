@@ -37,7 +37,7 @@ public class QMovedIssueKey extends com.querydsl.sql.RelationalPathBase<QMovedIs
 
     private static final long serialVersionUID = 543794017;
 
-    public static final QMovedIssueKey movedIssueKey = new QMovedIssueKey("MOVED_ISSUE_KEY");
+    public static final QMovedIssueKey movedIssueKey = new QMovedIssueKey("moved_issue_key");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -45,10 +45,10 @@ public class QMovedIssueKey extends com.querydsl.sql.RelationalPathBase<QMovedIs
 
     public final StringPath oldIssueKey = createString("oldIssueKey");
 
-    public final com.querydsl.sql.PrimaryKey<QMovedIssueKey> sysIdx127 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QMovedIssueKey> movedIssueKeyPk = createPrimaryKey(id);
 
     public QMovedIssueKey(String variable) {
-        super(QMovedIssueKey.class, forVariable(variable), "PUBLIC", "MOVED_ISSUE_KEY");
+        super(QMovedIssueKey.class, forVariable(variable), "public", "moved_issue_key");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QMovedIssueKey extends com.querydsl.sql.RelationalPathBase<QMovedIs
     }
 
     public QMovedIssueKey(Path<? extends QMovedIssueKey> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "MOVED_ISSUE_KEY");
+        super(path.getType(), path.getMetadata(), "public", "moved_issue_key");
         addMetadata();
     }
 
     public QMovedIssueKey(PathMetadata metadata) {
-        super(QMovedIssueKey.class, metadata, "PUBLIC", "MOVED_ISSUE_KEY");
+        super(QMovedIssueKey.class, metadata, "public", "moved_issue_key");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issueId, ColumnMetadata.named("ISSUE_ID").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(oldIssueKey, ColumnMetadata.named("OLD_ISSUE_KEY").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issueId, ColumnMetadata.named("issue_id").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(oldIssueKey, ColumnMetadata.named("old_issue_key").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

@@ -37,16 +37,16 @@ public class QCwdDirectoryOperation extends com.querydsl.sql.RelationalPathBase<
 
     private static final long serialVersionUID = -279429934;
 
-    public static final QCwdDirectoryOperation cwdDirectoryOperation = new QCwdDirectoryOperation("CWD_DIRECTORY_OPERATION");
+    public static final QCwdDirectoryOperation cwdDirectoryOperation = new QCwdDirectoryOperation("cwd_directory_operation");
 
     public final NumberPath<Long> directoryId = createNumber("directoryId", Long.class);
 
     public final StringPath operationType = createString("operationType");
 
-    public final com.querydsl.sql.PrimaryKey<QCwdDirectoryOperation> sysIdx69 = createPrimaryKey(directoryId, operationType);
+    public final com.querydsl.sql.PrimaryKey<QCwdDirectoryOperation> cwdDirectoryOperationPk = createPrimaryKey(directoryId, operationType);
 
     public QCwdDirectoryOperation(String variable) {
-        super(QCwdDirectoryOperation.class, forVariable(variable), "PUBLIC", "CWD_DIRECTORY_OPERATION");
+        super(QCwdDirectoryOperation.class, forVariable(variable), "public", "cwd_directory_operation");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QCwdDirectoryOperation extends com.querydsl.sql.RelationalPathBase<
     }
 
     public QCwdDirectoryOperation(Path<? extends QCwdDirectoryOperation> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CWD_DIRECTORY_OPERATION");
+        super(path.getType(), path.getMetadata(), "public", "cwd_directory_operation");
         addMetadata();
     }
 
     public QCwdDirectoryOperation(PathMetadata metadata) {
-        super(QCwdDirectoryOperation.class, metadata, "PUBLIC", "CWD_DIRECTORY_OPERATION");
+        super(QCwdDirectoryOperation.class, metadata, "public", "cwd_directory_operation");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(directoryId, ColumnMetadata.named("DIRECTORY_ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(operationType, ColumnMetadata.named("OPERATION_TYPE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647).notNull());
+        addMetadata(directoryId, ColumnMetadata.named("directory_id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(operationType, ColumnMetadata.named("operation_type").withIndex(2).ofType(Types.VARCHAR).withSize(60).notNull());
     }
 
 }

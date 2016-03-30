@@ -37,7 +37,7 @@ public class QJiradraftworkflows extends com.querydsl.sql.RelationalPathBase<QJi
 
     private static final long serialVersionUID = 804497273;
 
-    public static final QJiradraftworkflows jiradraftworkflows = new QJiradraftworkflows("JIRADRAFTWORKFLOWS");
+    public static final QJiradraftworkflows jiradraftworkflows = new QJiradraftworkflows("jiradraftworkflows");
 
     public final StringPath descriptor = createString("descriptor");
 
@@ -45,10 +45,10 @@ public class QJiradraftworkflows extends com.querydsl.sql.RelationalPathBase<QJi
 
     public final StringPath parentname = createString("parentname");
 
-    public final com.querydsl.sql.PrimaryKey<QJiradraftworkflows> sysIdx70 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QJiradraftworkflows> jiradraftworkflowsPk = createPrimaryKey(id);
 
     public QJiradraftworkflows(String variable) {
-        super(QJiradraftworkflows.class, forVariable(variable), "PUBLIC", "JIRADRAFTWORKFLOWS");
+        super(QJiradraftworkflows.class, forVariable(variable), "public", "jiradraftworkflows");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QJiradraftworkflows extends com.querydsl.sql.RelationalPathBase<QJi
     }
 
     public QJiradraftworkflows(Path<? extends QJiradraftworkflows> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JIRADRAFTWORKFLOWS");
+        super(path.getType(), path.getMetadata(), "public", "jiradraftworkflows");
         addMetadata();
     }
 
     public QJiradraftworkflows(PathMetadata metadata) {
-        super(QJiradraftworkflows.class, metadata, "PUBLIC", "JIRADRAFTWORKFLOWS");
+        super(QJiradraftworkflows.class, metadata, "public", "jiradraftworkflows");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(descriptor, ColumnMetadata.named("DESCRIPTOR").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(parentname, ColumnMetadata.named("PARENTNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(descriptor, ColumnMetadata.named("descriptor").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(parentname, ColumnMetadata.named("parentname").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

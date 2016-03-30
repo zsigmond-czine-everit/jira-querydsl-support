@@ -37,7 +37,7 @@ public class QListenerconfig extends com.querydsl.sql.RelationalPathBase<QListen
 
     private static final long serialVersionUID = 1997064494;
 
-    public static final QListenerconfig listenerconfig = new QListenerconfig("LISTENERCONFIG");
+    public static final QListenerconfig listenerconfig = new QListenerconfig("listenerconfig");
 
     public final StringPath clazz = createString("clazz");
 
@@ -45,10 +45,10 @@ public class QListenerconfig extends com.querydsl.sql.RelationalPathBase<QListen
 
     public final StringPath listenername = createString("listenername");
 
-    public final com.querydsl.sql.PrimaryKey<QListenerconfig> sysIdx123 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QListenerconfig> listenerconfigPk = createPrimaryKey(id);
 
     public QListenerconfig(String variable) {
-        super(QListenerconfig.class, forVariable(variable), "PUBLIC", "LISTENERCONFIG");
+        super(QListenerconfig.class, forVariable(variable), "public", "listenerconfig");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QListenerconfig extends com.querydsl.sql.RelationalPathBase<QListen
     }
 
     public QListenerconfig(Path<? extends QListenerconfig> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "LISTENERCONFIG");
+        super(path.getType(), path.getMetadata(), "public", "listenerconfig");
         addMetadata();
     }
 
     public QListenerconfig(PathMetadata metadata) {
-        super(QListenerconfig.class, metadata, "PUBLIC", "LISTENERCONFIG");
+        super(QListenerconfig.class, metadata, "public", "listenerconfig");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(clazz, ColumnMetadata.named("CLAZZ").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(listenername, ColumnMetadata.named("LISTENERNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(clazz, ColumnMetadata.named("clazz").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(listenername, ColumnMetadata.named("listenername").withIndex(3).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

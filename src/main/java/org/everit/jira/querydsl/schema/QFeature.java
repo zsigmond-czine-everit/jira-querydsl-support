@@ -37,7 +37,7 @@ public class QFeature extends com.querydsl.sql.RelationalPathBase<QFeature> {
 
     private static final long serialVersionUID = 2104422846;
 
-    public static final QFeature feature = new QFeature("FEATURE");
+    public static final QFeature feature = new QFeature("feature");
 
     public final StringPath featureName = createString("featureName");
 
@@ -47,10 +47,10 @@ public class QFeature extends com.querydsl.sql.RelationalPathBase<QFeature> {
 
     public final StringPath userKey = createString("userKey");
 
-    public final com.querydsl.sql.PrimaryKey<QFeature> sysIdx79 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QFeature> featurePk = createPrimaryKey(id);
 
     public QFeature(String variable) {
-        super(QFeature.class, forVariable(variable), "PUBLIC", "FEATURE");
+        super(QFeature.class, forVariable(variable), "public", "feature");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QFeature extends com.querydsl.sql.RelationalPathBase<QFeature> {
     }
 
     public QFeature(Path<? extends QFeature> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "FEATURE");
+        super(path.getType(), path.getMetadata(), "public", "feature");
         addMetadata();
     }
 
     public QFeature(PathMetadata metadata) {
-        super(QFeature.class, metadata, "PUBLIC", "FEATURE");
+        super(QFeature.class, metadata, "public", "feature");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(featureName, ColumnMetadata.named("FEATURE_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(featureType, ColumnMetadata.named("FEATURE_TYPE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(userKey, ColumnMetadata.named("USER_KEY").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(featureName, ColumnMetadata.named("feature_name").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(featureType, ColumnMetadata.named("feature_type").withIndex(3).ofType(Types.VARCHAR).withSize(10));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(userKey, ColumnMetadata.named("user_key").withIndex(4).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

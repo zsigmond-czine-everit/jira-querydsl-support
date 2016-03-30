@@ -37,16 +37,16 @@ public class QSequenceValueItem extends com.querydsl.sql.RelationalPathBase<QSeq
 
     private static final long serialVersionUID = -332804565;
 
-    public static final QSequenceValueItem sequenceValueItem = new QSequenceValueItem("SEQUENCE_VALUE_ITEM");
+    public static final QSequenceValueItem sequenceValueItem = new QSequenceValueItem("sequence_value_item");
 
     public final NumberPath<Long> seqId = createNumber("seqId", Long.class);
 
     public final StringPath seqName = createString("seqName");
 
-    public final com.querydsl.sql.PrimaryKey<QSequenceValueItem> sysIdx186 = createPrimaryKey(seqName);
+    public final com.querydsl.sql.PrimaryKey<QSequenceValueItem> sequenceValueItemPk = createPrimaryKey(seqName);
 
     public QSequenceValueItem(String variable) {
-        super(QSequenceValueItem.class, forVariable(variable), "PUBLIC", "SEQUENCE_VALUE_ITEM");
+        super(QSequenceValueItem.class, forVariable(variable), "public", "sequence_value_item");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QSequenceValueItem extends com.querydsl.sql.RelationalPathBase<QSeq
     }
 
     public QSequenceValueItem(Path<? extends QSequenceValueItem> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "SEQUENCE_VALUE_ITEM");
+        super(path.getType(), path.getMetadata(), "public", "sequence_value_item");
         addMetadata();
     }
 
     public QSequenceValueItem(PathMetadata metadata) {
-        super(QSequenceValueItem.class, metadata, "PUBLIC", "SEQUENCE_VALUE_ITEM");
+        super(QSequenceValueItem.class, metadata, "public", "sequence_value_item");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(seqId, ColumnMetadata.named("SEQ_ID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(seqName, ColumnMetadata.named("SEQ_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(2147483647).notNull());
+        addMetadata(seqId, ColumnMetadata.named("seq_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(seqName, ColumnMetadata.named("seq_name").withIndex(1).ofType(Types.VARCHAR).withSize(60).notNull());
     }
 
 }

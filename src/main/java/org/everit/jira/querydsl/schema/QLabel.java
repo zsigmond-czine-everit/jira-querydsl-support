@@ -37,7 +37,7 @@ public class QLabel extends com.querydsl.sql.RelationalPathBase<QLabel> {
 
     private static final long serialVersionUID = -1297414212;
 
-    public static final QLabel label1 = new QLabel("LABEL");
+    public static final QLabel label1 = new QLabel("label");
 
     public final NumberPath<Long> fieldid = createNumber("fieldid", Long.class);
 
@@ -47,10 +47,10 @@ public class QLabel extends com.querydsl.sql.RelationalPathBase<QLabel> {
 
     public final StringPath label = createString("label");
 
-    public final com.querydsl.sql.PrimaryKey<QLabel> sysIdx120 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QLabel> labelPk = createPrimaryKey(id);
 
     public QLabel(String variable) {
-        super(QLabel.class, forVariable(variable), "PUBLIC", "LABEL");
+        super(QLabel.class, forVariable(variable), "public", "label");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QLabel extends com.querydsl.sql.RelationalPathBase<QLabel> {
     }
 
     public QLabel(Path<? extends QLabel> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "LABEL");
+        super(path.getType(), path.getMetadata(), "public", "label");
         addMetadata();
     }
 
     public QLabel(PathMetadata metadata) {
-        super(QLabel.class, metadata, "PUBLIC", "LABEL");
+        super(QLabel.class, metadata, "public", "label");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(fieldid, ColumnMetadata.named("FIELDID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issue, ColumnMetadata.named("ISSUE").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(label, ColumnMetadata.named("LABEL").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(fieldid, ColumnMetadata.named("fieldid").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issue, ColumnMetadata.named("issue").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(label, ColumnMetadata.named("label").withIndex(4).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

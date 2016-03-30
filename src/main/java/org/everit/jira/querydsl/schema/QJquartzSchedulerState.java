@@ -37,7 +37,7 @@ public class QJquartzSchedulerState extends com.querydsl.sql.RelationalPathBase<
 
     private static final long serialVersionUID = 1551810627;
 
-    public static final QJquartzSchedulerState jquartzSchedulerState = new QJquartzSchedulerState("JQUARTZ_SCHEDULER_STATE");
+    public static final QJquartzSchedulerState jquartzSchedulerState = new QJquartzSchedulerState("jquartz_scheduler_state");
 
     public final NumberPath<Long> checkinInterval = createNumber("checkinInterval", Long.class);
 
@@ -47,10 +47,10 @@ public class QJquartzSchedulerState extends com.querydsl.sql.RelationalPathBase<
 
     public final StringPath schedName = createString("schedName");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzSchedulerState> sysIdx115 = createPrimaryKey(instanceName);
+    public final com.querydsl.sql.PrimaryKey<QJquartzSchedulerState> jquartzSchedulerStatePk = createPrimaryKey(instanceName);
 
     public QJquartzSchedulerState(String variable) {
-        super(QJquartzSchedulerState.class, forVariable(variable), "PUBLIC", "JQUARTZ_SCHEDULER_STATE");
+        super(QJquartzSchedulerState.class, forVariable(variable), "public", "jquartz_scheduler_state");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QJquartzSchedulerState extends com.querydsl.sql.RelationalPathBase<
     }
 
     public QJquartzSchedulerState(Path<? extends QJquartzSchedulerState> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_SCHEDULER_STATE");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_scheduler_state");
         addMetadata();
     }
 
     public QJquartzSchedulerState(PathMetadata metadata) {
-        super(QJquartzSchedulerState.class, metadata, "PUBLIC", "JQUARTZ_SCHEDULER_STATE");
+        super(QJquartzSchedulerState.class, metadata, "public", "jquartz_scheduler_state");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(checkinInterval, ColumnMetadata.named("CHECKIN_INTERVAL").withIndex(4).ofType(Types.NUMERIC).withSize(13));
-        addMetadata(instanceName, ColumnMetadata.named("INSTANCE_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
-        addMetadata(lastCheckinTime, ColumnMetadata.named("LAST_CHECKIN_TIME").withIndex(3).ofType(Types.NUMERIC).withSize(13));
-        addMetadata(schedName, ColumnMetadata.named("SCHED_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(120));
+        addMetadata(checkinInterval, ColumnMetadata.named("checkin_interval").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(instanceName, ColumnMetadata.named("instance_name").withIndex(2).ofType(Types.VARCHAR).withSize(200).notNull());
+        addMetadata(lastCheckinTime, ColumnMetadata.named("last_checkin_time").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(schedName, ColumnMetadata.named("sched_name").withIndex(1).ofType(Types.VARCHAR).withSize(120));
     }
 
 }

@@ -37,7 +37,7 @@ public class QFileattachment extends com.querydsl.sql.RelationalPathBase<QFileat
 
     private static final long serialVersionUID = 2005760983;
 
-    public static final QFileattachment fileattachment = new QFileattachment("FILEATTACHMENT");
+    public static final QFileattachment fileattachment = new QFileattachment("fileattachment");
 
     public final StringPath author = createString("author");
 
@@ -57,10 +57,10 @@ public class QFileattachment extends com.querydsl.sql.RelationalPathBase<QFileat
 
     public final NumberPath<Integer> zip = createNumber("zip", Integer.class);
 
-    public final com.querydsl.sql.PrimaryKey<QFileattachment> sysIdx93 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QFileattachment> fileattachmentPk = createPrimaryKey(id);
 
     public QFileattachment(String variable) {
-        super(QFileattachment.class, forVariable(variable), "PUBLIC", "FILEATTACHMENT");
+        super(QFileattachment.class, forVariable(variable), "public", "fileattachment");
         addMetadata();
     }
 
@@ -70,25 +70,25 @@ public class QFileattachment extends com.querydsl.sql.RelationalPathBase<QFileat
     }
 
     public QFileattachment(Path<? extends QFileattachment> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "FILEATTACHMENT");
+        super(path.getType(), path.getMetadata(), "public", "fileattachment");
         addMetadata();
     }
 
     public QFileattachment(PathMetadata metadata) {
-        super(QFileattachment.class, metadata, "PUBLIC", "FILEATTACHMENT");
+        super(QFileattachment.class, metadata, "public", "fileattachment");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(author, ColumnMetadata.named("AUTHOR").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(5).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(filename, ColumnMetadata.named("FILENAME").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(filesize, ColumnMetadata.named("FILESIZE").withIndex(6).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issueid, ColumnMetadata.named("ISSUEID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(mimetype, ColumnMetadata.named("MIMETYPE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(thumbnailable, ColumnMetadata.named("THUMBNAILABLE").withIndex(9).ofType(Types.INTEGER));
-        addMetadata(zip, ColumnMetadata.named("ZIP").withIndex(8).ofType(Types.INTEGER));
+        addMetadata(author, ColumnMetadata.named("author").withIndex(7).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(5).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(filename, ColumnMetadata.named("filename").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(filesize, ColumnMetadata.named("filesize").withIndex(6).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issueid, ColumnMetadata.named("issueid").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(mimetype, ColumnMetadata.named("mimetype").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(thumbnailable, ColumnMetadata.named("thumbnailable").withIndex(9).ofType(Types.NUMERIC).withSize(9));
+        addMetadata(zip, ColumnMetadata.named("zip").withIndex(8).ofType(Types.NUMERIC).withSize(9));
     }
 
 }

@@ -37,15 +37,13 @@ public class QReplicatedindexoperation extends com.querydsl.sql.RelationalPathBa
 
     private static final long serialVersionUID = 1130677288;
 
-    public static final QReplicatedindexoperation replicatedindexoperation = new QReplicatedindexoperation("REPLICATEDINDEXOPERATION");
+    public static final QReplicatedindexoperation replicatedindexoperation = new QReplicatedindexoperation("replicatedindexoperation");
 
     public final StringPath affectedIds = createString("affectedIds");
 
     public final StringPath affectedIndex = createString("affectedIndex");
 
     public final StringPath entityType = createString("entityType");
-
-    public final StringPath filename = createString("filename");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -55,10 +53,10 @@ public class QReplicatedindexoperation extends com.querydsl.sql.RelationalPathBa
 
     public final StringPath operation = createString("operation");
 
-    public final com.querydsl.sql.PrimaryKey<QReplicatedindexoperation> sysIdx179 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QReplicatedindexoperation> replicatedindexoperationPk = createPrimaryKey(id);
 
     public QReplicatedindexoperation(String variable) {
-        super(QReplicatedindexoperation.class, forVariable(variable), "PUBLIC", "REPLICATEDINDEXOPERATION");
+        super(QReplicatedindexoperation.class, forVariable(variable), "public", "replicatedindexoperation");
         addMetadata();
     }
 
@@ -68,24 +66,23 @@ public class QReplicatedindexoperation extends com.querydsl.sql.RelationalPathBa
     }
 
     public QReplicatedindexoperation(Path<? extends QReplicatedindexoperation> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "REPLICATEDINDEXOPERATION");
+        super(path.getType(), path.getMetadata(), "public", "replicatedindexoperation");
         addMetadata();
     }
 
     public QReplicatedindexoperation(PathMetadata metadata) {
-        super(QReplicatedindexoperation.class, metadata, "PUBLIC", "REPLICATEDINDEXOPERATION");
+        super(QReplicatedindexoperation.class, metadata, "public", "replicatedindexoperation");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(affectedIds, ColumnMetadata.named("AFFECTED_IDS").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(affectedIndex, ColumnMetadata.named("AFFECTED_INDEX").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(entityType, ColumnMetadata.named("ENTITY_TYPE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(filename, ColumnMetadata.named("FILENAME").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(indexTime, ColumnMetadata.named("INDEX_TIME").withIndex(2).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(nodeId, ColumnMetadata.named("NODE_ID").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(operation, ColumnMetadata.named("OPERATION").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(affectedIds, ColumnMetadata.named("affected_ids").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(affectedIndex, ColumnMetadata.named("affected_index").withIndex(4).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(entityType, ColumnMetadata.named("entity_type").withIndex(5).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(indexTime, ColumnMetadata.named("index_time").withIndex(2).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(nodeId, ColumnMetadata.named("node_id").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(operation, ColumnMetadata.named("operation").withIndex(7).ofType(Types.VARCHAR).withSize(60));
     }
 
 }

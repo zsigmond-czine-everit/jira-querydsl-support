@@ -37,7 +37,7 @@ public class QUserpickerfiltergroup extends com.querydsl.sql.RelationalPathBase<
 
     private static final long serialVersionUID = 1054868758;
 
-    public static final QUserpickerfiltergroup userpickerfiltergroup = new QUserpickerfiltergroup("USERPICKERFILTERGROUP");
+    public static final QUserpickerfiltergroup userpickerfiltergroup = new QUserpickerfiltergroup("userpickerfiltergroup");
 
     public final StringPath groupname = createString("groupname");
 
@@ -45,10 +45,10 @@ public class QUserpickerfiltergroup extends com.querydsl.sql.RelationalPathBase<
 
     public final NumberPath<Long> userpickerfilter = createNumber("userpickerfilter", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QUserpickerfiltergroup> sysIdx199 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QUserpickerfiltergroup> userpickerfiltergroupPk = createPrimaryKey(id);
 
     public QUserpickerfiltergroup(String variable) {
-        super(QUserpickerfiltergroup.class, forVariable(variable), "PUBLIC", "USERPICKERFILTERGROUP");
+        super(QUserpickerfiltergroup.class, forVariable(variable), "public", "userpickerfiltergroup");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QUserpickerfiltergroup extends com.querydsl.sql.RelationalPathBase<
     }
 
     public QUserpickerfiltergroup(Path<? extends QUserpickerfiltergroup> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "USERPICKERFILTERGROUP");
+        super(path.getType(), path.getMetadata(), "public", "userpickerfiltergroup");
         addMetadata();
     }
 
     public QUserpickerfiltergroup(PathMetadata metadata) {
-        super(QUserpickerfiltergroup.class, metadata, "PUBLIC", "USERPICKERFILTERGROUP");
+        super(QUserpickerfiltergroup.class, metadata, "public", "userpickerfiltergroup");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(groupname, ColumnMetadata.named("GROUPNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(userpickerfilter, ColumnMetadata.named("USERPICKERFILTER").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(groupname, ColumnMetadata.named("groupname").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(userpickerfilter, ColumnMetadata.named("userpickerfilter").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

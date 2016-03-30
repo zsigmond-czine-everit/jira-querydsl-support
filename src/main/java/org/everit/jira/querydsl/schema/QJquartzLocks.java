@@ -37,16 +37,16 @@ public class QJquartzLocks extends com.querydsl.sql.RelationalPathBase<QJquartzL
 
     private static final long serialVersionUID = -1006523813;
 
-    public static final QJquartzLocks jquartzLocks = new QJquartzLocks("JQUARTZ_LOCKS");
+    public static final QJquartzLocks jquartzLocks = new QJquartzLocks("jquartz_locks");
 
     public final StringPath lockName = createString("lockName");
 
     public final StringPath schedName = createString("schedName");
 
-    public final com.querydsl.sql.PrimaryKey<QJquartzLocks> sysIdx113 = createPrimaryKey(lockName);
+    public final com.querydsl.sql.PrimaryKey<QJquartzLocks> jquartzLocksPk = createPrimaryKey(lockName);
 
     public QJquartzLocks(String variable) {
-        super(QJquartzLocks.class, forVariable(variable), "PUBLIC", "JQUARTZ_LOCKS");
+        super(QJquartzLocks.class, forVariable(variable), "public", "jquartz_locks");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QJquartzLocks extends com.querydsl.sql.RelationalPathBase<QJquartzL
     }
 
     public QJquartzLocks(Path<? extends QJquartzLocks> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "JQUARTZ_LOCKS");
+        super(path.getType(), path.getMetadata(), "public", "jquartz_locks");
         addMetadata();
     }
 
     public QJquartzLocks(PathMetadata metadata) {
-        super(QJquartzLocks.class, metadata, "PUBLIC", "JQUARTZ_LOCKS");
+        super(QJquartzLocks.class, metadata, "public", "jquartz_locks");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(lockName, ColumnMetadata.named("LOCK_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(40).notNull());
-        addMetadata(schedName, ColumnMetadata.named("SCHED_NAME").withIndex(1).ofType(Types.VARCHAR).withSize(120));
+        addMetadata(lockName, ColumnMetadata.named("lock_name").withIndex(2).ofType(Types.VARCHAR).withSize(40).notNull());
+        addMetadata(schedName, ColumnMetadata.named("sched_name").withIndex(1).ofType(Types.VARCHAR).withSize(120));
     }
 
 }

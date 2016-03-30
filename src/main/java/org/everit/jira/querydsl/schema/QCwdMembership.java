@@ -37,7 +37,7 @@ public class QCwdMembership extends com.querydsl.sql.RelationalPathBase<QCwdMemb
 
     private static final long serialVersionUID = 1115609902;
 
-    public static final QCwdMembership cwdMembership = new QCwdMembership("CWD_MEMBERSHIP");
+    public static final QCwdMembership cwdMembership = new QCwdMembership("cwd_membership");
 
     public final NumberPath<Long> childId = createNumber("childId", Long.class);
 
@@ -59,10 +59,10 @@ public class QCwdMembership extends com.querydsl.sql.RelationalPathBase<QCwdMemb
 
     public final StringPath parentName = createString("parentName");
 
-    public final com.querydsl.sql.PrimaryKey<QCwdMembership> sysIdx126 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QCwdMembership> cwdMembershipPk = createPrimaryKey(id);
 
     public QCwdMembership(String variable) {
-        super(QCwdMembership.class, forVariable(variable), "PUBLIC", "CWD_MEMBERSHIP");
+        super(QCwdMembership.class, forVariable(variable), "public", "cwd_membership");
         addMetadata();
     }
 
@@ -72,26 +72,26 @@ public class QCwdMembership extends com.querydsl.sql.RelationalPathBase<QCwdMemb
     }
 
     public QCwdMembership(Path<? extends QCwdMembership> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CWD_MEMBERSHIP");
+        super(path.getType(), path.getMetadata(), "public", "cwd_membership");
         addMetadata();
     }
 
     public QCwdMembership(PathMetadata metadata) {
-        super(QCwdMembership.class, metadata, "PUBLIC", "CWD_MEMBERSHIP");
+        super(QCwdMembership.class, metadata, "public", "cwd_membership");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(childId, ColumnMetadata.named("CHILD_ID").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(childName, ColumnMetadata.named("CHILD_NAME").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(directoryId, ColumnMetadata.named("DIRECTORY_ID").withIndex(10).ofType(Types.BIGINT));
-        addMetadata(groupType, ColumnMetadata.named("GROUP_TYPE").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(lowerChildName, ColumnMetadata.named("LOWER_CHILD_NAME").withIndex(9).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(lowerParentName, ColumnMetadata.named("LOWER_PARENT_NAME").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(membershipType, ColumnMetadata.named("MEMBERSHIP_TYPE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(parentId, ColumnMetadata.named("PARENT_ID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(parentName, ColumnMetadata.named("PARENT_NAME").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(childId, ColumnMetadata.named("child_id").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(childName, ColumnMetadata.named("child_name").withIndex(8).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(directoryId, ColumnMetadata.named("directory_id").withIndex(10).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(groupType, ColumnMetadata.named("group_type").withIndex(5).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(lowerChildName, ColumnMetadata.named("lower_child_name").withIndex(9).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(lowerParentName, ColumnMetadata.named("lower_parent_name").withIndex(7).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(membershipType, ColumnMetadata.named("membership_type").withIndex(4).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(parentId, ColumnMetadata.named("parent_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(parentName, ColumnMetadata.named("parent_name").withIndex(6).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

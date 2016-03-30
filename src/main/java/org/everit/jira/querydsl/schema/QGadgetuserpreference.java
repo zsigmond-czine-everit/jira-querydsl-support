@@ -37,7 +37,7 @@ public class QGadgetuserpreference extends com.querydsl.sql.RelationalPathBase<Q
 
     private static final long serialVersionUID = 1980109930;
 
-    public static final QGadgetuserpreference gadgetuserpreference = new QGadgetuserpreference("GADGETUSERPREFERENCE");
+    public static final QGadgetuserpreference gadgetuserpreference = new QGadgetuserpreference("gadgetuserpreference");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -47,10 +47,10 @@ public class QGadgetuserpreference extends com.querydsl.sql.RelationalPathBase<Q
 
     public final StringPath userprefvalue = createString("userprefvalue");
 
-    public final com.querydsl.sql.PrimaryKey<QGadgetuserpreference> sysIdx95 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QGadgetuserpreference> gadgetuserpreferencePk = createPrimaryKey(id);
 
     public QGadgetuserpreference(String variable) {
-        super(QGadgetuserpreference.class, forVariable(variable), "PUBLIC", "GADGETUSERPREFERENCE");
+        super(QGadgetuserpreference.class, forVariable(variable), "public", "gadgetuserpreference");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QGadgetuserpreference extends com.querydsl.sql.RelationalPathBase<Q
     }
 
     public QGadgetuserpreference(Path<? extends QGadgetuserpreference> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "GADGETUSERPREFERENCE");
+        super(path.getType(), path.getMetadata(), "public", "gadgetuserpreference");
         addMetadata();
     }
 
     public QGadgetuserpreference(PathMetadata metadata) {
-        super(QGadgetuserpreference.class, metadata, "PUBLIC", "GADGETUSERPREFERENCE");
+        super(QGadgetuserpreference.class, metadata, "public", "gadgetuserpreference");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(portletconfiguration, ColumnMetadata.named("PORTLETCONFIGURATION").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(userprefkey, ColumnMetadata.named("USERPREFKEY").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(userprefvalue, ColumnMetadata.named("USERPREFVALUE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(portletconfiguration, ColumnMetadata.named("portletconfiguration").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(userprefkey, ColumnMetadata.named("userprefkey").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(userprefvalue, ColumnMetadata.named("userprefvalue").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
     }
 
 }

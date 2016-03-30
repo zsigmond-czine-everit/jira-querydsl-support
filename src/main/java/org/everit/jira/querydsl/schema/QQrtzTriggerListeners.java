@@ -37,7 +37,7 @@ public class QQrtzTriggerListeners extends com.querydsl.sql.RelationalPathBase<Q
 
     private static final long serialVersionUID = -876738522;
 
-    public static final QQrtzTriggerListeners qrtzTriggerListeners = new QQrtzTriggerListeners("QRTZ_TRIGGER_LISTENERS");
+    public static final QQrtzTriggerListeners qrtzTriggerListeners = new QQrtzTriggerListeners("qrtz_trigger_listeners");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -45,10 +45,10 @@ public class QQrtzTriggerListeners extends com.querydsl.sql.RelationalPathBase<Q
 
     public final StringPath triggerListener = createString("triggerListener");
 
-    public final com.querydsl.sql.PrimaryKey<QQrtzTriggerListeners> sysIdx172 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QQrtzTriggerListeners> qrtzTriggerListenersPk = createPrimaryKey(id);
 
     public QQrtzTriggerListeners(String variable) {
-        super(QQrtzTriggerListeners.class, forVariable(variable), "PUBLIC", "QRTZ_TRIGGER_LISTENERS");
+        super(QQrtzTriggerListeners.class, forVariable(variable), "public", "qrtz_trigger_listeners");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QQrtzTriggerListeners extends com.querydsl.sql.RelationalPathBase<Q
     }
 
     public QQrtzTriggerListeners(Path<? extends QQrtzTriggerListeners> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "QRTZ_TRIGGER_LISTENERS");
+        super(path.getType(), path.getMetadata(), "public", "qrtz_trigger_listeners");
         addMetadata();
     }
 
     public QQrtzTriggerListeners(PathMetadata metadata) {
-        super(QQrtzTriggerListeners.class, metadata, "PUBLIC", "QRTZ_TRIGGER_LISTENERS");
+        super(QQrtzTriggerListeners.class, metadata, "public", "qrtz_trigger_listeners");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(triggerId, ColumnMetadata.named("TRIGGER_ID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(triggerListener, ColumnMetadata.named("TRIGGER_LISTENER").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(triggerId, ColumnMetadata.named("trigger_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(triggerListener, ColumnMetadata.named("trigger_listener").withIndex(3).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

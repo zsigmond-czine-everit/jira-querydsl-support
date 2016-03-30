@@ -37,7 +37,7 @@ public class QPortalpage extends com.querydsl.sql.RelationalPathBase<QPortalpage
 
     private static final long serialVersionUID = -356153037;
 
-    public static final QPortalpage portalpage = new QPortalpage("PORTALPAGE");
+    public static final QPortalpage portalpage = new QPortalpage("portalpage");
 
     public final StringPath description = createString("description");
 
@@ -55,10 +55,10 @@ public class QPortalpage extends com.querydsl.sql.RelationalPathBase<QPortalpage
 
     public final StringPath username = createString("username");
 
-    public final com.querydsl.sql.PrimaryKey<QPortalpage> sysIdx157 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QPortalpage> portalpagePk = createPrimaryKey(id);
 
     public QPortalpage(String variable) {
-        super(QPortalpage.class, forVariable(variable), "PUBLIC", "PORTALPAGE");
+        super(QPortalpage.class, forVariable(variable), "public", "portalpage");
         addMetadata();
     }
 
@@ -68,24 +68,24 @@ public class QPortalpage extends com.querydsl.sql.RelationalPathBase<QPortalpage
     }
 
     public QPortalpage(Path<? extends QPortalpage> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PORTALPAGE");
+        super(path.getType(), path.getMetadata(), "public", "portalpage");
         addMetadata();
     }
 
     public QPortalpage(PathMetadata metadata) {
-        super(QPortalpage.class, metadata, "PUBLIC", "PORTALPAGE");
+        super(QPortalpage.class, metadata, "public", "portalpage");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(favCount, ColumnMetadata.named("FAV_COUNT").withIndex(6).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(layout, ColumnMetadata.named("LAYOUT").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(pagename, ColumnMetadata.named("PAGENAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(ppversion, ColumnMetadata.named("PPVERSION").withIndex(8).ofType(Types.BIGINT));
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(username, ColumnMetadata.named("USERNAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(favCount, ColumnMetadata.named("fav_count").withIndex(6).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(layout, ColumnMetadata.named("layout").withIndex(7).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(pagename, ColumnMetadata.named("pagename").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(ppversion, ColumnMetadata.named("ppversion").withIndex(8).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(5).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(username, ColumnMetadata.named("username").withIndex(2).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

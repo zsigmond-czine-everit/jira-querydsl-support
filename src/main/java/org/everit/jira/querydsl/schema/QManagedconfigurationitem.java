@@ -37,7 +37,7 @@ public class QManagedconfigurationitem extends com.querydsl.sql.RelationalPathBa
 
     private static final long serialVersionUID = 1479457154;
 
-    public static final QManagedconfigurationitem managedconfigurationitem = new QManagedconfigurationitem("MANAGEDCONFIGURATIONITEM");
+    public static final QManagedconfigurationitem managedconfigurationitem = new QManagedconfigurationitem("managedconfigurationitem");
 
     public final StringPath accessLevel = createString("accessLevel");
 
@@ -53,10 +53,10 @@ public class QManagedconfigurationitem extends com.querydsl.sql.RelationalPathBa
 
     public final StringPath source = createString("source");
 
-    public final com.querydsl.sql.PrimaryKey<QManagedconfigurationitem> sysIdx125 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QManagedconfigurationitem> managedconfigurationitemPk = createPrimaryKey(id);
 
     public QManagedconfigurationitem(String variable) {
-        super(QManagedconfigurationitem.class, forVariable(variable), "PUBLIC", "MANAGEDCONFIGURATIONITEM");
+        super(QManagedconfigurationitem.class, forVariable(variable), "public", "managedconfigurationitem");
         addMetadata();
     }
 
@@ -66,23 +66,23 @@ public class QManagedconfigurationitem extends com.querydsl.sql.RelationalPathBa
     }
 
     public QManagedconfigurationitem(Path<? extends QManagedconfigurationitem> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "MANAGEDCONFIGURATIONITEM");
+        super(path.getType(), path.getMetadata(), "public", "managedconfigurationitem");
         addMetadata();
     }
 
     public QManagedconfigurationitem(PathMetadata metadata) {
-        super(QManagedconfigurationitem.class, metadata, "PUBLIC", "MANAGEDCONFIGURATIONITEM");
+        super(QManagedconfigurationitem.class, metadata, "public", "managedconfigurationitem");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(accessLevel, ColumnMetadata.named("ACCESS_LEVEL").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(descriptionKey, ColumnMetadata.named("DESCRIPTION_KEY").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(itemId, ColumnMetadata.named("ITEM_ID").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(itemType, ColumnMetadata.named("ITEM_TYPE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(managed, ColumnMetadata.named("MANAGED").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(source, ColumnMetadata.named("SOURCE").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(accessLevel, ColumnMetadata.named("access_level").withIndex(5).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(descriptionKey, ColumnMetadata.named("description_key").withIndex(7).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(itemId, ColumnMetadata.named("item_id").withIndex(2).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(itemType, ColumnMetadata.named("item_type").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(managed, ColumnMetadata.named("managed").withIndex(4).ofType(Types.VARCHAR).withSize(10));
+        addMetadata(source, ColumnMetadata.named("source").withIndex(6).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

@@ -37,7 +37,7 @@ public class QAuditChangedValue extends com.querydsl.sql.RelationalPathBase<QAud
 
     private static final long serialVersionUID = -1097897120;
 
-    public static final QAuditChangedValue auditChangedValue = new QAuditChangedValue("AUDIT_CHANGED_VALUE");
+    public static final QAuditChangedValue auditChangedValue = new QAuditChangedValue("audit_changed_value");
 
     public final StringPath deltaFrom = createString("deltaFrom");
 
@@ -49,10 +49,10 @@ public class QAuditChangedValue extends com.querydsl.sql.RelationalPathBase<QAud
 
     public final StringPath name = createString("name");
 
-    public final com.querydsl.sql.PrimaryKey<QAuditChangedValue> sysIdx49 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QAuditChangedValue> auditChangedValuePk = createPrimaryKey(id);
 
     public QAuditChangedValue(String variable) {
-        super(QAuditChangedValue.class, forVariable(variable), "PUBLIC", "AUDIT_CHANGED_VALUE");
+        super(QAuditChangedValue.class, forVariable(variable), "public", "audit_changed_value");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QAuditChangedValue extends com.querydsl.sql.RelationalPathBase<QAud
     }
 
     public QAuditChangedValue(Path<? extends QAuditChangedValue> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "AUDIT_CHANGED_VALUE");
+        super(path.getType(), path.getMetadata(), "public", "audit_changed_value");
         addMetadata();
     }
 
     public QAuditChangedValue(PathMetadata metadata) {
-        super(QAuditChangedValue.class, metadata, "PUBLIC", "AUDIT_CHANGED_VALUE");
+        super(QAuditChangedValue.class, metadata, "public", "audit_changed_value");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(deltaFrom, ColumnMetadata.named("DELTA_FROM").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(deltaTo, ColumnMetadata.named("DELTA_TO").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(logId, ColumnMetadata.named("LOG_ID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(name, ColumnMetadata.named("NAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(deltaFrom, ColumnMetadata.named("delta_from").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(deltaTo, ColumnMetadata.named("delta_to").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(logId, ColumnMetadata.named("log_id").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(name, ColumnMetadata.named("name").withIndex(3).ofType(Types.VARCHAR).withSize(255));
     }
 
 }

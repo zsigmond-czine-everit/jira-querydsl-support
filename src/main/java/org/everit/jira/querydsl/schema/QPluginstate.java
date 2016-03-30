@@ -37,16 +37,16 @@ public class QPluginstate extends com.querydsl.sql.RelationalPathBase<QPluginsta
 
     private static final long serialVersionUID = -1304711162;
 
-    public static final QPluginstate pluginstate = new QPluginstate("PLUGINSTATE");
+    public static final QPluginstate pluginstate = new QPluginstate("pluginstate");
 
     public final StringPath pluginenabled = createString("pluginenabled");
 
     public final StringPath pluginkey = createString("pluginkey");
 
-    public final com.querydsl.sql.PrimaryKey<QPluginstate> sysIdx155 = createPrimaryKey(pluginkey);
+    public final com.querydsl.sql.PrimaryKey<QPluginstate> pluginstatePk = createPrimaryKey(pluginkey);
 
     public QPluginstate(String variable) {
-        super(QPluginstate.class, forVariable(variable), "PUBLIC", "PLUGINSTATE");
+        super(QPluginstate.class, forVariable(variable), "public", "pluginstate");
         addMetadata();
     }
 
@@ -56,18 +56,18 @@ public class QPluginstate extends com.querydsl.sql.RelationalPathBase<QPluginsta
     }
 
     public QPluginstate(Path<? extends QPluginstate> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "PLUGINSTATE");
+        super(path.getType(), path.getMetadata(), "public", "pluginstate");
         addMetadata();
     }
 
     public QPluginstate(PathMetadata metadata) {
-        super(QPluginstate.class, metadata, "PUBLIC", "PLUGINSTATE");
+        super(QPluginstate.class, metadata, "public", "pluginstate");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(pluginenabled, ColumnMetadata.named("PLUGINENABLED").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(pluginkey, ColumnMetadata.named("PLUGINKEY").withIndex(1).ofType(Types.VARCHAR).withSize(2147483647).notNull());
+        addMetadata(pluginenabled, ColumnMetadata.named("pluginenabled").withIndex(2).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(pluginkey, ColumnMetadata.named("pluginkey").withIndex(1).ofType(Types.VARCHAR).withSize(255).notNull());
     }
 
 }

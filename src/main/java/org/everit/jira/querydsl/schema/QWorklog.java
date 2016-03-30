@@ -37,7 +37,7 @@ public class QWorklog extends com.querydsl.sql.RelationalPathBase<QWorklog> {
 
     private static final long serialVersionUID = 313830747;
 
-    public static final QWorklog worklog = new QWorklog("WORKLOG");
+    public static final QWorklog worklog = new QWorklog("worklog");
 
     public final StringPath author = createString("author");
 
@@ -61,10 +61,10 @@ public class QWorklog extends com.querydsl.sql.RelationalPathBase<QWorklog> {
 
     public final StringPath worklogbody = createString("worklogbody");
 
-    public final com.querydsl.sql.PrimaryKey<QWorklog> sysIdx207 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QWorklog> worklogPk = createPrimaryKey(id);
 
     public QWorklog(String variable) {
-        super(QWorklog.class, forVariable(variable), "PUBLIC", "WORKLOG");
+        super(QWorklog.class, forVariable(variable), "public", "worklog");
         addMetadata();
     }
 
@@ -74,27 +74,27 @@ public class QWorklog extends com.querydsl.sql.RelationalPathBase<QWorklog> {
     }
 
     public QWorklog(Path<? extends QWorklog> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "WORKLOG");
+        super(path.getType(), path.getMetadata(), "public", "worklog");
         addMetadata();
     }
 
     public QWorklog(PathMetadata metadata) {
-        super(QWorklog.class, metadata, "PUBLIC", "WORKLOG");
+        super(QWorklog.class, metadata, "public", "worklog");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(author, ColumnMetadata.named("AUTHOR").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(created, ColumnMetadata.named("CREATED").withIndex(7).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(grouplevel, ColumnMetadata.named("GROUPLEVEL").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(issueid, ColumnMetadata.named("ISSUEID").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(rolelevel, ColumnMetadata.named("ROLELEVEL").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(startdate, ColumnMetadata.named("STARTDATE").withIndex(10).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(timeworked, ColumnMetadata.named("TIMEWORKED").withIndex(11).ofType(Types.BIGINT));
-        addMetadata(updateauthor, ColumnMetadata.named("UPDATEAUTHOR").withIndex(8).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(updated, ColumnMetadata.named("UPDATED").withIndex(9).ofType(Types.TIMESTAMP).withSize(6));
-        addMetadata(worklogbody, ColumnMetadata.named("WORKLOGBODY").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(author, ColumnMetadata.named("author").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(created, ColumnMetadata.named("created").withIndex(7).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(grouplevel, ColumnMetadata.named("grouplevel").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(issueid, ColumnMetadata.named("issueid").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(rolelevel, ColumnMetadata.named("rolelevel").withIndex(5).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(startdate, ColumnMetadata.named("startdate").withIndex(10).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(timeworked, ColumnMetadata.named("timeworked").withIndex(11).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(updateauthor, ColumnMetadata.named("updateauthor").withIndex(8).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(updated, ColumnMetadata.named("updated").withIndex(9).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
+        addMetadata(worklogbody, ColumnMetadata.named("worklogbody").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
     }
 
 }

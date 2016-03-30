@@ -37,7 +37,7 @@ public class QConfigurationcontext extends com.querydsl.sql.RelationalPathBase<Q
 
     private static final long serialVersionUID = 885206577;
 
-    public static final QConfigurationcontext configurationcontext = new QConfigurationcontext("CONFIGURATIONCONTEXT");
+    public static final QConfigurationcontext configurationcontext = new QConfigurationcontext("configurationcontext");
 
     public final StringPath customfield = createString("customfield");
 
@@ -49,10 +49,10 @@ public class QConfigurationcontext extends com.querydsl.sql.RelationalPathBase<Q
 
     public final NumberPath<Long> projectcategory = createNumber("projectcategory", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QConfigurationcontext> sysIdx63 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QConfigurationcontext> configurationcontextPk = createPrimaryKey(id);
 
     public QConfigurationcontext(String variable) {
-        super(QConfigurationcontext.class, forVariable(variable), "PUBLIC", "CONFIGURATIONCONTEXT");
+        super(QConfigurationcontext.class, forVariable(variable), "public", "configurationcontext");
         addMetadata();
     }
 
@@ -62,21 +62,21 @@ public class QConfigurationcontext extends com.querydsl.sql.RelationalPathBase<Q
     }
 
     public QConfigurationcontext(Path<? extends QConfigurationcontext> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CONFIGURATIONCONTEXT");
+        super(path.getType(), path.getMetadata(), "public", "configurationcontext");
         addMetadata();
     }
 
     public QConfigurationcontext(PathMetadata metadata) {
-        super(QConfigurationcontext.class, metadata, "PUBLIC", "CONFIGURATIONCONTEXT");
+        super(QConfigurationcontext.class, metadata, "public", "configurationcontext");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(customfield, ColumnMetadata.named("CUSTOMFIELD").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(fieldconfigscheme, ColumnMetadata.named("FIELDCONFIGSCHEME").withIndex(5).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(project, ColumnMetadata.named("PROJECT").withIndex(3).ofType(Types.BIGINT));
-        addMetadata(projectcategory, ColumnMetadata.named("PROJECTCATEGORY").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(customfield, ColumnMetadata.named("customfield").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(fieldconfigscheme, ColumnMetadata.named("fieldconfigscheme").withIndex(5).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(project, ColumnMetadata.named("project").withIndex(3).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(projectcategory, ColumnMetadata.named("projectcategory").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

@@ -37,7 +37,7 @@ public class QGenericconfiguration extends com.querydsl.sql.RelationalPathBase<Q
 
     private static final long serialVersionUID = -1109512521;
 
-    public static final QGenericconfiguration genericconfiguration = new QGenericconfiguration("GENERICCONFIGURATION");
+    public static final QGenericconfiguration genericconfiguration = new QGenericconfiguration("genericconfiguration");
 
     public final StringPath datakey = createString("datakey");
 
@@ -47,10 +47,10 @@ public class QGenericconfiguration extends com.querydsl.sql.RelationalPathBase<Q
 
     public final StringPath xmlvalue = createString("xmlvalue");
 
-    public final com.querydsl.sql.PrimaryKey<QGenericconfiguration> sysIdx96 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QGenericconfiguration> genericconfigurationPk = createPrimaryKey(id);
 
     public QGenericconfiguration(String variable) {
-        super(QGenericconfiguration.class, forVariable(variable), "PUBLIC", "GENERICCONFIGURATION");
+        super(QGenericconfiguration.class, forVariable(variable), "public", "genericconfiguration");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QGenericconfiguration extends com.querydsl.sql.RelationalPathBase<Q
     }
 
     public QGenericconfiguration(Path<? extends QGenericconfiguration> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "GENERICCONFIGURATION");
+        super(path.getType(), path.getMetadata(), "public", "genericconfiguration");
         addMetadata();
     }
 
     public QGenericconfiguration(PathMetadata metadata) {
-        super(QGenericconfiguration.class, metadata, "PUBLIC", "GENERICCONFIGURATION");
+        super(QGenericconfiguration.class, metadata, "public", "genericconfiguration");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(datakey, ColumnMetadata.named("DATAKEY").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(datatype, ColumnMetadata.named("DATATYPE").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(xmlvalue, ColumnMetadata.named("XMLVALUE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(datakey, ColumnMetadata.named("datakey").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(datatype, ColumnMetadata.named("datatype").withIndex(2).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(xmlvalue, ColumnMetadata.named("xmlvalue").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
     }
 
 }

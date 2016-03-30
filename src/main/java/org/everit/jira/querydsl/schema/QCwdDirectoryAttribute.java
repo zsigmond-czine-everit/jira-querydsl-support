@@ -37,7 +37,7 @@ public class QCwdDirectoryAttribute extends com.querydsl.sql.RelationalPathBase<
 
     private static final long serialVersionUID = -1929047545;
 
-    public static final QCwdDirectoryAttribute cwdDirectoryAttribute = new QCwdDirectoryAttribute("CWD_DIRECTORY_ATTRIBUTE");
+    public static final QCwdDirectoryAttribute cwdDirectoryAttribute = new QCwdDirectoryAttribute("cwd_directory_attribute");
 
     public final StringPath attributeName = createString("attributeName");
 
@@ -45,10 +45,10 @@ public class QCwdDirectoryAttribute extends com.querydsl.sql.RelationalPathBase<
 
     public final NumberPath<Long> directoryId = createNumber("directoryId", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QCwdDirectoryAttribute> sysIdx68 = createPrimaryKey(attributeName, directoryId);
+    public final com.querydsl.sql.PrimaryKey<QCwdDirectoryAttribute> cwdDirectoryAttributePk = createPrimaryKey(directoryId, attributeName);
 
     public QCwdDirectoryAttribute(String variable) {
-        super(QCwdDirectoryAttribute.class, forVariable(variable), "PUBLIC", "CWD_DIRECTORY_ATTRIBUTE");
+        super(QCwdDirectoryAttribute.class, forVariable(variable), "public", "cwd_directory_attribute");
         addMetadata();
     }
 
@@ -58,19 +58,19 @@ public class QCwdDirectoryAttribute extends com.querydsl.sql.RelationalPathBase<
     }
 
     public QCwdDirectoryAttribute(Path<? extends QCwdDirectoryAttribute> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "CWD_DIRECTORY_ATTRIBUTE");
+        super(path.getType(), path.getMetadata(), "public", "cwd_directory_attribute");
         addMetadata();
     }
 
     public QCwdDirectoryAttribute(PathMetadata metadata) {
-        super(QCwdDirectoryAttribute.class, metadata, "PUBLIC", "CWD_DIRECTORY_ATTRIBUTE");
+        super(QCwdDirectoryAttribute.class, metadata, "public", "cwd_directory_attribute");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(attributeName, ColumnMetadata.named("ATTRIBUTE_NAME").withIndex(2).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(attributeValue, ColumnMetadata.named("ATTRIBUTE_VALUE").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(directoryId, ColumnMetadata.named("DIRECTORY_ID").withIndex(1).ofType(Types.BIGINT).notNull());
+        addMetadata(attributeName, ColumnMetadata.named("attribute_name").withIndex(2).ofType(Types.VARCHAR).withSize(255).notNull());
+        addMetadata(attributeValue, ColumnMetadata.named("attribute_value").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(directoryId, ColumnMetadata.named("directory_id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
     }
 
 }

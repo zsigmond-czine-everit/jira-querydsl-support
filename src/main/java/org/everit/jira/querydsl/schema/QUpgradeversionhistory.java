@@ -37,7 +37,7 @@ public class QUpgradeversionhistory extends com.querydsl.sql.RelationalPathBase<
 
     private static final long serialVersionUID = -689645920;
 
-    public static final QUpgradeversionhistory upgradeversionhistory = new QUpgradeversionhistory("UPGRADEVERSIONHISTORY");
+    public static final QUpgradeversionhistory upgradeversionhistory = new QUpgradeversionhistory("upgradeversionhistory");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -47,10 +47,10 @@ public class QUpgradeversionhistory extends com.querydsl.sql.RelationalPathBase<
 
     public final DateTimePath<java.sql.Timestamp> timeperformed = createDateTime("timeperformed", java.sql.Timestamp.class);
 
-    public final com.querydsl.sql.PrimaryKey<QUpgradeversionhistory> sysIdx193 = createPrimaryKey(targetbuild);
+    public final com.querydsl.sql.PrimaryKey<QUpgradeversionhistory> upgradeversionhistoryPk = createPrimaryKey(targetbuild);
 
     public QUpgradeversionhistory(String variable) {
-        super(QUpgradeversionhistory.class, forVariable(variable), "PUBLIC", "UPGRADEVERSIONHISTORY");
+        super(QUpgradeversionhistory.class, forVariable(variable), "public", "upgradeversionhistory");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QUpgradeversionhistory extends com.querydsl.sql.RelationalPathBase<
     }
 
     public QUpgradeversionhistory(Path<? extends QUpgradeversionhistory> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "UPGRADEVERSIONHISTORY");
+        super(path.getType(), path.getMetadata(), "public", "upgradeversionhistory");
         addMetadata();
     }
 
     public QUpgradeversionhistory(PathMetadata metadata) {
-        super(QUpgradeversionhistory.class, metadata, "PUBLIC", "UPGRADEVERSIONHISTORY");
+        super(QUpgradeversionhistory.class, metadata, "public", "upgradeversionhistory");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT));
-        addMetadata(targetbuild, ColumnMetadata.named("TARGETBUILD").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(targetversion, ColumnMetadata.named("TARGETVERSION").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(timeperformed, ColumnMetadata.named("TIMEPERFORMED").withIndex(2).ofType(Types.TIMESTAMP).withSize(6));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(targetbuild, ColumnMetadata.named("targetbuild").withIndex(3).ofType(Types.VARCHAR).withSize(255).notNull());
+        addMetadata(targetversion, ColumnMetadata.named("targetversion").withIndex(4).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(timeperformed, ColumnMetadata.named("timeperformed").withIndex(2).ofType(Types.TIMESTAMP).withSize(35).withDigits(6));
     }
 
 }

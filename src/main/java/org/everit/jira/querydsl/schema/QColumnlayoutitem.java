@@ -37,7 +37,7 @@ public class QColumnlayoutitem extends com.querydsl.sql.RelationalPathBase<QColu
 
     private static final long serialVersionUID = -746153141;
 
-    public static final QColumnlayoutitem columnlayoutitem = new QColumnlayoutitem("COLUMNLAYOUTITEM");
+    public static final QColumnlayoutitem columnlayoutitem = new QColumnlayoutitem("columnlayoutitem");
 
     public final NumberPath<Long> columnlayout = createNumber("columnlayout", Long.class);
 
@@ -47,10 +47,10 @@ public class QColumnlayoutitem extends com.querydsl.sql.RelationalPathBase<QColu
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QColumnlayoutitem> sysIdx61 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QColumnlayoutitem> columnlayoutitemPk = createPrimaryKey(id);
 
     public QColumnlayoutitem(String variable) {
-        super(QColumnlayoutitem.class, forVariable(variable), "PUBLIC", "COLUMNLAYOUTITEM");
+        super(QColumnlayoutitem.class, forVariable(variable), "public", "columnlayoutitem");
         addMetadata();
     }
 
@@ -60,20 +60,20 @@ public class QColumnlayoutitem extends com.querydsl.sql.RelationalPathBase<QColu
     }
 
     public QColumnlayoutitem(Path<? extends QColumnlayoutitem> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "COLUMNLAYOUTITEM");
+        super(path.getType(), path.getMetadata(), "public", "columnlayoutitem");
         addMetadata();
     }
 
     public QColumnlayoutitem(PathMetadata metadata) {
-        super(QColumnlayoutitem.class, metadata, "PUBLIC", "COLUMNLAYOUTITEM");
+        super(QColumnlayoutitem.class, metadata, "public", "columnlayoutitem");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(columnlayout, ColumnMetadata.named("COLUMNLAYOUT").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(fieldidentifier, ColumnMetadata.named("FIELDIDENTIFIER").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(horizontalposition, ColumnMetadata.named("HORIZONTALPOSITION").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
+        addMetadata(columnlayout, ColumnMetadata.named("columnlayout").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(fieldidentifier, ColumnMetadata.named("fieldidentifier").withIndex(3).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(horizontalposition, ColumnMetadata.named("horizontalposition").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
     }
 
 }

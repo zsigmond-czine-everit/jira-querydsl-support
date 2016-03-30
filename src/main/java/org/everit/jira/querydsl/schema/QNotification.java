@@ -37,7 +37,7 @@ public class QNotification extends com.querydsl.sql.RelationalPathBase<QNotifica
 
     private static final long serialVersionUID = 475074339;
 
-    public static final QNotification notification = new QNotification("NOTIFICATION");
+    public static final QNotification notification = new QNotification("notification");
 
     public final StringPath event = createString("event");
 
@@ -53,10 +53,10 @@ public class QNotification extends com.querydsl.sql.RelationalPathBase<QNotifica
 
     public final NumberPath<Long> templateId = createNumber("templateId", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QNotification> sysIdx130 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QNotification> notificationPk = createPrimaryKey(id);
 
     public QNotification(String variable) {
-        super(QNotification.class, forVariable(variable), "PUBLIC", "NOTIFICATION");
+        super(QNotification.class, forVariable(variable), "public", "notification");
         addMetadata();
     }
 
@@ -66,23 +66,23 @@ public class QNotification extends com.querydsl.sql.RelationalPathBase<QNotifica
     }
 
     public QNotification(Path<? extends QNotification> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "NOTIFICATION");
+        super(path.getType(), path.getMetadata(), "public", "notification");
         addMetadata();
     }
 
     public QNotification(PathMetadata metadata) {
-        super(QNotification.class, metadata, "PUBLIC", "NOTIFICATION");
+        super(QNotification.class, metadata, "public", "notification");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(event, ColumnMetadata.named("EVENT").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(eventTypeId, ColumnMetadata.named("EVENT_TYPE_ID").withIndex(4).ofType(Types.BIGINT));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.BIGINT).notNull());
-        addMetadata(notifParameter, ColumnMetadata.named("NOTIF_PARAMETER").withIndex(7).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(notifType, ColumnMetadata.named("NOTIF_TYPE").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(scheme, ColumnMetadata.named("SCHEME").withIndex(2).ofType(Types.BIGINT));
-        addMetadata(templateId, ColumnMetadata.named("TEMPLATE_ID").withIndex(5).ofType(Types.BIGINT));
+        addMetadata(event, ColumnMetadata.named("event").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(eventTypeId, ColumnMetadata.named("event_type_id").withIndex(4).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.NUMERIC).withSize(18).notNull());
+        addMetadata(notifParameter, ColumnMetadata.named("notif_parameter").withIndex(7).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(notifType, ColumnMetadata.named("notif_type").withIndex(6).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(scheme, ColumnMetadata.named("scheme").withIndex(2).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(templateId, ColumnMetadata.named("template_id").withIndex(5).ofType(Types.NUMERIC).withSize(18));
     }
 
 }

@@ -37,7 +37,7 @@ public class QIssuetype extends com.querydsl.sql.RelationalPathBase<QIssuetype> 
 
     private static final long serialVersionUID = 27002971;
 
-    public static final QIssuetype issuetype = new QIssuetype("ISSUETYPE");
+    public static final QIssuetype issuetype = new QIssuetype("issuetype");
 
     public final NumberPath<Long> avatar = createNumber("avatar", Long.class);
 
@@ -53,10 +53,10 @@ public class QIssuetype extends com.querydsl.sql.RelationalPathBase<QIssuetype> 
 
     public final NumberPath<Long> sequence = createNumber("sequence", Long.class);
 
-    public final com.querydsl.sql.PrimaryKey<QIssuetype> sysIdx104 = createPrimaryKey(id);
+    public final com.querydsl.sql.PrimaryKey<QIssuetype> issuetypePk = createPrimaryKey(id);
 
     public QIssuetype(String variable) {
-        super(QIssuetype.class, forVariable(variable), "PUBLIC", "ISSUETYPE");
+        super(QIssuetype.class, forVariable(variable), "public", "issuetype");
         addMetadata();
     }
 
@@ -66,23 +66,23 @@ public class QIssuetype extends com.querydsl.sql.RelationalPathBase<QIssuetype> 
     }
 
     public QIssuetype(Path<? extends QIssuetype> path) {
-        super(path.getType(), path.getMetadata(), "PUBLIC", "ISSUETYPE");
+        super(path.getType(), path.getMetadata(), "public", "issuetype");
         addMetadata();
     }
 
     public QIssuetype(PathMetadata metadata) {
-        super(QIssuetype.class, metadata, "PUBLIC", "ISSUETYPE");
+        super(QIssuetype.class, metadata, "public", "issuetype");
         addMetadata();
     }
 
     public void addMetadata() {
-        addMetadata(avatar, ColumnMetadata.named("AVATAR").withIndex(7).ofType(Types.BIGINT));
-        addMetadata(description, ColumnMetadata.named("DESCRIPTION").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(iconurl, ColumnMetadata.named("ICONURL").withIndex(6).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(id, ColumnMetadata.named("ID").withIndex(1).ofType(Types.VARCHAR).withSize(2147483647).notNull());
-        addMetadata(pname, ColumnMetadata.named("PNAME").withIndex(3).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(pstyle, ColumnMetadata.named("PSTYLE").withIndex(4).ofType(Types.VARCHAR).withSize(2147483647));
-        addMetadata(sequence, ColumnMetadata.named("SEQUENCE").withIndex(2).ofType(Types.BIGINT));
+        addMetadata(avatar, ColumnMetadata.named("avatar").withIndex(7).ofType(Types.NUMERIC).withSize(18));
+        addMetadata(description, ColumnMetadata.named("description").withIndex(5).ofType(Types.VARCHAR).withSize(2147483647));
+        addMetadata(iconurl, ColumnMetadata.named("iconurl").withIndex(6).ofType(Types.VARCHAR).withSize(255));
+        addMetadata(id, ColumnMetadata.named("id").withIndex(1).ofType(Types.VARCHAR).withSize(60).notNull());
+        addMetadata(pname, ColumnMetadata.named("pname").withIndex(3).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(pstyle, ColumnMetadata.named("pstyle").withIndex(4).ofType(Types.VARCHAR).withSize(60));
+        addMetadata(sequence, ColumnMetadata.named("sequence").withIndex(2).ofType(Types.NUMERIC).withSize(18));
     }
 
 }
