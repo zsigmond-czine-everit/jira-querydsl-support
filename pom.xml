@@ -112,7 +112,6 @@
               com.mysema.commons.*;-noimport:=true,
               org.everit.persistence.querydsl.*;-noimport:=true,
               javax.inject;-noimport:=true,
-<!--               org.joda.*;-noimport:=true -->
             </_exportcontents>
             <Export-Package>
               org.everit.jira.querydsl.schema,
