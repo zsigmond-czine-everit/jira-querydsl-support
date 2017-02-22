@@ -27,7 +27,7 @@
 
   <groupId>org.everit.jira</groupId>
   <artifactId>jira-querydsl-support</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>Querydsl Support for JIRA</name>
@@ -41,12 +41,12 @@
     <jira.version>6.2.5</jira.version>
     <maven.jira.plugin.version>5.1.9</maven.jira.plugin.version>
   </properties>
-  
+
   <ciManagement>
     <system>Travis CI</system>
     <url>https://travis-ci.org/everit-org/${projectpath}</url>
   </ciManagement>
-  
+
   <scm>
     <connection>scm:git:git://github.com/everit-org/${projectpath}.git</connection>
     <developerConnection>scm:git:https://github.com/everit-org/${projectpath}.git</developerConnection>
@@ -104,6 +104,7 @@
               !net.sf.cglib.proxy,
               javax.annotation;resolution:=optional,
               sun.misc.*;resolution:=optional,
+              org.joda.time.*;version="[1.6,3)",
               *
             </Import-Package>
             <_exportcontents>
@@ -111,7 +112,7 @@
               com.mysema.commons.*;-noimport:=true,
               org.everit.persistence.querydsl.*;-noimport:=true,
               javax.inject;-noimport:=true,
-              org.joda.*;-noimport:=true
+<!--               org.joda.*;-noimport:=true -->
             </_exportcontents>
             <Export-Package>
               org.everit.jira.querydsl.schema,
@@ -196,8 +197,19 @@
           <groupId>com.infradna.tool</groupId>
           <artifactId>bridge-method-annotation</artifactId>
         </exclusion>
+        <exclusion>
+          <artifactId>joda-time</artifactId>
+          <groupId>joda-time</groupId>
+        </exclusion>
       </exclusions>
     </dependency>
+    <dependency>
+      <artifactId>joda-time</artifactId>
+      <groupId>joda-time</groupId>
+      <version>1.6</version>
+      <scope>provided</scope>
+    </dependency>
+
 
     <dependency>
       <groupId>org.slf4j</groupId>
