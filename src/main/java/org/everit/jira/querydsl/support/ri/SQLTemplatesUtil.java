@@ -21,7 +21,6 @@ import java.sql.SQLException;
 import com.querydsl.sql.H2Templates;
 import com.querydsl.sql.HSQLDBTemplates;
 import com.querydsl.sql.MySQLTemplates;
-import com.querydsl.sql.OracleTemplates;
 import com.querydsl.sql.PostgreSQLTemplates;
 import com.querydsl.sql.SQLServer2005Templates;
 import com.querydsl.sql.SQLServer2008Templates;
@@ -92,7 +91,7 @@ public final class SQLTemplatesUtil {
 
       @Override
       public Builder getSQLTemplatesBuilder() {
-        return OracleTemplates.builder();
+        return OracleTemplatesExt.builder();
       }
     },
 
