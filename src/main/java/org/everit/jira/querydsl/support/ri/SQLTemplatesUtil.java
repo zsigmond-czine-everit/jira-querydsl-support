@@ -18,7 +18,6 @@ package org.everit.jira.querydsl.support.ri;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 
-import com.querydsl.sql.H2Templates;
 import com.querydsl.sql.HSQLDBTemplates;
 import com.querydsl.sql.MySQLTemplates;
 import com.querydsl.sql.PostgreSQLTemplates;
@@ -48,7 +47,7 @@ public final class SQLTemplatesUtil {
 
       @Override
       public Builder getSQLTemplatesBuilder() {
-        return H2Templates.builder();
+        return H2TemplatesExt.builder();
       }
     },
 
