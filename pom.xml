@@ -27,7 +27,7 @@
 
   <groupId>org.everit.jira</groupId>
   <artifactId>jira-querydsl-support</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.2-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>Querydsl Support for JIRA</name>
@@ -107,41 +107,11 @@
               org.joda.time.*;version="[1.6,3)",
               *
             </Import-Package>
-            <_exportcontents>
-              com.querydsl.*;-noimport:=true,
-              com.mysema.commons.*;-noimport:=true,
-              org.everit.persistence.querydsl.*;-noimport:=true,
-            </_exportcontents>
             <Export-Package>
               org.everit.jira.querydsl.schema,
               org.everit.jira.querydsl.support,
-              org.everit.jira.querydsl.support.ri
+              org.everit.jira.querydsl.support.ri,
             </Export-Package>
-            <Embed-Dependency>
-              *;scope=compile;inline=false,
-            </Embed-Dependency>
-            <Embed-Directory>embedded</Embed-Directory>
-            <Embed-Transitive>true</Embed-Transitive>
-          </instructions>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>com.atlassian.maven.plugins</groupId>
-        <artifactId>maven-jira-plugin</artifactId>
-        <version>${maven.jira.plugin.version}</version>
-        <extensions>false</extensions>
-        <executions>
-          <execution>
-            <id>generate-obr-artifact</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-obr-artifact</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <instructions>
-            <_manifest>${project.build.outputdirectory}/META-INF/MANIFEST.MF</_manifest>
           </instructions>
         </configuration>
       </plugin>
@@ -189,6 +159,7 @@
       <groupId>com.querydsl</groupId>
       <artifactId>querydsl-sql</artifactId>
       <version>4.0.6</version>
+      <scope>compile</scope>
       <exclusions>
         <exclusion>
           <!-- optional bundle requirement -->
