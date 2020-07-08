@@ -103,7 +103,7 @@ public final class SQLTemplatesUtil {
 
       @Override
       public Builder getSQLTemplatesBuilder() {
-        return PostgreSQLTemplates.builder().printSchema();
+        return PostgreSQLTemplates.builder().printSchema().quote();
       }
 
       @Override
